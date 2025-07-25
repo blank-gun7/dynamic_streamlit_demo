@@ -1,0 +1,6134 @@
+[
+  {
+    "Customer Name":"2K Games",
+    "Quarter 3 Revenue":23129.98,
+    "Quarter 4 Revenue":76670.6666666666,
+    "Variance":53540.6866666666,
+    "Percentage of Variance":231.4774447132
+  },
+  {
+    "Customer Name":"One-time_APAC",
+    "Quarter 3 Revenue":59632.2727710843,
+    "Quarter 4 Revenue":31141.2020884867,
+    "Variance":-28491.0706825976,
+    "Percentage of Variance":-47.7779386205
+  },
+  {
+    "Customer Name":"One-time_USA",
+    "Quarter 3 Revenue":31835.179525,
+    "Quarter 4 Revenue":106378.2133928,
+    "Variance":74543.0338678,
+    "Percentage of Variance":234.1530187045
+  },
+  {
+    "Customer Name":"One-time_EMEA",
+    "Quarter 3 Revenue":8835.060475,
+    "Quarter 4 Revenue":12111.28,
+    "Variance":3276.219525,
+    "Percentage of Variance":37.0820271607
+  },
+  {
+    "Customer Name":"Agency Brandmap",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Agency CG",
+    "Quarter 3 Revenue":419212.5655421687,
+    "Quarter 4 Revenue":427906.9204819277,
+    "Variance":8694.354939759,
+    "Percentage of Variance":2.073972885
+  },
+  {
+    "Customer Name":"Agency Convonix",
+    "Quarter 3 Revenue":2584.9387951807,
+    "Quarter 4 Revenue":1165.9153012048,
+    "Variance":-1419.0234939759,
+    "Percentage of Variance":-54.8958256428
+  },
+  {
+    "Customer Name":"ITC",
+    "Quarter 3 Revenue":10977.3891566265,
+    "Quarter 4 Revenue":0.0,
+    "Variance":-10977.3891566265,
+    "Percentage of Variance":-100.0
+  },
+  {
+    "Customer Name":"Agency Ethinos",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Agency GroupM",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Agency Logicserve",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Agency Omnicom_EMEA",
+    "Quarter 3 Revenue":6626.28278872,
+    "Quarter 4 Revenue":0.0,
+    "Variance":-6626.28278872,
+    "Percentage of Variance":-100.0
+  },
+  {
+    "Customer Name":"Agency Omnicom_APAC",
+    "Quarter 3 Revenue":104516.0,
+    "Quarter 4 Revenue":85956.0,
+    "Variance":-18560.0,
+    "Percentage of Variance":-17.7580466149
+  },
+  {
+    "Customer Name":"Agency Omnicom_USA",
+    "Quarter 3 Revenue":5473.54518872,
+    "Quarter 4 Revenue":28540.6248,
+    "Variance":23067.07961128,
+    "Percentage of Variance":421.4285041223
+  },
+  {
+    "Customer Name":"All Birds",
+    "Quarter 3 Revenue":2030.4,
+    "Quarter 4 Revenue":582.0,
+    "Variance":-1448.4,
+    "Percentage of Variance":-71.3356973995
+  },
+  {
+    "Customer Name":"Apollo 24x7",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"bajaj",
+    "Quarter 3 Revenue":178877.8433734939,
+    "Quarter 4 Revenue":178727.1084337349,
+    "Variance":-150.734939759,
+    "Percentage of Variance":-0.0842669706
+  },
+  {
+    "Customer Name":"Beta Brand",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Bethesda",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"UIC_USA",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"UIC_APAC",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Carsome",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"D3 Go!",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"DBS",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"DHL",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Hdfc Bank Limited",
+    "Quarter 3 Revenue":54216.8674698795,
+    "Quarter 4 Revenue":54216.8674698795,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Hello Fresh US",
+    "Quarter 3 Revenue":617455.99125,
+    "Quarter 4 Revenue":667902.8100000001,
+    "Variance":50446.8187500001,
+    "Percentage of Variance":8.1701075809
+  },
+  {
+    "Customer Name":"Jack in The Box",
+    "Quarter 3 Revenue":95401.565,
+    "Quarter 4 Revenue":67500.0,
+    "Variance":-27901.565,
+    "Percentage of Variance":-29.2464437035
+  },
+  {
+    "Customer Name":"Klar",
+    "Quarter 3 Revenue":29282.9966834,
+    "Quarter 4 Revenue":13648.0,
+    "Variance":-15634.9966834,
+    "Percentage of Variance":-53.392748196
+  },
+  {
+    "Customer Name":"Kumu",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"livspace",
+    "Quarter 3 Revenue":454205.541624194,
+    "Quarter 4 Revenue":463640.4466443572,
+    "Variance":9434.9050201632,
+    "Percentage of Variance":2.0772324764
+  },
+  {
+    "Customer Name":"MaxLife",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Money View",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MPL ( India & indonesia)",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Piramal",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Pixowl",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Revos",
+    "Quarter 3 Revenue":3310.3590361446,
+    "Quarter 4 Revenue":866.9963855422,
+    "Variance":-2443.3626506024,
+    "Percentage of Variance":-73.8095966004
+  },
+  {
+    "Customer Name":"SavageX Fenty",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Singleton",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Square Enix",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Toothsi",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"TSB Gaming",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Vuori",
+    "Quarter 3 Revenue":195078.675,
+    "Quarter 4 Revenue":234354.9,
+    "Variance":39276.225,
+    "Percentage of Variance":20.1335307409
+  },
+  {
+    "Customer Name":"Webtoon",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Welspun Flooring",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Wimo Games",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Joe and the Juice",
+    "Quarter 3 Revenue":19500.0,
+    "Quarter 4 Revenue":19500.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Agency Interactive avenues",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Hello Fresh EU",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Smart Asset",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"GIVA",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"PharmEasy",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Lighthouse Learning",
+    "Quarter 3 Revenue":16637.5987951807,
+    "Quarter 4 Revenue":36912.8689156626,
+    "Variance":20275.2701204819,
+    "Percentage of Variance":121.8641606285
+  },
+  {
+    "Customer Name":"Sezane",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Monos",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":1154.0,
+    "Variance":1154.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-1",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-2",
+    "Quarter 3 Revenue":14500.0,
+    "Quarter 4 Revenue":19500.0,
+    "Variance":5000.0,
+    "Percentage of Variance":34.4827586207
+  },
+  {
+    "Customer Name":"Mid Market Account-3",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-4",
+    "Quarter 3 Revenue":8000.0,
+    "Quarter 4 Revenue":7500.0,
+    "Variance":-500.0,
+    "Percentage of Variance":-6.25
+  },
+  {
+    "Customer Name":"Mid Market Account-5",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-6",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-7",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-8",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-9",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-10",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-11",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-12",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-13",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-14",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-15",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-16",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-17",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-18",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-19",
+    "Quarter 3 Revenue":-2750.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":2750.0,
+    "Percentage of Variance":-100.0
+  },
+  {
+    "Customer Name":"Mid Market Account-20",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-21",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-22",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-23",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-24",
+    "Quarter 3 Revenue":9000.0,
+    "Quarter 4 Revenue":9000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-25",
+    "Quarter 3 Revenue":9000.0,
+    "Quarter 4 Revenue":9000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-26",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-27",
+    "Quarter 3 Revenue":8000.0,
+    "Quarter 4 Revenue":10000.0,
+    "Variance":2000.0,
+    "Percentage of Variance":25.0
+  },
+  {
+    "Customer Name":"Mid Market Account-28",
+    "Quarter 3 Revenue":13500.0,
+    "Quarter 4 Revenue":13500.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-29",
+    "Quarter 3 Revenue":12000.0,
+    "Quarter 4 Revenue":12000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-31",
+    "Quarter 3 Revenue":27000.0,
+    "Quarter 4 Revenue":31500.0,
+    "Variance":4500.0,
+    "Percentage of Variance":16.6666666667
+  },
+  {
+    "Customer Name":"Mid Market Account-32",
+    "Quarter 3 Revenue":34100.0,
+    "Quarter 4 Revenue":23400.0,
+    "Variance":-10700.0,
+    "Percentage of Variance":-31.3782991202
+  },
+  {
+    "Customer Name":"Mid Market Account-33",
+    "Quarter 3 Revenue":18375.0,
+    "Quarter 4 Revenue":18375.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-34",
+    "Quarter 3 Revenue":19875.0,
+    "Quarter 4 Revenue":18375.0,
+    "Variance":-1500.0,
+    "Percentage of Variance":-7.5471698113
+  },
+  {
+    "Customer Name":"Mid Market Account-35",
+    "Quarter 3 Revenue":12000.0,
+    "Quarter 4 Revenue":15000.0,
+    "Variance":3000.0,
+    "Percentage of Variance":25.0
+  },
+  {
+    "Customer Name":"Mid Market Account-36",
+    "Quarter 3 Revenue":7500.0,
+    "Quarter 4 Revenue":7500.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-37",
+    "Quarter 3 Revenue":21750.0,
+    "Quarter 4 Revenue":16500.0,
+    "Variance":-5250.0,
+    "Percentage of Variance":-24.1379310345
+  },
+  {
+    "Customer Name":"Mid Market Account-38",
+    "Quarter 3 Revenue":12000.0,
+    "Quarter 4 Revenue":11000.0,
+    "Variance":-1000.0,
+    "Percentage of Variance":-8.3333333333
+  },
+  {
+    "Customer Name":"Mid Market Account-39",
+    "Quarter 3 Revenue":12000.0,
+    "Quarter 4 Revenue":12000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-40",
+    "Quarter 3 Revenue":24150.0,
+    "Quarter 4 Revenue":13050.0,
+    "Variance":-11100.0,
+    "Percentage of Variance":-45.9627329193
+  },
+  {
+    "Customer Name":"Mid Market Account-41",
+    "Quarter 3 Revenue":15250.0,
+    "Quarter 4 Revenue":15750.0,
+    "Variance":500.0,
+    "Percentage of Variance":3.2786885246
+  },
+  {
+    "Customer Name":"Mid Market Account-42",
+    "Quarter 3 Revenue":8000.0,
+    "Quarter 4 Revenue":12000.0,
+    "Variance":4000.0,
+    "Percentage of Variance":50.0
+  },
+  {
+    "Customer Name":"Mid Market Account-43",
+    "Quarter 3 Revenue":8000.0,
+    "Quarter 4 Revenue":12000.0,
+    "Variance":4000.0,
+    "Percentage of Variance":50.0
+  },
+  {
+    "Customer Name":"Mid Market Account-44",
+    "Quarter 3 Revenue":19665.0,
+    "Quarter 4 Revenue":22200.0,
+    "Variance":2535.0,
+    "Percentage of Variance":12.8909229596
+  },
+  {
+    "Customer Name":"Mid Market Account-45",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":20000.0,
+    "Variance":20000.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-46",
+    "Quarter 3 Revenue":16500.0,
+    "Quarter 4 Revenue":16500.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-47",
+    "Quarter 3 Revenue":11000.0,
+    "Quarter 4 Revenue":12000.0,
+    "Variance":1000.0,
+    "Percentage of Variance":9.0909090909
+  },
+  {
+    "Customer Name":"Mid Market Account-48",
+    "Quarter 3 Revenue":12360.0,
+    "Quarter 4 Revenue":4120.0,
+    "Variance":-8240.0,
+    "Percentage of Variance":-66.6666666667
+  },
+  {
+    "Customer Name":"Mid Market Account-50",
+    "Quarter 3 Revenue":8130.0,
+    "Quarter 4 Revenue":7997.0,
+    "Variance":-133.0,
+    "Percentage of Variance":-1.6359163592
+  },
+  {
+    "Customer Name":"Mid Market Account-51",
+    "Quarter 3 Revenue":14100.0,
+    "Quarter 4 Revenue":14500.0,
+    "Variance":400.0,
+    "Percentage of Variance":2.8368794326
+  },
+  {
+    "Customer Name":"Mid Market Account-52",
+    "Quarter 3 Revenue":24780.0,
+    "Quarter 4 Revenue":22300.0,
+    "Variance":-2480.0,
+    "Percentage of Variance":-10.008071025
+  },
+  {
+    "Customer Name":"Mid Market Account-53",
+    "Quarter 3 Revenue":13497.0,
+    "Quarter 4 Revenue":7294.0,
+    "Variance":-6203.0,
+    "Percentage of Variance":-45.9583611173
+  },
+  {
+    "Customer Name":"Mid Market Account-54",
+    "Quarter 3 Revenue":5040.0,
+    "Quarter 4 Revenue":11497.0,
+    "Variance":6457.0,
+    "Percentage of Variance":128.1150793651
+  },
+  {
+    "Customer Name":"Mid Market Account-55",
+    "Quarter 3 Revenue":17600.0,
+    "Quarter 4 Revenue":18000.0,
+    "Variance":400.0,
+    "Percentage of Variance":2.2727272727
+  },
+  {
+    "Customer Name":"Mid Market Account-56",
+    "Quarter 3 Revenue":19000.0,
+    "Quarter 4 Revenue":41833.0,
+    "Variance":22833.0,
+    "Percentage of Variance":120.1736842105
+  },
+  {
+    "Customer Name":"Mid Market Account-57",
+    "Quarter 3 Revenue":11343.0,
+    "Quarter 4 Revenue":6934.0,
+    "Variance":-4409.0,
+    "Percentage of Variance":-38.8697875342
+  },
+  {
+    "Customer Name":"Mid Market Account-58",
+    "Quarter 3 Revenue":25315.0,
+    "Quarter 4 Revenue":40560.0,
+    "Variance":15245.0,
+    "Percentage of Variance":60.2212127197
+  },
+  {
+    "Customer Name":"Mid Market Account-59",
+    "Quarter 3 Revenue":7010.0,
+    "Quarter 4 Revenue":4500.0,
+    "Variance":-2510.0,
+    "Percentage of Variance":-35.8059914408
+  },
+  {
+    "Customer Name":"Mid Market Account-60",
+    "Quarter 3 Revenue":21360.88,
+    "Quarter 4 Revenue":19688.12,
+    "Variance":-1672.76,
+    "Percentage of Variance":-7.8309507848
+  },
+  {
+    "Customer Name":"Mid Market Account-61",
+    "Quarter 3 Revenue":14400.0,
+    "Quarter 4 Revenue":9600.0,
+    "Variance":-4800.0,
+    "Percentage of Variance":-33.3333333333
+  },
+  {
+    "Customer Name":"Mid Market Account-62",
+    "Quarter 3 Revenue":9621.0,
+    "Quarter 4 Revenue":5488.0,
+    "Variance":-4133.0,
+    "Percentage of Variance":-42.9581124623
+  },
+  {
+    "Customer Name":"Mid Market Account-63",
+    "Quarter 3 Revenue":41811.0,
+    "Quarter 4 Revenue":14370.0,
+    "Variance":-27441.0,
+    "Percentage of Variance":-65.6310540288
+  },
+  {
+    "Customer Name":"Mid Market Account-64",
+    "Quarter 3 Revenue":12300.0,
+    "Quarter 4 Revenue":12300.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-65",
+    "Quarter 3 Revenue":25990.0,
+    "Quarter 4 Revenue":22990.0,
+    "Variance":-3000.0,
+    "Percentage of Variance":-11.5429011158
+  },
+  {
+    "Customer Name":"Mid Market Account-66",
+    "Quarter 3 Revenue":4800.0,
+    "Quarter 4 Revenue":4800.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-67",
+    "Quarter 3 Revenue":20100.0,
+    "Quarter 4 Revenue":16600.0,
+    "Variance":-3500.0,
+    "Percentage of Variance":-17.4129353234
+  },
+  {
+    "Customer Name":"Mid Market Account-68",
+    "Quarter 3 Revenue":15806.0,
+    "Quarter 4 Revenue":9000.0,
+    "Variance":-6806.0,
+    "Percentage of Variance":-43.0595976212
+  },
+  {
+    "Customer Name":"Kitsch LLC",
+    "Quarter 3 Revenue":8500.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":-8500.0,
+    "Percentage of Variance":-100.0
+  },
+  {
+    "Customer Name":"Mid Market Account-70",
+    "Quarter 3 Revenue":17400.0,
+    "Quarter 4 Revenue":12750.0,
+    "Variance":-4650.0,
+    "Percentage of Variance":-26.724137931
+  },
+  {
+    "Customer Name":"Mid Market Account-71",
+    "Quarter 3 Revenue":23500.0,
+    "Quarter 4 Revenue":16000.0,
+    "Variance":-7500.0,
+    "Percentage of Variance":-31.914893617
+  },
+  {
+    "Customer Name":"Mid Market Account-72",
+    "Quarter 3 Revenue":9765.0,
+    "Quarter 4 Revenue":11800.0,
+    "Variance":2035.0,
+    "Percentage of Variance":20.839733743
+  },
+  {
+    "Customer Name":"Mid Market Account-73",
+    "Quarter 3 Revenue":26040.0,
+    "Quarter 4 Revenue":27000.0,
+    "Variance":960.0,
+    "Percentage of Variance":3.6866359447
+  },
+  {
+    "Customer Name":"Mid Market Account-74",
+    "Quarter 3 Revenue":4500.0,
+    "Quarter 4 Revenue":6000.0,
+    "Variance":1500.0,
+    "Percentage of Variance":33.3333333333
+  },
+  {
+    "Customer Name":"Mid Market Account-75",
+    "Quarter 3 Revenue":9300.0,
+    "Quarter 4 Revenue":8400.0,
+    "Variance":-900.0,
+    "Percentage of Variance":-9.6774193548
+  },
+  {
+    "Customer Name":"Mid Market Account-76",
+    "Quarter 3 Revenue":4050.0,
+    "Quarter 4 Revenue":4050.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-77",
+    "Quarter 3 Revenue":7200.0,
+    "Quarter 4 Revenue":7860.0,
+    "Variance":660.0,
+    "Percentage of Variance":9.1666666667
+  },
+  {
+    "Customer Name":"Mid Market Account-78",
+    "Quarter 3 Revenue":18050.0,
+    "Quarter 4 Revenue":14550.0,
+    "Variance":-3500.0,
+    "Percentage of Variance":-19.3905817175
+  },
+  {
+    "Customer Name":"Mid Market Account-79",
+    "Quarter 3 Revenue":11650.0,
+    "Quarter 4 Revenue":11250.0,
+    "Variance":-400.0,
+    "Percentage of Variance":-3.4334763948
+  },
+  {
+    "Customer Name":"Mid Market Account-80",
+    "Quarter 3 Revenue":13900.0,
+    "Quarter 4 Revenue":9700.0,
+    "Variance":-4200.0,
+    "Percentage of Variance":-30.2158273381
+  },
+  {
+    "Customer Name":"Mid Market Account-81",
+    "Quarter 3 Revenue":25180.0,
+    "Quarter 4 Revenue":22500.0,
+    "Variance":-2680.0,
+    "Percentage of Variance":-10.6433677522
+  },
+  {
+    "Customer Name":"Mid Market Account-82",
+    "Quarter 3 Revenue":12194.0,
+    "Quarter 4 Revenue":14591.0,
+    "Variance":2397.0,
+    "Percentage of Variance":19.6572084632
+  },
+  {
+    "Customer Name":"Mid Market Account-83",
+    "Quarter 3 Revenue":5700.0,
+    "Quarter 4 Revenue":5700.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-84",
+    "Quarter 3 Revenue":18255.0,
+    "Quarter 4 Revenue":22050.0,
+    "Variance":3795.0,
+    "Percentage of Variance":20.7888249795
+  },
+  {
+    "Customer Name":"Mid Market Account-85",
+    "Quarter 3 Revenue":16650.0,
+    "Quarter 4 Revenue":5912.0,
+    "Variance":-10738.0,
+    "Percentage of Variance":-64.4924924925
+  },
+  {
+    "Customer Name":"Mid Market Account-86",
+    "Quarter 3 Revenue":13594.0,
+    "Quarter 4 Revenue":9250.0,
+    "Variance":-4344.0,
+    "Percentage of Variance":-31.9552743858
+  },
+  {
+    "Customer Name":"Mid Market Account-87",
+    "Quarter 3 Revenue":11065.0,
+    "Quarter 4 Revenue":19000.0,
+    "Variance":7935.0,
+    "Percentage of Variance":71.7126073204
+  },
+  {
+    "Customer Name":"Mid Market Account-88",
+    "Quarter 3 Revenue":9800.0,
+    "Quarter 4 Revenue":4500.0,
+    "Variance":-5300.0,
+    "Percentage of Variance":-54.0816326531
+  },
+  {
+    "Customer Name":"RTA Outdoor Living",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-90",
+    "Quarter 3 Revenue":8991.0,
+    "Quarter 4 Revenue":4988.0,
+    "Variance":-4003.0,
+    "Percentage of Variance":-44.5223000779
+  },
+  {
+    "Customer Name":"Mid Market Account-91",
+    "Quarter 3 Revenue":17725.0,
+    "Quarter 4 Revenue":15900.0,
+    "Variance":-1825.0,
+    "Percentage of Variance":-10.2961918195
+  },
+  {
+    "Customer Name":"Mid Market Account-92",
+    "Quarter 3 Revenue":9836.0,
+    "Quarter 4 Revenue":44288.0,
+    "Variance":34452.0,
+    "Percentage of Variance":350.2643350956
+  },
+  {
+    "Customer Name":"Mid Market Account-93",
+    "Quarter 3 Revenue":15156.0,
+    "Quarter 4 Revenue":8880.0,
+    "Variance":-6276.0,
+    "Percentage of Variance":-41.4093428345
+  },
+  {
+    "Customer Name":"Mid Market Account-94",
+    "Quarter 3 Revenue":14118.0,
+    "Quarter 4 Revenue":8441.0,
+    "Variance":-5677.0,
+    "Percentage of Variance":-40.2110780564
+  },
+  {
+    "Customer Name":"Mid Market Account-95",
+    "Quarter 3 Revenue":22181.0,
+    "Quarter 4 Revenue":13970.0,
+    "Variance":-8211.0,
+    "Percentage of Variance":-37.0181687029
+  },
+  {
+    "Customer Name":"Mid Market Account-96",
+    "Quarter 3 Revenue":20400.0,
+    "Quarter 4 Revenue":7375.0,
+    "Variance":-13025.0,
+    "Percentage of Variance":-63.8480392157
+  },
+  {
+    "Customer Name":"Mid Market Account-97",
+    "Quarter 3 Revenue":33996.0,
+    "Quarter 4 Revenue":49145.0,
+    "Variance":15149.0,
+    "Percentage of Variance":44.5611248382
+  },
+  {
+    "Customer Name":"Mid Market Account-98",
+    "Quarter 3 Revenue":29323.0,
+    "Quarter 4 Revenue":31111.0,
+    "Variance":1788.0,
+    "Percentage of Variance":6.0976025645
+  },
+  {
+    "Customer Name":"Mid Market Account-99",
+    "Quarter 3 Revenue":16827.0,
+    "Quarter 4 Revenue":19500.0,
+    "Variance":2673.0,
+    "Percentage of Variance":15.8851845249
+  },
+  {
+    "Customer Name":"Mid Market Account-100",
+    "Quarter 3 Revenue":3772.15,
+    "Quarter 4 Revenue":3806.84,
+    "Variance":34.69,
+    "Percentage of Variance":0.9196346911
+  },
+  {
+    "Customer Name":"Mid Market Account-101",
+    "Quarter 3 Revenue":16100.0,
+    "Quarter 4 Revenue":19800.0,
+    "Variance":3700.0,
+    "Percentage of Variance":22.9813664596
+  },
+  {
+    "Customer Name":"Mid Market Account-102",
+    "Quarter 3 Revenue":13344.0,
+    "Quarter 4 Revenue":37500.0,
+    "Variance":24156.0,
+    "Percentage of Variance":181.0251798561
+  },
+  {
+    "Customer Name":"Mid Market Account-103",
+    "Quarter 3 Revenue":8428.0,
+    "Quarter 4 Revenue":7668.0,
+    "Variance":-760.0,
+    "Percentage of Variance":-9.0175605126
+  },
+  {
+    "Customer Name":"Mid Market Account-104",
+    "Quarter 3 Revenue":5735.0,
+    "Quarter 4 Revenue":8841.0,
+    "Variance":3106.0,
+    "Percentage of Variance":54.1586748038
+  },
+  {
+    "Customer Name":"Mid Market Account-105",
+    "Quarter 3 Revenue":4200.0,
+    "Quarter 4 Revenue":4200.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-106",
+    "Quarter 3 Revenue":7900.0,
+    "Quarter 4 Revenue":15000.0,
+    "Variance":7100.0,
+    "Percentage of Variance":89.8734177215
+  },
+  {
+    "Customer Name":"Mid Market Account-107",
+    "Quarter 3 Revenue":18000.0,
+    "Quarter 4 Revenue":18000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"BoxGenie",
+    "Quarter 3 Revenue":5000.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":-5000.0,
+    "Percentage of Variance":-100.0
+  },
+  {
+    "Customer Name":"Mid Market Account-109",
+    "Quarter 3 Revenue":3491.0,
+    "Quarter 4 Revenue":1994.0,
+    "Variance":-1497.0,
+    "Percentage of Variance":-42.8816957892
+  },
+  {
+    "Customer Name":"Mid Market Account-110",
+    "Quarter 3 Revenue":-375.0,
+    "Quarter 4 Revenue":2375.0,
+    "Variance":2750.0,
+    "Percentage of Variance":-733.3333333333
+  },
+  {
+    "Customer Name":"Mid Market Account-111",
+    "Quarter 3 Revenue":17500.0,
+    "Quarter 4 Revenue":16500.0,
+    "Variance":-1000.0,
+    "Percentage of Variance":-5.7142857143
+  },
+  {
+    "Customer Name":"Mid Market Account-112",
+    "Quarter 3 Revenue":23762.0,
+    "Quarter 4 Revenue":25438.0,
+    "Variance":1676.0,
+    "Percentage of Variance":7.0532783436
+  },
+  {
+    "Customer Name":"Helitech dba Slab Masters Inc.",
+    "Quarter 3 Revenue":63110.0,
+    "Quarter 4 Revenue":65244.0,
+    "Variance":2134.0,
+    "Percentage of Variance":3.3813975598
+  },
+  {
+    "Customer Name":"Mid Market Account-114",
+    "Quarter 3 Revenue":29800.0,
+    "Quarter 4 Revenue":30600.0,
+    "Variance":800.0,
+    "Percentage of Variance":2.6845637584
+  },
+  {
+    "Customer Name":"Mid Market Account-115",
+    "Quarter 3 Revenue":14250.0,
+    "Quarter 4 Revenue":14250.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-116",
+    "Quarter 3 Revenue":18130.0,
+    "Quarter 4 Revenue":15280.0,
+    "Variance":-2850.0,
+    "Percentage of Variance":-15.7198014341
+  },
+  {
+    "Customer Name":"The Clean Supps LLC",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-118",
+    "Quarter 3 Revenue":18900.0,
+    "Quarter 4 Revenue":48900.0,
+    "Variance":30000.0,
+    "Percentage of Variance":158.7301587302
+  },
+  {
+    "Customer Name":"Mid Market Account-119",
+    "Quarter 3 Revenue":7218.0,
+    "Quarter 4 Revenue":5855.0,
+    "Variance":-1363.0,
+    "Percentage of Variance":-18.8833471876
+  },
+  {
+    "Customer Name":"Mid Market Account-120",
+    "Quarter 3 Revenue":5250.0,
+    "Quarter 4 Revenue":3244.0,
+    "Variance":-2006.0,
+    "Percentage of Variance":-38.2095238095
+  },
+  {
+    "Customer Name":"GoHighLevel.com",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"PetMeds Express, Inc.",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Birch Gold Group",
+    "Quarter 3 Revenue":50144.0,
+    "Quarter 4 Revenue":46000.0,
+    "Variance":-4144.0,
+    "Percentage of Variance":-8.2641991066
+  },
+  {
+    "Customer Name":"Larson Jewelers",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-158",
+    "Quarter 3 Revenue":17278.0,
+    "Quarter 4 Revenue":17301.0,
+    "Variance":23.0,
+    "Percentage of Variance":0.1331172589
+  },
+  {
+    "Customer Name":"Qanvast",
+    "Quarter 3 Revenue":14136.9276499093,
+    "Quarter 4 Revenue":14397.4938523232,
+    "Variance":260.5662024139,
+    "Percentage of Variance":1.8431600477
+  },
+  {
+    "Customer Name":"Mid Market Account-159",
+    "Quarter 3 Revenue":10500.0,
+    "Quarter 4 Revenue":10500.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"ETUS",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Miss Amara",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Nurx",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-168",
+    "Quarter 3 Revenue":16500.0,
+    "Quarter 4 Revenue":16500.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-169",
+    "Quarter 3 Revenue":12000.0,
+    "Quarter 4 Revenue":12000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-124",
+    "Quarter 3 Revenue":18000.0,
+    "Quarter 4 Revenue":20418.54,
+    "Variance":2418.54,
+    "Percentage of Variance":13.4363333333
+  },
+  {
+    "Customer Name":"Mid Market Account-125",
+    "Quarter 3 Revenue":27081.0,
+    "Quarter 4 Revenue":22243.0,
+    "Variance":-4838.0,
+    "Percentage of Variance":-17.8649237473
+  },
+  {
+    "Customer Name":"Mid Market Account-126",
+    "Quarter 3 Revenue":12000.0,
+    "Quarter 4 Revenue":12000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-127",
+    "Quarter 3 Revenue":18000.0,
+    "Quarter 4 Revenue":18000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-128",
+    "Quarter 3 Revenue":10383.68,
+    "Quarter 4 Revenue":10150.02,
+    "Variance":-233.66,
+    "Percentage of Variance":-2.2502619495
+  },
+  {
+    "Customer Name":"Mid Market Account-129",
+    "Quarter 3 Revenue":19000.0,
+    "Quarter 4 Revenue":71800.0,
+    "Variance":52800.0,
+    "Percentage of Variance":277.8947368421
+  },
+  {
+    "Customer Name":"Mid Market Account-130",
+    "Quarter 3 Revenue":26500.0,
+    "Quarter 4 Revenue":30153.37,
+    "Variance":3653.37,
+    "Percentage of Variance":13.7863018868
+  },
+  {
+    "Customer Name":"Mid Market Account-131",
+    "Quarter 3 Revenue":18000.0,
+    "Quarter 4 Revenue":15500.0,
+    "Variance":-2500.0,
+    "Percentage of Variance":-13.8888888889
+  },
+  {
+    "Customer Name":"Mid Market Account-132",
+    "Quarter 3 Revenue":23182.34,
+    "Quarter 4 Revenue":26675.0,
+    "Variance":3492.66,
+    "Percentage of Variance":15.066037337
+  },
+  {
+    "Customer Name":"Mid Market Account-134",
+    "Quarter 3 Revenue":17250.0,
+    "Quarter 4 Revenue":12000.0,
+    "Variance":-5250.0,
+    "Percentage of Variance":-30.4347826087
+  },
+  {
+    "Customer Name":"Mid Market Account-135",
+    "Quarter 3 Revenue":28000.0,
+    "Quarter 4 Revenue":32250.0,
+    "Variance":4250.0,
+    "Percentage of Variance":15.1785714286
+  },
+  {
+    "Customer Name":"Mid Market Account-136",
+    "Quarter 3 Revenue":16366.66,
+    "Quarter 4 Revenue":13500.0,
+    "Variance":-2866.66,
+    "Percentage of Variance":-17.5152413504
+  },
+  {
+    "Customer Name":"Mid Market Account-137",
+    "Quarter 3 Revenue":13203.0,
+    "Quarter 4 Revenue":10000.0,
+    "Variance":-3203.0,
+    "Percentage of Variance":-24.2596379611
+  },
+  {
+    "Customer Name":"Mid Market Account-138",
+    "Quarter 3 Revenue":12000.0,
+    "Quarter 4 Revenue":12000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-139",
+    "Quarter 3 Revenue":9233.32,
+    "Quarter 4 Revenue":10849.98,
+    "Variance":1616.66,
+    "Percentage of Variance":17.5089783523
+  },
+  {
+    "Customer Name":"Mid Market Account-140",
+    "Quarter 3 Revenue":31000.0,
+    "Quarter 4 Revenue":31000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-141",
+    "Quarter 3 Revenue":15000.0,
+    "Quarter 4 Revenue":7500.0,
+    "Variance":-7500.0,
+    "Percentage of Variance":-50.0
+  },
+  {
+    "Customer Name":"Mid Market Account-142",
+    "Quarter 3 Revenue":27000.0,
+    "Quarter 4 Revenue":29000.0,
+    "Variance":2000.0,
+    "Percentage of Variance":7.4074074074
+  },
+  {
+    "Customer Name":"Mid Market Account-143",
+    "Quarter 3 Revenue":22500.0,
+    "Quarter 4 Revenue":21000.0,
+    "Variance":-1500.0,
+    "Percentage of Variance":-6.6666666667
+  },
+  {
+    "Customer Name":"Mid Market Account-144",
+    "Quarter 3 Revenue":32188.74,
+    "Quarter 4 Revenue":18000.0,
+    "Variance":-14188.74,
+    "Percentage of Variance":-44.079824187
+  },
+  {
+    "Customer Name":"Mid Market Account-145",
+    "Quarter 3 Revenue":16500.0,
+    "Quarter 4 Revenue":22350.0,
+    "Variance":5850.0,
+    "Percentage of Variance":35.4545454545
+  },
+  {
+    "Customer Name":"Mid Market Account-146",
+    "Quarter 3 Revenue":18000.0,
+    "Quarter 4 Revenue":10500.0,
+    "Variance":-7500.0,
+    "Percentage of Variance":-41.6666666667
+  },
+  {
+    "Customer Name":"Mid Market Account-147",
+    "Quarter 3 Revenue":35664.61,
+    "Quarter 4 Revenue":41580.0,
+    "Variance":5915.39,
+    "Percentage of Variance":16.5861620245
+  },
+  {
+    "Customer Name":"Mid Market Account-148",
+    "Quarter 3 Revenue":18000.0,
+    "Quarter 4 Revenue":7500.0,
+    "Variance":-10500.0,
+    "Percentage of Variance":-58.3333333333
+  },
+  {
+    "Customer Name":"Mid Market Account-149",
+    "Quarter 3 Revenue":19392.54,
+    "Quarter 4 Revenue":18116.66,
+    "Variance":-1275.88,
+    "Percentage of Variance":-6.5792309826
+  },
+  {
+    "Customer Name":"Mid Market Account-150",
+    "Quarter 3 Revenue":18750.0,
+    "Quarter 4 Revenue":18750.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-151",
+    "Quarter 3 Revenue":21567.75,
+    "Quarter 4 Revenue":21000.0,
+    "Variance":-567.75,
+    "Percentage of Variance":-2.6324025455
+  },
+  {
+    "Customer Name":"Mid Market Account-152",
+    "Quarter 3 Revenue":15000.0,
+    "Quarter 4 Revenue":15000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-154",
+    "Quarter 3 Revenue":18000.0,
+    "Quarter 4 Revenue":18000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-161",
+    "Quarter 3 Revenue":16500.0,
+    "Quarter 4 Revenue":16350.0,
+    "Variance":-150.0,
+    "Percentage of Variance":-0.9090909091
+  },
+  {
+    "Customer Name":"Mid Market Account-162",
+    "Quarter 3 Revenue":22400.0,
+    "Quarter 4 Revenue":22600.0,
+    "Variance":200.0,
+    "Percentage of Variance":0.8928571429
+  },
+  {
+    "Customer Name":"Mid Market Account-164",
+    "Quarter 3 Revenue":13000.0,
+    "Quarter 4 Revenue":18866.15,
+    "Variance":5866.15,
+    "Percentage of Variance":45.1242307692
+  },
+  {
+    "Customer Name":"Mid Market Account-167",
+    "Quarter 3 Revenue":31850.0,
+    "Quarter 4 Revenue":23850.0,
+    "Variance":-8000.0,
+    "Percentage of Variance":-25.1177394035
+  },
+  {
+    "Customer Name":"Embrace Pet Insurance",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Zero Foxtrot",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-133",
+    "Quarter 3 Revenue":36500.0,
+    "Quarter 4 Revenue":21000.0,
+    "Variance":-15500.0,
+    "Percentage of Variance":-42.4657534247
+  },
+  {
+    "Customer Name":"Mid Market Account-153",
+    "Quarter 3 Revenue":21750.0,
+    "Quarter 4 Revenue":15029.13,
+    "Variance":-6720.87,
+    "Percentage of Variance":-30.9005517241
+  },
+  {
+    "Customer Name":"Mid Market Account-155",
+    "Quarter 3 Revenue":18300.0,
+    "Quarter 4 Revenue":4000.0,
+    "Variance":-14300.0,
+    "Percentage of Variance":-78.1420765027
+  },
+  {
+    "Customer Name":"Mid Market Account-160",
+    "Quarter 3 Revenue":18000.0,
+    "Quarter 4 Revenue":12000.0,
+    "Variance":-6000.0,
+    "Percentage of Variance":-33.3333333333
+  },
+  {
+    "Customer Name":"Mid Market Account-163",
+    "Quarter 3 Revenue":13500.0,
+    "Quarter 4 Revenue":13500.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-165",
+    "Quarter 3 Revenue":16020.0,
+    "Quarter 4 Revenue":15500.0,
+    "Variance":-520.0,
+    "Percentage of Variance":-3.2459425718
+  },
+  {
+    "Customer Name":"Mid Market Account-166",
+    "Quarter 3 Revenue":16500.0,
+    "Quarter 4 Revenue":16500.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Allegis Group",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"DirectMail.com",
+    "Quarter 3 Revenue":18000.0,
+    "Quarter 4 Revenue":18000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Fast Pace Health",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Next Day Floors",
+    "Quarter 3 Revenue":18000.0,
+    "Quarter 4 Revenue":18000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Lulu Press, Inc.",
+    "Quarter 3 Revenue":33500.0,
+    "Quarter 4 Revenue":41551.28,
+    "Variance":8051.28,
+    "Percentage of Variance":24.0336716418
+  },
+  {
+    "Customer Name":"DRMTLGY, LLC",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-170",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-171",
+    "Quarter 3 Revenue":21000.0,
+    "Quarter 4 Revenue":20000.0,
+    "Variance":-1000.0,
+    "Percentage of Variance":-4.7619047619
+  },
+  {
+    "Customer Name":"Mid Market Account-172",
+    "Quarter 3 Revenue":13500.0,
+    "Quarter 4 Revenue":13500.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-173",
+    "Quarter 3 Revenue":14000.0,
+    "Quarter 4 Revenue":10500.0,
+    "Variance":-3500.0,
+    "Percentage of Variance":-25.0
+  },
+  {
+    "Customer Name":"Mid Market Account-174",
+    "Quarter 3 Revenue":14900.0,
+    "Quarter 4 Revenue":17400.0,
+    "Variance":2500.0,
+    "Percentage of Variance":16.7785234899
+  },
+  {
+    "Customer Name":"OCMI Workers Comp & Professional Services, LLC",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-175",
+    "Quarter 3 Revenue":21000.0,
+    "Quarter 4 Revenue":21000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-176",
+    "Quarter 3 Revenue":13500.0,
+    "Quarter 4 Revenue":13500.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Interpop",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-177",
+    "Quarter 3 Revenue":22000.0,
+    "Quarter 4 Revenue":24000.0,
+    "Variance":2000.0,
+    "Percentage of Variance":9.0909090909
+  },
+  {
+    "Customer Name":"Mid Market Account-178",
+    "Quarter 3 Revenue":12000.0,
+    "Quarter 4 Revenue":12000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Pistor And Associates, Inc",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Kavak",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-179",
+    "Quarter 3 Revenue":36264.34,
+    "Quarter 4 Revenue":33000.0,
+    "Variance":-3264.34,
+    "Percentage of Variance":-9.0015149869
+  },
+  {
+    "Customer Name":"Jaridly Corporation",
+    "Quarter 3 Revenue":24000.0,
+    "Quarter 4 Revenue":24000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Agency Blink",
+    "Quarter 3 Revenue":23127.3257831325,
+    "Quarter 4 Revenue":73070.6593975904,
+    "Variance":49943.3336144578,
+    "Percentage of Variance":215.9494533989
+  },
+  {
+    "Customer Name":"Blizzard",
+    "Quarter 3 Revenue":92050.0,
+    "Quarter 4 Revenue":93123.6666666667,
+    "Variance":1073.6666666667,
+    "Percentage of Variance":1.1663950751
+  },
+  {
+    "Customer Name":"Clutter",
+    "Quarter 3 Revenue":28749.0,
+    "Quarter 4 Revenue":28749.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Suri",
+    "Quarter 3 Revenue":64115.208336,
+    "Quarter 4 Revenue":67873.02965304,
+    "Variance":3757.82131704,
+    "Percentage of Variance":5.8610451632
+  },
+  {
+    "Customer Name":"Claroshop",
+    "Quarter 3 Revenue":530.4884124,
+    "Quarter 4 Revenue":452.22312,
+    "Variance":-78.2652924,
+    "Percentage of Variance":-14.7534405221
+  },
+  {
+    "Customer Name":"Sanborns",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MC Satchi",
+    "Quarter 3 Revenue":6601.14,
+    "Quarter 4 Revenue":0.0,
+    "Variance":-6601.14,
+    "Percentage of Variance":-100.0
+  },
+  {
+    "Customer Name":"Sears",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ViaOne Services",
+    "Quarter 3 Revenue":13600.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":-13600.0,
+    "Percentage of Variance":-100.0
+  },
+  {
+    "Customer Name":"Mid Market Account-216",
+    "Quarter 3 Revenue":27000.0,
+    "Quarter 4 Revenue":22200.0,
+    "Variance":-4800.0,
+    "Percentage of Variance":-17.7777777778
+  },
+  {
+    "Customer Name":"Mid Market Account-180",
+    "Quarter 3 Revenue":18600.0,
+    "Quarter 4 Revenue":18600.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-181",
+    "Quarter 3 Revenue":31850.0,
+    "Quarter 4 Revenue":39865.45,
+    "Variance":8015.45,
+    "Percentage of Variance":25.1662480377
+  },
+  {
+    "Customer Name":"Mid Market Account-183",
+    "Quarter 3 Revenue":45648.72,
+    "Quarter 4 Revenue":46525.61,
+    "Variance":876.89,
+    "Percentage of Variance":1.9209520004
+  },
+  {
+    "Customer Name":"Mid Market Account-182",
+    "Quarter 3 Revenue":18000.0,
+    "Quarter 4 Revenue":7500.0,
+    "Variance":-10500.0,
+    "Percentage of Variance":-58.3333333333
+  },
+  {
+    "Customer Name":"ByteDance",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Channel factory",
+    "Quarter 3 Revenue":555000.0,
+    "Quarter 4 Revenue":555000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"OGEE INC.",
+    "Quarter 3 Revenue":30000.0,
+    "Quarter 4 Revenue":20000.0,
+    "Variance":-10000.0,
+    "Percentage of Variance":-33.3333333333
+  },
+  {
+    "Customer Name":"Mid Market Account-227",
+    "Quarter 3 Revenue":11722.0,
+    "Quarter 4 Revenue":11232.0,
+    "Variance":-490.0,
+    "Percentage of Variance":-4.1801740317
+  },
+  {
+    "Customer Name":"Mid Market Account-228",
+    "Quarter 3 Revenue":26200.0,
+    "Quarter 4 Revenue":23400.0,
+    "Variance":-2800.0,
+    "Percentage of Variance":-10.6870229008
+  },
+  {
+    "Customer Name":"Mid Market Account-229",
+    "Quarter 3 Revenue":18047.0,
+    "Quarter 4 Revenue":1950.0,
+    "Variance":-16097.0,
+    "Percentage of Variance":-89.1948800355
+  },
+  {
+    "Customer Name":"Mid Market Account-230",
+    "Quarter 3 Revenue":6750.0,
+    "Quarter 4 Revenue":4500.0,
+    "Variance":-2250.0,
+    "Percentage of Variance":-33.3333333333
+  },
+  {
+    "Customer Name":"Equitable",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-184",
+    "Quarter 3 Revenue":36000.0,
+    "Quarter 4 Revenue":31000.0,
+    "Variance":-5000.0,
+    "Percentage of Variance":-13.8888888889
+  },
+  {
+    "Customer Name":"Mid Market Account-231",
+    "Quarter 3 Revenue":12000.0,
+    "Quarter 4 Revenue":8000.0,
+    "Variance":-4000.0,
+    "Percentage of Variance":-33.3333333333
+  },
+  {
+    "Customer Name":"Mid Market Account-232",
+    "Quarter 3 Revenue":13500.0,
+    "Quarter 4 Revenue":13500.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-233",
+    "Quarter 3 Revenue":46500.0,
+    "Quarter 4 Revenue":42000.0,
+    "Variance":-4500.0,
+    "Percentage of Variance":-9.6774193548
+  },
+  {
+    "Customer Name":"Mid Market Account-234",
+    "Quarter 3 Revenue":28350.0,
+    "Quarter 4 Revenue":27400.0,
+    "Variance":-950.0,
+    "Percentage of Variance":-3.3509700176
+  },
+  {
+    "Customer Name":"Mid Market Account-235",
+    "Quarter 3 Revenue":17500.0,
+    "Quarter 4 Revenue":12000.0,
+    "Variance":-5500.0,
+    "Percentage of Variance":-31.4285714286
+  },
+  {
+    "Customer Name":"Mid Market Account-236",
+    "Quarter 3 Revenue":18000.0,
+    "Quarter 4 Revenue":18000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-237",
+    "Quarter 3 Revenue":48150.0,
+    "Quarter 4 Revenue":48150.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"UNIVERSIDAD IEU",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Agency_Publicis_EMEA",
+    "Quarter 3 Revenue":63729.1965,
+    "Quarter 4 Revenue":114410.55,
+    "Variance":50681.3535,
+    "Percentage of Variance":79.526114063
+  },
+  {
+    "Customer Name":"Hello Fresh Canada",
+    "Quarter 3 Revenue":74035.2202121728,
+    "Quarter 4 Revenue":101933.98673282,
+    "Variance":27898.7665206472,
+    "Percentage of Variance":37.6831006117
+  },
+  {
+    "Customer Name":"Greenchef US",
+    "Quarter 3 Revenue":220882.3355,
+    "Quarter 4 Revenue":224132.11,
+    "Variance":3249.7745,
+    "Percentage of Variance":1.4712695303
+  },
+  {
+    "Customer Name":"Mid Market Account-185",
+    "Quarter 3 Revenue":17000.0,
+    "Quarter 4 Revenue":19322.61,
+    "Variance":2322.61,
+    "Percentage of Variance":13.6624117647
+  },
+  {
+    "Customer Name":"Mid Market Account-186",
+    "Quarter 3 Revenue":10500.0,
+    "Quarter 4 Revenue":10500.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Chip Ramsey",
+    "Quarter 3 Revenue":42000.0,
+    "Quarter 4 Revenue":42000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Stpd Smrt Apps \/ Real Check Stubs",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"World Winner",
+    "Quarter 3 Revenue":33798.1303333333,
+    "Quarter 4 Revenue":1733.3333333333,
+    "Variance":-32064.797,
+    "Percentage of Variance":-94.8715111865
+  },
+  {
+    "Customer Name":"Nu Bank",
+    "Quarter 3 Revenue":7450.24604,
+    "Quarter 4 Revenue":0.0,
+    "Variance":-7450.24604,
+    "Percentage of Variance":-100.0
+  },
+  {
+    "Customer Name":"HIMS",
+    "Quarter 3 Revenue":8460.945,
+    "Quarter 4 Revenue":0.0,
+    "Variance":-8460.945,
+    "Percentage of Variance":-100.0
+  },
+  {
+    "Customer Name":"Mid Market Account-187",
+    "Quarter 3 Revenue":12000.0,
+    "Quarter 4 Revenue":23500.0,
+    "Variance":11500.0,
+    "Percentage of Variance":95.8333333333
+  },
+  {
+    "Customer Name":"Homechef",
+    "Quarter 3 Revenue":3729.72,
+    "Quarter 4 Revenue":0.0,
+    "Variance":-3729.72,
+    "Percentage of Variance":-100.0
+  },
+  {
+    "Customer Name":"Mid Market Account-188",
+    "Quarter 3 Revenue":28000.0,
+    "Quarter 4 Revenue":33450.0,
+    "Variance":5450.0,
+    "Percentage of Variance":19.4642857143
+  },
+  {
+    "Customer Name":"Mid Market Account-189",
+    "Quarter 3 Revenue":15750.0,
+    "Quarter 4 Revenue":19550.0,
+    "Variance":3800.0,
+    "Percentage of Variance":24.126984127
+  },
+  {
+    "Customer Name":"Activision",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":30000.0,
+    "Variance":30000.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Agency_Anagram",
+    "Quarter 3 Revenue":62955.1761268,
+    "Quarter 4 Revenue":74940.4248552,
+    "Variance":11985.2487284,
+    "Percentage of Variance":19.0377495002
+  },
+  {
+    "Customer Name":"Real Truck",
+    "Quarter 3 Revenue":10000.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":-10000.0,
+    "Percentage of Variance":-100.0
+  },
+  {
+    "Customer Name":"A.O. Smith Corporation",
+    "Quarter 3 Revenue":72375.0,
+    "Quarter 4 Revenue":86250.0,
+    "Variance":13875.0,
+    "Percentage of Variance":19.170984456
+  },
+  {
+    "Customer Name":"AEP Energy, Inc.",
+    "Quarter 3 Revenue":63425.0,
+    "Quarter 4 Revenue":76275.0,
+    "Variance":12850.0,
+    "Percentage of Variance":20.2601497832
+  },
+  {
+    "Customer Name":"CoverMyMeds",
+    "Quarter 3 Revenue":71250.0,
+    "Quarter 4 Revenue":79300.0,
+    "Variance":8050.0,
+    "Percentage of Variance":11.298245614
+  },
+  {
+    "Customer Name":"Epcon Corporate Communities",
+    "Quarter 3 Revenue":46640.1902150538,
+    "Quarter 4 Revenue":56750.0,
+    "Variance":10109.8097849462,
+    "Percentage of Variance":21.6761761441
+  },
+  {
+    "Customer Name":"Epcon Franchisor",
+    "Quarter 3 Revenue":22650.0,
+    "Quarter 4 Revenue":33150.0,
+    "Variance":10500.0,
+    "Percentage of Variance":46.357615894
+  },
+  {
+    "Customer Name":"Geiser, Bowman & McLafferty LLC",
+    "Quarter 3 Revenue":23250.0,
+    "Quarter 4 Revenue":23250.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"MI Homes",
+    "Quarter 3 Revenue":102372.6,
+    "Quarter 4 Revenue":92749.36,
+    "Variance":-9623.24,
+    "Percentage of Variance":-9.4002106032
+  },
+  {
+    "Customer Name":"Mid Market Account-190",
+    "Quarter 3 Revenue":34500.0,
+    "Quarter 4 Revenue":34500.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-191",
+    "Quarter 3 Revenue":16037.0967741935,
+    "Quarter 4 Revenue":14254.0,
+    "Variance":-1783.0967741935,
+    "Percentage of Variance":-11.1185758825
+  },
+  {
+    "Customer Name":"Mid Market Account-192",
+    "Quarter 3 Revenue":36000.0,
+    "Quarter 4 Revenue":36000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-193",
+    "Quarter 3 Revenue":29150.0,
+    "Quarter 4 Revenue":23230.0,
+    "Variance":-5920.0,
+    "Percentage of Variance":-20.3087478559
+  },
+  {
+    "Customer Name":"Mid Market Account-194",
+    "Quarter 3 Revenue":12300.0,
+    "Quarter 4 Revenue":12300.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-195",
+    "Quarter 3 Revenue":15483.8709677419,
+    "Quarter 4 Revenue":11016.0,
+    "Variance":-4467.8709677419,
+    "Percentage of Variance":-28.855
+  },
+  {
+    "Customer Name":"Mid Market Account-196",
+    "Quarter 3 Revenue":12150.0,
+    "Quarter 4 Revenue":12150.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-197",
+    "Quarter 3 Revenue":16500.0,
+    "Quarter 4 Revenue":17421.0322580645,
+    "Variance":921.0322580645,
+    "Percentage of Variance":5.5820136852
+  },
+  {
+    "Customer Name":"Mid Market Account-198",
+    "Quarter 3 Revenue":15205.0,
+    "Quarter 4 Revenue":12655.0,
+    "Variance":-2550.0,
+    "Percentage of Variance":-16.7707990793
+  },
+  {
+    "Customer Name":"Mid Market Account-199",
+    "Quarter 3 Revenue":15750.0,
+    "Quarter 4 Revenue":9000.0,
+    "Variance":-6750.0,
+    "Percentage of Variance":-42.8571428571
+  },
+  {
+    "Customer Name":"Reef",
+    "Quarter 3 Revenue":59080.795,
+    "Quarter 4 Revenue":7247.42,
+    "Variance":-51833.375,
+    "Percentage of Variance":-87.7330357521
+  },
+  {
+    "Customer Name":"Mid Market Account-200",
+    "Quarter 3 Revenue":23200.0,
+    "Quarter 4 Revenue":16500.0,
+    "Variance":-6700.0,
+    "Percentage of Variance":-28.8793103448
+  },
+  {
+    "Customer Name":"Mid Market Account-246",
+    "Quarter 3 Revenue":44778.0,
+    "Quarter 4 Revenue":36515.0,
+    "Variance":-8263.0,
+    "Percentage of Variance":-18.4532582965
+  },
+  {
+    "Customer Name":"Wantable",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Amazon AWS",
+    "Quarter 3 Revenue":36000.0,
+    "Quarter 4 Revenue":36000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Amex Mexico",
+    "Quarter 3 Revenue":130670.19,
+    "Quarter 4 Revenue":175402.91,
+    "Variance":44732.72,
+    "Percentage of Variance":34.2333014133
+  },
+  {
+    "Customer Name":"Andrew Martin",
+    "Quarter 3 Revenue":46308.130016,
+    "Quarter 4 Revenue":47712.075216,
+    "Variance":1403.9452,
+    "Percentage of Variance":3.0317466922
+  },
+  {
+    "Customer Name":"Breitling",
+    "Quarter 3 Revenue":241135.125,
+    "Quarter 4 Revenue":233650.375,
+    "Variance":-7484.75,
+    "Percentage of Variance":-3.1039650486
+  },
+  {
+    "Customer Name":"Flock Safety",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Forefront Derm",
+    "Quarter 3 Revenue":38764.57,
+    "Quarter 4 Revenue":33839.91,
+    "Variance":-4924.66,
+    "Percentage of Variance":-12.7040232872
+  },
+  {
+    "Customer Name":"GoPuff",
+    "Quarter 3 Revenue":466593.0,
+    "Quarter 4 Revenue":439593.0,
+    "Variance":-27000.0,
+    "Percentage of Variance":-5.7866277462
+  },
+  {
+    "Customer Name":"Hoover",
+    "Quarter 3 Revenue":35120.02,
+    "Quarter 4 Revenue":32641.61,
+    "Variance":-2478.41,
+    "Percentage of Variance":-7.0569720632
+  },
+  {
+    "Customer Name":"Liforme",
+    "Quarter 3 Revenue":45330.38196,
+    "Quarter 4 Revenue":0.0,
+    "Variance":-45330.38196,
+    "Percentage of Variance":-100.0
+  },
+  {
+    "Customer Name":"McKinsey",
+    "Quarter 3 Revenue":142240.72,
+    "Quarter 4 Revenue":273212.43,
+    "Variance":130971.71,
+    "Percentage of Variance":92.0775077629
+  },
+  {
+    "Customer Name":"MessageBird",
+    "Quarter 3 Revenue":171741.588,
+    "Quarter 4 Revenue":0.0,
+    "Variance":-171741.588,
+    "Percentage of Variance":-100.0
+  },
+  {
+    "Customer Name":"Insider",
+    "Quarter 3 Revenue":86292.92,
+    "Quarter 4 Revenue":187626.98,
+    "Variance":101334.06,
+    "Percentage of Variance":117.4303291626
+  },
+  {
+    "Customer Name":"Mid Market Account-203",
+    "Quarter 3 Revenue":12275.0,
+    "Quarter 4 Revenue":9125.0,
+    "Variance":-3150.0,
+    "Percentage of Variance":-25.6619144603
+  },
+  {
+    "Customer Name":"Mid Market Account-204",
+    "Quarter 3 Revenue":27033.92,
+    "Quarter 4 Revenue":39394.47,
+    "Variance":12360.55,
+    "Percentage of Variance":45.7223739657
+  },
+  {
+    "Customer Name":"Mid Market Account-205",
+    "Quarter 3 Revenue":11260.35,
+    "Quarter 4 Revenue":14441.46,
+    "Variance":3181.11,
+    "Percentage of Variance":28.2505428339
+  },
+  {
+    "Customer Name":"Mid Market Account-206",
+    "Quarter 3 Revenue":7197.4,
+    "Quarter 4 Revenue":39604.05,
+    "Variance":32406.65,
+    "Percentage of Variance":450.2549531775
+  },
+  {
+    "Customer Name":"Mid Market Account-207",
+    "Quarter 3 Revenue":30042.848563,
+    "Quarter 4 Revenue":21675.3406752903,
+    "Variance":-8367.5078877097,
+    "Percentage of Variance":-27.8519124781
+  },
+  {
+    "Customer Name":"Mid Market Account-208",
+    "Quarter 3 Revenue":33922.055768,
+    "Quarter 4 Revenue":35321.758955,
+    "Variance":1399.703187,
+    "Percentage of Variance":4.1262333762
+  },
+  {
+    "Customer Name":"Mid Market Account-209",
+    "Quarter 3 Revenue":23720.0,
+    "Quarter 4 Revenue":22294.92,
+    "Variance":-1425.08,
+    "Percentage of Variance":-6.007925801
+  },
+  {
+    "Customer Name":"NPS",
+    "Quarter 3 Revenue":100736.41,
+    "Quarter 4 Revenue":80841.71,
+    "Variance":-19894.7,
+    "Percentage of Variance":-19.7492644417
+  },
+  {
+    "Customer Name":"Respilon",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Sonos - Netherland",
+    "Quarter 3 Revenue":385965.4,
+    "Quarter 4 Revenue":450704.76,
+    "Variance":64739.36,
+    "Percentage of Variance":16.7733584409
+  },
+  {
+    "Customer Name":"Sonos - USA",
+    "Quarter 3 Revenue":433050.8966666664,
+    "Quarter 4 Revenue":633329.6400000004,
+    "Variance":200278.743333334,
+    "Percentage of Variance":46.248315123
+  },
+  {
+    "Customer Name":"Stravito",
+    "Quarter 3 Revenue":65215.018,
+    "Quarter 4 Revenue":62865.383,
+    "Variance":-2349.635,
+    "Percentage of Variance":-3.6029047788
+  },
+  {
+    "Customer Name":"United Masters",
+    "Quarter 3 Revenue":53121.22,
+    "Quarter 4 Revenue":38837.94,
+    "Variance":-14283.28,
+    "Percentage of Variance":-26.8880872841
+  },
+  {
+    "Customer Name":"Viant",
+    "Quarter 3 Revenue":41199.24,
+    "Quarter 4 Revenue":26450.26,
+    "Variance":-14748.98,
+    "Percentage of Variance":-35.7991555184
+  },
+  {
+    "Customer Name":"Mid Market Account-319",
+    "Quarter 3 Revenue":79896.83,
+    "Quarter 4 Revenue":87225.96,
+    "Variance":7329.13,
+    "Percentage of Variance":9.1732425429
+  },
+  {
+    "Customer Name":"Mid Market Account-320",
+    "Quarter 3 Revenue":29520.066,
+    "Quarter 4 Revenue":29115.252,
+    "Variance":-404.814,
+    "Percentage of Variance":-1.3713180723
+  },
+  {
+    "Customer Name":"Mid Market Account-321",
+    "Quarter 3 Revenue":31258.8902,
+    "Quarter 4 Revenue":31188.366,
+    "Variance":-70.5242,
+    "Percentage of Variance":-0.2256132561
+  },
+  {
+    "Customer Name":"Mid Market Account-322",
+    "Quarter 3 Revenue":9605.053,
+    "Quarter 4 Revenue":4013.97,
+    "Variance":-5591.083,
+    "Percentage of Variance":-58.2098089412
+  },
+  {
+    "Customer Name":"Mid Market Account-323",
+    "Quarter 3 Revenue":37343.79,
+    "Quarter 4 Revenue":47166.4389,
+    "Variance":9822.6489,
+    "Percentage of Variance":26.3032994241
+  },
+  {
+    "Customer Name":"Mid Market Account-324",
+    "Quarter 3 Revenue":17581.47,
+    "Quarter 4 Revenue":16241.47,
+    "Variance":-1340.0,
+    "Percentage of Variance":-7.6216607599
+  },
+  {
+    "Customer Name":"Mid Market Account-325",
+    "Quarter 3 Revenue":16170.249,
+    "Quarter 4 Revenue":35087.4712,
+    "Variance":18917.2222,
+    "Percentage of Variance":116.9878225128
+  },
+  {
+    "Customer Name":"Mid Market Account-326",
+    "Quarter 3 Revenue":20353.93,
+    "Quarter 4 Revenue":23766.9033,
+    "Variance":3412.9733,
+    "Percentage of Variance":16.7681292998
+  },
+  {
+    "Customer Name":"Mid Market Account-327",
+    "Quarter 3 Revenue":17470.0021,
+    "Quarter 4 Revenue":11375.93,
+    "Variance":-6094.0721,
+    "Percentage of Variance":-34.883064496
+  },
+  {
+    "Customer Name":"Mid Market Account-328",
+    "Quarter 3 Revenue":24219.6089,
+    "Quarter 4 Revenue":18640.2911,
+    "Variance":-5579.3178,
+    "Percentage of Variance":-23.0363662066
+  },
+  {
+    "Customer Name":"Mid Market Account-329",
+    "Quarter 3 Revenue":18416.96,
+    "Quarter 4 Revenue":22497.93,
+    "Variance":4080.97,
+    "Percentage of Variance":22.1587601863
+  },
+  {
+    "Customer Name":"Mid Market Account-330",
+    "Quarter 3 Revenue":13052.94,
+    "Quarter 4 Revenue":13586.93,
+    "Variance":533.99,
+    "Percentage of Variance":4.090955754
+  },
+  {
+    "Customer Name":"Mid Market Account-331",
+    "Quarter 3 Revenue":13052.94,
+    "Quarter 4 Revenue":10997.3331,
+    "Variance":-2055.6069,
+    "Percentage of Variance":-15.7482291346
+  },
+  {
+    "Customer Name":"Mid Market Account-218",
+    "Quarter 3 Revenue":14995.94,
+    "Quarter 4 Revenue":17003.93,
+    "Variance":2007.99,
+    "Percentage of Variance":13.3902242874
+  },
+  {
+    "Customer Name":"Mid Market Account-219",
+    "Quarter 3 Revenue":17740.93,
+    "Quarter 4 Revenue":15062.94,
+    "Variance":-2677.99,
+    "Percentage of Variance":-15.0949809283
+  },
+  {
+    "Customer Name":"Mid Market Account-220",
+    "Quarter 3 Revenue":36482.84,
+    "Quarter 4 Revenue":36283.85,
+    "Variance":-198.99,
+    "Percentage of Variance":-0.5454345111
+  },
+  {
+    "Customer Name":"Mid Market Account-221",
+    "Quarter 3 Revenue":23429.9,
+    "Quarter 4 Revenue":20753.92,
+    "Variance":-2675.98,
+    "Percentage of Variance":-11.421218187
+  },
+  {
+    "Customer Name":"Mid Market Account-222",
+    "Quarter 3 Revenue":14793.131,
+    "Quarter 4 Revenue":10671.09,
+    "Variance":-4122.041,
+    "Percentage of Variance":-27.8645609236
+  },
+  {
+    "Customer Name":"Mid Market Account-223",
+    "Quarter 3 Revenue":28634.46,
+    "Quarter 4 Revenue":27798.97,
+    "Variance":-835.49,
+    "Percentage of Variance":-2.9177780898
+  },
+  {
+    "Customer Name":"Mid Market Account-224",
+    "Quarter 3 Revenue":20249.41,
+    "Quarter 4 Revenue":17921.1131,
+    "Variance":-2328.2969,
+    "Percentage of Variance":-11.4980974754
+  },
+  {
+    "Customer Name":"Mid Market Account-225",
+    "Quarter 3 Revenue":16400.93,
+    "Quarter 4 Revenue":16067.94,
+    "Variance":-332.99,
+    "Percentage of Variance":-2.0303116957
+  },
+  {
+    "Customer Name":"Mid Market Account-238",
+    "Quarter 3 Revenue":21551.89,
+    "Quarter 4 Revenue":19681.92,
+    "Variance":-1869.97,
+    "Percentage of Variance":-8.6765940249
+  },
+  {
+    "Customer Name":"Mid Market Account-239",
+    "Quarter 3 Revenue":14995.136,
+    "Quarter 4 Revenue":10777.352,
+    "Variance":-4217.784,
+    "Percentage of Variance":-28.1276808693
+  },
+  {
+    "Customer Name":"Mid Market Account-240",
+    "Quarter 3 Revenue":14051.91,
+    "Quarter 4 Revenue":11001.0248,
+    "Variance":-3050.8852,
+    "Percentage of Variance":-21.7115338769
+  },
+  {
+    "Customer Name":"Mid Market Account-241",
+    "Quarter 3 Revenue":34659.5422,
+    "Quarter 4 Revenue":35185.72,
+    "Variance":526.1778,
+    "Percentage of Variance":1.5181325736
+  },
+  {
+    "Customer Name":"Mid Market Account-242",
+    "Quarter 3 Revenue":12583.94,
+    "Quarter 4 Revenue":12047.94,
+    "Variance":-536.0,
+    "Percentage of Variance":-4.2593972953
+  },
+  {
+    "Customer Name":"Mid Market Account-243",
+    "Quarter 3 Revenue":17190.592,
+    "Quarter 4 Revenue":14248.89,
+    "Variance":-2941.702,
+    "Percentage of Variance":-17.1122786231
+  },
+  {
+    "Customer Name":"Mid Market Account-244",
+    "Quarter 3 Revenue":15636.1384,
+    "Quarter 4 Revenue":14727.94,
+    "Variance":-908.1984,
+    "Percentage of Variance":-5.8083292484
+  },
+  {
+    "Customer Name":"Mid Market Account-245",
+    "Quarter 3 Revenue":17381.3611,
+    "Quarter 4 Revenue":32472.8833,
+    "Variance":15091.5222,
+    "Percentage of Variance":86.8258942046
+  },
+  {
+    "Customer Name":"Mid Market Account-250",
+    "Quarter 3 Revenue":20093.97,
+    "Quarter 4 Revenue":15129.538,
+    "Variance":-4964.432,
+    "Percentage of Variance":-24.7060784902
+  },
+  {
+    "Customer Name":"Mid Market Account-251",
+    "Quarter 3 Revenue":15365.043,
+    "Quarter 4 Revenue":10640.002,
+    "Variance":-4725.041,
+    "Percentage of Variance":-30.7518892072
+  },
+  {
+    "Customer Name":"Mid Market Account-252",
+    "Quarter 3 Revenue":24468.4,
+    "Quarter 4 Revenue":19078.92,
+    "Variance":-5389.48,
+    "Percentage of Variance":-22.026286966
+  },
+  {
+    "Customer Name":"Mid Market Account-253",
+    "Quarter 3 Revenue":11179.754,
+    "Quarter 4 Revenue":8848.891,
+    "Variance":-2330.863,
+    "Percentage of Variance":-20.848965013
+  },
+  {
+    "Customer Name":"Mid Market Account-254",
+    "Quarter 3 Revenue":11515.96,
+    "Quarter 4 Revenue":13595.4323,
+    "Variance":2079.4723,
+    "Percentage of Variance":18.0573074238
+  },
+  {
+    "Customer Name":"Mid Market Account-255",
+    "Quarter 3 Revenue":12421.8,
+    "Quarter 4 Revenue":10579.0722,
+    "Variance":-1842.7278,
+    "Percentage of Variance":-14.8346278317
+  },
+  {
+    "Customer Name":"Mid Market Account-256",
+    "Quarter 3 Revenue":21122.42,
+    "Quarter 4 Revenue":22617.2101,
+    "Variance":1494.7901,
+    "Percentage of Variance":7.0767937575
+  },
+  {
+    "Customer Name":"Mid Market Account-257",
+    "Quarter 3 Revenue":24698.88,
+    "Quarter 4 Revenue":22783.9731,
+    "Variance":-1914.9069,
+    "Percentage of Variance":-7.7530110677
+  },
+  {
+    "Customer Name":"Mid Market Account-258",
+    "Quarter 3 Revenue":17393.334,
+    "Quarter 4 Revenue":16126.833,
+    "Variance":-1266.501,
+    "Percentage of Variance":-7.2815309589
+  },
+  {
+    "Customer Name":"Mid Market Account-259",
+    "Quarter 3 Revenue":14781.5266,
+    "Quarter 4 Revenue":12049.95,
+    "Variance":-2731.5766,
+    "Percentage of Variance":-18.4796650165
+  },
+  {
+    "Customer Name":"Mid Market Account-260",
+    "Quarter 3 Revenue":23953.17,
+    "Quarter 4 Revenue":25451.96,
+    "Variance":1498.79,
+    "Percentage of Variance":6.2571676317
+  },
+  {
+    "Customer Name":"Mid Market Account-261",
+    "Quarter 3 Revenue":24977.6,
+    "Quarter 4 Revenue":31677.6,
+    "Variance":6700.0,
+    "Percentage of Variance":26.8240343348
+  },
+  {
+    "Customer Name":"Mid Market Account-262",
+    "Quarter 3 Revenue":18272.91,
+    "Quarter 4 Revenue":16264.3639,
+    "Variance":-2008.5461,
+    "Percentage of Variance":-10.991933414
+  },
+  {
+    "Customer Name":"Mid Market Account-263",
+    "Quarter 3 Revenue":16173.5789,
+    "Quarter 4 Revenue":9028.92,
+    "Variance":-7144.6589,
+    "Percentage of Variance":-44.1748789441
+  },
+  {
+    "Customer Name":"Mid Market Account-264",
+    "Quarter 3 Revenue":13307.9889,
+    "Quarter 4 Revenue":11831.7511,
+    "Variance":-1476.2378,
+    "Percentage of Variance":-11.0928691863
+  },
+  {
+    "Customer Name":"Mid Market Account-265",
+    "Quarter 3 Revenue":14234.82,
+    "Quarter 4 Revenue":18971.5391,
+    "Variance":4736.7191,
+    "Percentage of Variance":33.2755812859
+  },
+  {
+    "Customer Name":"Mid Market Account-266",
+    "Quarter 3 Revenue":17825.1825,
+    "Quarter 4 Revenue":15734.95,
+    "Variance":-2090.2325,
+    "Percentage of Variance":-11.7262894784
+  },
+  {
+    "Customer Name":"Mid Market Account-267",
+    "Quarter 3 Revenue":18232.71,
+    "Quarter 4 Revenue":21289.92,
+    "Variance":3057.21,
+    "Percentage of Variance":16.7677213097
+  },
+  {
+    "Customer Name":"Mid Market Account-268",
+    "Quarter 3 Revenue":20352.42,
+    "Quarter 4 Revenue":15046.2369,
+    "Variance":-5306.1831,
+    "Percentage of Variance":-26.0715094323
+  },
+  {
+    "Customer Name":"Mid Market Account-269",
+    "Quarter 3 Revenue":21071.8685,
+    "Quarter 4 Revenue":19157.0889,
+    "Variance":-1914.7796,
+    "Percentage of Variance":-9.0868999111
+  },
+  {
+    "Customer Name":"Mid Market Account-270",
+    "Quarter 3 Revenue":14940.1089,
+    "Quarter 4 Revenue":15062.94,
+    "Variance":122.8311,
+    "Percentage of Variance":0.8221566578
+  },
+  {
+    "Customer Name":"Mid Market Account-271",
+    "Quarter 3 Revenue":13727.965,
+    "Quarter 4 Revenue":13527.97,
+    "Variance":-199.995,
+    "Percentage of Variance":-1.4568437492
+  },
+  {
+    "Customer Name":"Mid Market Account-272",
+    "Quarter 3 Revenue":10278.9189,
+    "Quarter 4 Revenue":7028.97,
+    "Variance":-3249.9489,
+    "Percentage of Variance":-31.6176139886
+  },
+  {
+    "Customer Name":"Mid Market Account-273",
+    "Quarter 3 Revenue":19082.94,
+    "Quarter 4 Revenue":19082.94,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-274",
+    "Quarter 3 Revenue":20353.93,
+    "Quarter 4 Revenue":17139.94,
+    "Variance":-3213.99,
+    "Percentage of Variance":-15.7905131834
+  },
+  {
+    "Customer Name":"Mid Market Account-275",
+    "Quarter 3 Revenue":22432.94,
+    "Quarter 4 Revenue":25146.44,
+    "Variance":2713.5,
+    "Percentage of Variance":12.0960516098
+  },
+  {
+    "Customer Name":"Mid Market Account-276",
+    "Quarter 3 Revenue":15062.94,
+    "Quarter 4 Revenue":24040.94,
+    "Variance":8978.0,
+    "Percentage of Variance":59.6032381461
+  },
+  {
+    "Customer Name":"Mid Market Account-277",
+    "Quarter 3 Revenue":15765.1201,
+    "Quarter 4 Revenue":12047.94,
+    "Variance":-3717.1801,
+    "Percentage of Variance":-23.5785079747
+  },
+  {
+    "Customer Name":"Mid Market Account-278",
+    "Quarter 3 Revenue":13132.469,
+    "Quarter 4 Revenue":10301.92,
+    "Variance":-2830.549,
+    "Percentage of Variance":-21.5538220574
+  },
+  {
+    "Customer Name":"Mid Market Account-279",
+    "Quarter 3 Revenue":13425.46,
+    "Quarter 4 Revenue":12384.95,
+    "Variance":-1040.51,
+    "Percentage of Variance":-7.7502744785
+  },
+  {
+    "Customer Name":"Mid Market Account-280",
+    "Quarter 3 Revenue":13231.6089,
+    "Quarter 4 Revenue":10987.7119,
+    "Variance":-2243.897,
+    "Percentage of Variance":-16.9586103773
+  },
+  {
+    "Customer Name":"Mid Market Account-281",
+    "Quarter 3 Revenue":15062.94,
+    "Quarter 4 Revenue":12047.94,
+    "Variance":-3015.0,
+    "Percentage of Variance":-20.0160128102
+  },
+  {
+    "Customer Name":"Mid Market Account-282",
+    "Quarter 3 Revenue":23096.91,
+    "Quarter 4 Revenue":25791.1408,
+    "Variance":2694.2308,
+    "Percentage of Variance":11.6648971659
+  },
+  {
+    "Customer Name":"Mid Market Account-283",
+    "Quarter 3 Revenue":15062.94,
+    "Quarter 4 Revenue":14169.6089,
+    "Variance":-893.3311,
+    "Percentage of Variance":-5.9306556356
+  },
+  {
+    "Customer Name":"Mid Market Account-284",
+    "Quarter 3 Revenue":29878.8041,
+    "Quarter 4 Revenue":41341.68,
+    "Variance":11462.8759,
+    "Percentage of Variance":38.364573969
+  },
+  {
+    "Customer Name":"Mid Market Account-285",
+    "Quarter 3 Revenue":15944.6399,
+    "Quarter 4 Revenue":16599.92,
+    "Variance":655.2801,
+    "Percentage of Variance":4.1097202829
+  },
+  {
+    "Customer Name":"Mid Market Account-286",
+    "Quarter 3 Revenue":11048.97,
+    "Quarter 4 Revenue":13058.97,
+    "Variance":2010.0,
+    "Percentage of Variance":18.1917409496
+  },
+  {
+    "Customer Name":"Mid Market Account-287",
+    "Quarter 3 Revenue":19362.2831,
+    "Quarter 4 Revenue":16798.91,
+    "Variance":-2563.3731,
+    "Percentage of Variance":-13.2390022745
+  },
+  {
+    "Customer Name":"Mid Market Account-288",
+    "Quarter 3 Revenue":9373.97,
+    "Quarter 4 Revenue":13722.94,
+    "Variance":4348.97,
+    "Percentage of Variance":46.3941104996
+  },
+  {
+    "Customer Name":"Mid Market Account-289",
+    "Quarter 3 Revenue":10244.97,
+    "Quarter 4 Revenue":9978.98,
+    "Variance":-265.99,
+    "Percentage of Variance":-2.5962984762
+  },
+  {
+    "Customer Name":"Mid Market Account-290",
+    "Quarter 3 Revenue":16566.889,
+    "Quarter 4 Revenue":7378.0869,
+    "Variance":-9188.8021,
+    "Percentage of Variance":-55.46486187
+  },
+  {
+    "Customer Name":"Mid Market Account-291",
+    "Quarter 3 Revenue":15488.39,
+    "Quarter 4 Revenue":25203.39,
+    "Variance":9715.0,
+    "Percentage of Variance":62.7244019553
+  },
+  {
+    "Customer Name":"Mid Market Account-292",
+    "Quarter 3 Revenue":26117.94,
+    "Quarter 4 Revenue":26117.94,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-293",
+    "Quarter 3 Revenue":22765.93,
+    "Quarter 4 Revenue":25847.93,
+    "Variance":3082.0,
+    "Percentage of Variance":13.5377733306
+  },
+  {
+    "Customer Name":"Mid Market Account-294",
+    "Quarter 3 Revenue":11386.0269,
+    "Quarter 4 Revenue":12983.126,
+    "Variance":1597.0991,
+    "Percentage of Variance":14.0268340662
+  },
+  {
+    "Customer Name":"Mid Market Account-295",
+    "Quarter 3 Revenue":13565.1952,
+    "Quarter 4 Revenue":13505.6389,
+    "Variance":-59.5563,
+    "Percentage of Variance":-0.4390375451
+  },
+  {
+    "Customer Name":"Mid Market Account-296",
+    "Quarter 3 Revenue":18768.7301,
+    "Quarter 4 Revenue":17937.508,
+    "Variance":-831.2221,
+    "Percentage of Variance":-4.4287604733
+  },
+  {
+    "Customer Name":"Mid Market Account-297",
+    "Quarter 3 Revenue":20912.04,
+    "Quarter 4 Revenue":11387.99,
+    "Variance":-9524.05,
+    "Percentage of Variance":-45.543380751
+  },
+  {
+    "Customer Name":"Mid Market Account-298",
+    "Quarter 3 Revenue":14801.506,
+    "Quarter 4 Revenue":16842.5069,
+    "Variance":2041.0009,
+    "Percentage of Variance":13.7891434831
+  },
+  {
+    "Customer Name":"Mid Market Account-299",
+    "Quarter 3 Revenue":12731.943,
+    "Quarter 4 Revenue":17077.362,
+    "Variance":4345.419,
+    "Percentage of Variance":34.1300538339
+  },
+  {
+    "Customer Name":"Mid Market Account-300",
+    "Quarter 3 Revenue":23108.97,
+    "Quarter 4 Revenue":20317.08,
+    "Variance":-2791.89,
+    "Percentage of Variance":-12.0814125424
+  },
+  {
+    "Customer Name":"Mid Market Account-301",
+    "Quarter 3 Revenue":7230.573,
+    "Quarter 4 Revenue":18506.338,
+    "Variance":11275.765,
+    "Percentage of Variance":155.9456629509
+  },
+  {
+    "Customer Name":"Mid Market Account-302",
+    "Quarter 3 Revenue":10705.93,
+    "Quarter 4 Revenue":12715.93,
+    "Variance":2010.0,
+    "Percentage of Variance":18.7746417173
+  },
+  {
+    "Customer Name":"Mid Market Account-303",
+    "Quarter 3 Revenue":15331.2482,
+    "Quarter 4 Revenue":18011.9919,
+    "Variance":2680.7437,
+    "Percentage of Variance":17.4854888854
+  },
+  {
+    "Customer Name":"Mid Market Account-304",
+    "Quarter 3 Revenue":10640.94,
+    "Quarter 4 Revenue":13117.93,
+    "Variance":2476.99,
+    "Percentage of Variance":23.2779246946
+  },
+  {
+    "Customer Name":"Mid Market Account-305",
+    "Quarter 3 Revenue":15781.85,
+    "Quarter 4 Revenue":17813.96,
+    "Variance":2032.11,
+    "Percentage of Variance":12.8762470813
+  },
+  {
+    "Customer Name":"Mid Market Account-306",
+    "Quarter 3 Revenue":18686.97,
+    "Quarter 4 Revenue":19226.32,
+    "Variance":539.35,
+    "Percentage of Variance":2.8862357033
+  },
+  {
+    "Customer Name":"Mid Market Account-307",
+    "Quarter 3 Revenue":22215.6389,
+    "Quarter 4 Revenue":21098.97,
+    "Variance":-1116.6689,
+    "Percentage of Variance":-5.0264991479
+  },
+  {
+    "Customer Name":"Mid Market Account-308",
+    "Quarter 3 Revenue":18679.868,
+    "Quarter 4 Revenue":19918.43,
+    "Variance":1238.562,
+    "Percentage of Variance":6.6304644123
+  },
+  {
+    "Customer Name":"Mid Market Account-309",
+    "Quarter 3 Revenue":16353.1389,
+    "Quarter 4 Revenue":22198.6477,
+    "Variance":5845.5088,
+    "Percentage of Variance":35.7454849234
+  },
+  {
+    "Customer Name":"Mid Market Account-310",
+    "Quarter 3 Revenue":14928.94,
+    "Quarter 4 Revenue":12943.9511,
+    "Variance":-1984.9889,
+    "Percentage of Variance":-13.2962480926
+  },
+  {
+    "Customer Name":"Mid Market Account-311",
+    "Quarter 3 Revenue":14663.3587,
+    "Quarter 4 Revenue":16623.102,
+    "Variance":1959.7433,
+    "Percentage of Variance":13.3649004985
+  },
+  {
+    "Customer Name":"Mid Market Account-312",
+    "Quarter 3 Revenue":12187.97,
+    "Quarter 4 Revenue":12388.97,
+    "Variance":201.0,
+    "Percentage of Variance":1.6491671706
+  },
+  {
+    "Customer Name":"Mid Market Account-313",
+    "Quarter 3 Revenue":31012.96,
+    "Quarter 4 Revenue":29138.97,
+    "Variance":-1873.99,
+    "Percentage of Variance":-6.0426028344
+  },
+  {
+    "Customer Name":"Mid Market Account-314",
+    "Quarter 3 Revenue":19076.91,
+    "Quarter 4 Revenue":19208.9,
+    "Variance":131.99,
+    "Percentage of Variance":0.6918835388
+  },
+  {
+    "Customer Name":"Mid Market Account-315",
+    "Quarter 3 Revenue":13034.85,
+    "Quarter 4 Revenue":13034.85,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-316",
+    "Quarter 3 Revenue":17539.7089,
+    "Quarter 4 Revenue":24079.5789,
+    "Variance":6539.87,
+    "Percentage of Variance":37.2860806145
+  },
+  {
+    "Customer Name":"Mid Market Account-317",
+    "Quarter 3 Revenue":20931.001,
+    "Quarter 4 Revenue":30683.99,
+    "Variance":9752.989,
+    "Percentage of Variance":46.5959033684
+  },
+  {
+    "Customer Name":"Mid Market Account-318",
+    "Quarter 3 Revenue":15341.8811,
+    "Quarter 4 Revenue":9038.97,
+    "Variance":-6302.9111,
+    "Percentage of Variance":-41.0830396802
+  },
+  {
+    "Customer Name":"Mid Market Account-201",
+    "Quarter 3 Revenue":195000.0,
+    "Quarter 4 Revenue":195000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-202",
+    "Quarter 3 Revenue":24000.0,
+    "Quarter 4 Revenue":24000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"2Sodas",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Health Lottery",
+    "Quarter 3 Revenue":118776.273,
+    "Quarter 4 Revenue":55368.130854,
+    "Variance":-63408.142146,
+    "Percentage of Variance":-53.3845191
+  },
+  {
+    "Customer Name":"Telcel",
+    "Quarter 3 Revenue":128962.5644012,
+    "Quarter 4 Revenue":133685.019408,
+    "Variance":4722.4550068,
+    "Percentage of Variance":3.6618805067
+  },
+  {
+    "Customer Name":"Mid Market Account-332",
+    "Quarter 3 Revenue":35250.0,
+    "Quarter 4 Revenue":17250.0,
+    "Variance":-18000.0,
+    "Percentage of Variance":-51.0638297872
+  },
+  {
+    "Customer Name":"GoPuff - UK",
+    "Quarter 3 Revenue":26627.309563,
+    "Quarter 4 Revenue":37160.46631,
+    "Variance":10533.156747,
+    "Percentage of Variance":39.5577207005
+  },
+  {
+    "Customer Name":"4AllPromos",
+    "Quarter 3 Revenue":101972.6925,
+    "Quarter 4 Revenue":92653.1041,
+    "Variance":-9319.5884,
+    "Percentage of Variance":-9.1392981508
+  },
+  {
+    "Customer Name":"Agency GroupM_EMEA",
+    "Quarter 3 Revenue":44689.792751195,
+    "Quarter 4 Revenue":62003.2877034705,
+    "Variance":17313.4949522755,
+    "Percentage of Variance":38.7414975242
+  },
+  {
+    "Customer Name":"Dandy",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-333",
+    "Quarter 3 Revenue":30500.0,
+    "Quarter 4 Revenue":43541.17,
+    "Variance":13041.17,
+    "Percentage of Variance":42.7579344262
+  },
+  {
+    "Customer Name":"Mid Market Account-334",
+    "Quarter 3 Revenue":22950.0,
+    "Quarter 4 Revenue":16708.32,
+    "Variance":-6241.68,
+    "Percentage of Variance":-27.1968627451
+  },
+  {
+    "Customer Name":"GingerLabs",
+    "Quarter 3 Revenue":29069.6666666667,
+    "Quarter 4 Revenue":7929.0,
+    "Variance":-21140.6666666667,
+    "Percentage of Variance":-72.7241454437
+  },
+  {
+    "Customer Name":"Fanduel",
+    "Quarter 3 Revenue":38957.404,
+    "Quarter 4 Revenue":64730.045,
+    "Variance":25772.641,
+    "Percentage of Variance":66.1559507405
+  },
+  {
+    "Customer Name":"Immi",
+    "Quarter 3 Revenue":61746.0,
+    "Quarter 4 Revenue":48750.0,
+    "Variance":-12996.0,
+    "Percentage of Variance":-21.0475172481
+  },
+  {
+    "Customer Name":"Agency_Oakley Capital",
+    "Quarter 3 Revenue":19819.8902,
+    "Quarter 4 Revenue":14864.73154425,
+    "Variance":-4955.15865575,
+    "Percentage of Variance":-25.0009389848
+  },
+  {
+    "Customer Name":"Agency_Growth Partners",
+    "Quarter 3 Revenue":44108.489888,
+    "Quarter 4 Revenue":38055.11537798,
+    "Variance":-6053.37451002,
+    "Percentage of Variance":-13.7238307759
+  },
+  {
+    "Customer Name":"Minted",
+    "Quarter 3 Revenue":21000.0,
+    "Quarter 4 Revenue":21000.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Mid Market Account-335",
+    "Quarter 3 Revenue":49779.65,
+    "Quarter 4 Revenue":39000.0,
+    "Variance":-10779.65,
+    "Percentage of Variance":-21.6547324057
+  },
+  {
+    "Customer Name":"Mid Market Account-336",
+    "Quarter 3 Revenue":23685.29,
+    "Quarter 4 Revenue":6150.0,
+    "Variance":-17535.29,
+    "Percentage of Variance":-74.0345167824
+  },
+  {
+    "Customer Name":"Mid Market Account-337",
+    "Quarter 3 Revenue":30606.96,
+    "Quarter 4 Revenue":45750.0,
+    "Variance":15143.04,
+    "Percentage of Variance":49.4758055031
+  },
+  {
+    "Customer Name":"Mid Market Account-338",
+    "Quarter 3 Revenue":29000.0,
+    "Quarter 4 Revenue":43500.0,
+    "Variance":14500.0,
+    "Percentage of Variance":50.0
+  },
+  {
+    "Customer Name":"Mid Market Account-340",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":27500.0,
+    "Variance":27500.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-341",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":33800.0,
+    "Variance":33800.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-342",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":23000.0,
+    "Variance":23000.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-343",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":10000.0,
+    "Variance":10000.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Agency_MYC",
+    "Quarter 3 Revenue":11350.82855,
+    "Quarter 4 Revenue":32420.6678186,
+    "Variance":21069.8392686,
+    "Percentage of Variance":185.6237998468
+  },
+  {
+    "Customer Name":"Agency_Digital Rocket",
+    "Quarter 3 Revenue":21071.0,
+    "Quarter 4 Revenue":15000.0,
+    "Variance":-6071.0,
+    "Percentage of Variance":-28.8121114328
+  },
+  {
+    "Customer Name":"Mid Market Account-339",
+    "Quarter 3 Revenue":23768.92,
+    "Quarter 4 Revenue":29120.88,
+    "Variance":5351.96,
+    "Percentage of Variance":22.5166309618
+  },
+  {
+    "Customer Name":"Brilliant Earth",
+    "Quarter 3 Revenue":2895.0,
+    "Quarter 4 Revenue":62721.1237,
+    "Variance":59826.1237,
+    "Percentage of Variance":2066.5327702936
+  },
+  {
+    "Customer Name":"Social Hustle - Other Clients",
+    "Quarter 3 Revenue":1741.0,
+    "Quarter 4 Revenue":19625.0,
+    "Variance":17884.0,
+    "Percentage of Variance":1027.2257323377
+  },
+  {
+    "Customer Name":"Andersen Hitches",
+    "Quarter 3 Revenue":1500.0,
+    "Quarter 4 Revenue":39119.5,
+    "Variance":37619.5,
+    "Percentage of Variance":2507.9666666667
+  },
+  {
+    "Customer Name":"Andy Nelson \/ thecarameltree",
+    "Quarter 3 Revenue":750.0,
+    "Quarter 4 Revenue":2250.0,
+    "Variance":1500.0,
+    "Percentage of Variance":200.0
+  },
+  {
+    "Customer Name":"ARC Compactors",
+    "Quarter 3 Revenue":12500.0,
+    "Quarter 4 Revenue":22660.5,
+    "Variance":10160.5,
+    "Percentage of Variance":81.284
+  },
+  {
+    "Customer Name":"Aurate",
+    "Quarter 3 Revenue":7971.8,
+    "Quarter 4 Revenue":36517.00175,
+    "Variance":28545.20175,
+    "Percentage of Variance":358.0772441607
+  },
+  {
+    "Customer Name":"C. Kruegers",
+    "Quarter 3 Revenue":4500.0,
+    "Quarter 4 Revenue":30743.1168,
+    "Variance":26243.1168,
+    "Percentage of Variance":583.1803733333
+  },
+  {
+    "Customer Name":"CCV Church",
+    "Quarter 3 Revenue":1000.0,
+    "Quarter 4 Revenue":3000.0,
+    "Variance":2000.0,
+    "Percentage of Variance":200.0
+  },
+  {
+    "Customer Name":"Chapter",
+    "Quarter 3 Revenue":49925.8,
+    "Quarter 4 Revenue":178524.474,
+    "Variance":128598.674,
+    "Percentage of Variance":257.5795961206
+  },
+  {
+    "Customer Name":"Coretrust",
+    "Quarter 3 Revenue":12075.0,
+    "Quarter 4 Revenue":35875.0,
+    "Variance":23800.0,
+    "Percentage of Variance":197.1014492754
+  },
+  {
+    "Customer Name":"Craig Dittmar",
+    "Quarter 3 Revenue":1350.5,
+    "Quarter 4 Revenue":6756.5,
+    "Variance":5406.0,
+    "Percentage of Variance":400.2961865976
+  },
+  {
+    "Customer Name":"Dr Shine My Ride",
+    "Quarter 3 Revenue":750.0,
+    "Quarter 4 Revenue":2250.0,
+    "Variance":1500.0,
+    "Percentage of Variance":200.0
+  },
+  {
+    "Customer Name":"Drunk Desires LTD",
+    "Quarter 3 Revenue":1000.0,
+    "Quarter 4 Revenue":2000.0,
+    "Variance":1000.0,
+    "Percentage of Variance":100.0
+  },
+  {
+    "Customer Name":"Epoch Pest Solutions",
+    "Quarter 3 Revenue":750.0,
+    "Quarter 4 Revenue":2250.0,
+    "Variance":1500.0,
+    "Percentage of Variance":200.0
+  },
+  {
+    "Customer Name":"EyeCare of Rigby",
+    "Quarter 3 Revenue":500.0,
+    "Quarter 4 Revenue":1500.0,
+    "Variance":1000.0,
+    "Percentage of Variance":200.0
+  },
+  {
+    "Customer Name":"EZ Lynk",
+    "Quarter 3 Revenue":6500.0,
+    "Quarter 4 Revenue":49056.0,
+    "Variance":42556.0,
+    "Percentage of Variance":654.7076923077
+  },
+  {
+    "Customer Name":"GLD, LLC",
+    "Quarter 3 Revenue":72869.36,
+    "Quarter 4 Revenue":318640.1089,
+    "Variance":245770.7489,
+    "Percentage of Variance":337.2758439212
+  },
+  {
+    "Customer Name":"Granite Garage Floors",
+    "Quarter 3 Revenue":750.0,
+    "Quarter 4 Revenue":1500.0,
+    "Variance":750.0,
+    "Percentage of Variance":100.0
+  },
+  {
+    "Customer Name":"Heavys",
+    "Quarter 3 Revenue":15700.0,
+    "Quarter 4 Revenue":50160.0,
+    "Variance":34460.0,
+    "Percentage of Variance":219.4904458599
+  },
+  {
+    "Customer Name":"HIG Capital",
+    "Quarter 3 Revenue":4273.51,
+    "Quarter 4 Revenue":12625.5,
+    "Variance":8351.99,
+    "Percentage of Variance":195.4363041154
+  },
+  {
+    "Customer Name":"Hudson Valley Farms",
+    "Quarter 3 Revenue":1500.0,
+    "Quarter 4 Revenue":12390.558,
+    "Variance":10890.558,
+    "Percentage of Variance":726.0372
+  },
+  {
+    "Customer Name":"Hyperwallet",
+    "Quarter 3 Revenue":577.45,
+    "Quarter 4 Revenue":0.0,
+    "Variance":-577.45,
+    "Percentage of Variance":-100.0
+  },
+  {
+    "Customer Name":"Ian Wendt \/ officialpatriotgear",
+    "Quarter 3 Revenue":750.0,
+    "Quarter 4 Revenue":2250.0,
+    "Variance":1500.0,
+    "Percentage of Variance":200.0
+  },
+  {
+    "Customer Name":"JC AZ Landscapes",
+    "Quarter 3 Revenue":750.0,
+    "Quarter 4 Revenue":2250.0,
+    "Variance":1500.0,
+    "Percentage of Variance":200.0
+  },
+  {
+    "Customer Name":"Kim Olson \/ meetjovi",
+    "Quarter 3 Revenue":2250.0,
+    "Quarter 4 Revenue":2250.0,
+    "Variance":0.0,
+    "Percentage of Variance":0.0
+  },
+  {
+    "Customer Name":"Kitchens by Good Guys",
+    "Quarter 3 Revenue":750.0,
+    "Quarter 4 Revenue":2250.0,
+    "Variance":1500.0,
+    "Percentage of Variance":200.0
+  },
+  {
+    "Customer Name":"Kutch Mobile Service",
+    "Quarter 3 Revenue":50.0,
+    "Quarter 4 Revenue":2250.0,
+    "Variance":2200.0,
+    "Percentage of Variance":4400.0
+  },
+  {
+    "Customer Name":"Little Momma Shirt Shop",
+    "Quarter 3 Revenue":3970.53,
+    "Quarter 4 Revenue":37115.915,
+    "Variance":33145.385,
+    "Percentage of Variance":834.7849027712
+  },
+  {
+    "Customer Name":"Malique Capsin \/ laserlegacy",
+    "Quarter 3 Revenue":351.0,
+    "Quarter 4 Revenue":1239.5,
+    "Variance":888.5,
+    "Percentage of Variance":253.1339031339
+  },
+  {
+    "Customer Name":"Noggin Boss",
+    "Quarter 3 Revenue":6032.41,
+    "Quarter 4 Revenue":29279.657,
+    "Variance":23247.247,
+    "Percentage of Variance":385.3724630786
+  },
+  {
+    "Customer Name":"On Stage Cut and Style",
+    "Quarter 3 Revenue":500.0,
+    "Quarter 4 Revenue":1500.0,
+    "Variance":1000.0,
+    "Percentage of Variance":200.0
+  },
+  {
+    "Customer Name":"Pactech",
+    "Quarter 3 Revenue":10666.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":-10666.0,
+    "Percentage of Variance":-100.0
+  },
+  {
+    "Customer Name":"Powertech Diesel",
+    "Quarter 3 Revenue":1999.0,
+    "Quarter 4 Revenue":750.0,
+    "Variance":-1249.0,
+    "Percentage of Variance":-62.4812406203
+  },
+  {
+    "Customer Name":"Ryan Butler",
+    "Quarter 3 Revenue":5000.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":-5000.0,
+    "Percentage of Variance":-100.0
+  },
+  {
+    "Customer Name":"Savvy AV",
+    "Quarter 3 Revenue":800.0,
+    "Quarter 4 Revenue":2300.0,
+    "Variance":1500.0,
+    "Percentage of Variance":187.5
+  },
+  {
+    "Customer Name":"South Fork Mechanical",
+    "Quarter 3 Revenue":750.0,
+    "Quarter 4 Revenue":2250.0,
+    "Variance":1500.0,
+    "Percentage of Variance":200.0
+  },
+  {
+    "Customer Name":"Stay Awhile Villas",
+    "Quarter 3 Revenue":1000.0,
+    "Quarter 4 Revenue":3053.0,
+    "Variance":2053.0,
+    "Percentage of Variance":205.3
+  },
+  {
+    "Customer Name":"Switchback Motorsports",
+    "Quarter 3 Revenue":3250.0,
+    "Quarter 4 Revenue":9750.0,
+    "Variance":6500.0,
+    "Percentage of Variance":200.0
+  },
+  {
+    "Customer Name":"The Yard Butler",
+    "Quarter 3 Revenue":2500.0,
+    "Quarter 4 Revenue":500.0,
+    "Variance":-2000.0,
+    "Percentage of Variance":-80.0
+  },
+  {
+    "Customer Name":"Windows USA",
+    "Quarter 3 Revenue":2874.0,
+    "Quarter 4 Revenue":5132.0,
+    "Variance":2258.0,
+    "Percentage of Variance":78.5664578984
+  },
+  {
+    "Customer Name":"Aqua Tech Pool & Spa",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":14666.33,
+    "Variance":14666.33,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Buy My Ballz",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":43922.379,
+    "Variance":43922.379,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Frontier Credit Union",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":613.5,
+    "Variance":613.5,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Lash Apothecary",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":2625.0,
+    "Variance":2625.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Madison Logic\u00a0",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":15000.0,
+    "Variance":15000.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Metal Man Construction",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":1071.84,
+    "Variance":1071.84,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Nlumec",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":1500.0,
+    "Variance":1500.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Robert Prinz \/ jtthorpe",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":2243.5,
+    "Variance":2243.5,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Cumulus Sport",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":3000.0,
+    "Variance":3000.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Addax Overland",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":2000.0,
+    "Variance":2000.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Northgate Information Solutions Holdings Limited",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":535.7142857143,
+    "Variance":535.7142857143,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Rev Motorsports",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":2500.0,
+    "Variance":2500.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Sun Gun, LLC",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":6167.0,
+    "Variance":6167.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Rewinding RX",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":7500.0,
+    "Variance":7500.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Alphaboardz",
+    "Quarter 3 Revenue":3546.17,
+    "Quarter 4 Revenue":7506.746,
+    "Variance":3960.576,
+    "Percentage of Variance":111.6860161808
+  },
+  {
+    "Customer Name":"Axiology",
+    "Quarter 3 Revenue":593.04,
+    "Quarter 4 Revenue":1924.236025,
+    "Variance":1331.196025,
+    "Percentage of Variance":224.4698544786
+  },
+  {
+    "Customer Name":"Baker Bros",
+    "Quarter 3 Revenue":4857.78,
+    "Quarter 4 Revenue":16633.432925,
+    "Variance":11775.652925,
+    "Percentage of Variance":242.4081149208
+  },
+  {
+    "Customer Name":"BASS Partners",
+    "Quarter 3 Revenue":5402.5,
+    "Quarter 4 Revenue":18694.2398,
+    "Variance":13291.7398,
+    "Percentage of Variance":246.0294271171
+  },
+  {
+    "Customer Name":"Bella Organic Skin",
+    "Quarter 3 Revenue":8527.39,
+    "Quarter 4 Revenue":31501.8895,
+    "Variance":22974.4995,
+    "Percentage of Variance":269.4200628797
+  },
+  {
+    "Customer Name":"brandbuilding.com",
+    "Quarter 3 Revenue":1575.0,
+    "Quarter 4 Revenue":1050.0,
+    "Variance":-525.0,
+    "Percentage of Variance":-33.3333333333
+  },
+  {
+    "Customer Name":"Broke Supply",
+    "Quarter 3 Revenue":737.37,
+    "Quarter 4 Revenue":2664.05,
+    "Variance":1926.68,
+    "Percentage of Variance":261.2908038027
+  },
+  {
+    "Customer Name":"Bronwen Jewelry",
+    "Quarter 3 Revenue":965.24,
+    "Quarter 4 Revenue":4060.326,
+    "Variance":3095.086,
+    "Percentage of Variance":320.6545522357
+  },
+  {
+    "Customer Name":"Catch The Fever",
+    "Quarter 3 Revenue":6706.66,
+    "Quarter 4 Revenue":20677.1902,
+    "Variance":13970.5302,
+    "Percentage of Variance":208.3083114397
+  },
+  {
+    "Customer Name":"Collection St-Augustin, ULC",
+    "Quarter 3 Revenue":1100.0,
+    "Quarter 4 Revenue":2250.0,
+    "Variance":1150.0,
+    "Percentage of Variance":104.5454545455
+  },
+  {
+    "Customer Name":"COMPREHENSIVE BUSINESS DEVELOPMENT LLC",
+    "Quarter 3 Revenue":2706.0,
+    "Quarter 4 Revenue":6407.4,
+    "Variance":3701.4,
+    "Percentage of Variance":136.7849223947
+  },
+  {
+    "Customer Name":"Cubix Outdoors",
+    "Quarter 3 Revenue":7216.01,
+    "Quarter 4 Revenue":7744.4706,
+    "Variance":528.4606,
+    "Percentage of Variance":7.3234460595
+  },
+  {
+    "Customer Name":"CUFT",
+    "Quarter 3 Revenue":445.74,
+    "Quarter 4 Revenue":10558.91255,
+    "Variance":10113.17255,
+    "Percentage of Variance":2268.8501256338
+  },
+  {
+    "Customer Name":"Denver Seminary",
+    "Quarter 3 Revenue":3889.12,
+    "Quarter 4 Revenue":11699.9481,
+    "Variance":7810.8281,
+    "Percentage of Variance":200.8379299173
+  },
+  {
+    "Customer Name":"Digital Gamechanging",
+    "Quarter 3 Revenue":4700.0,
+    "Quarter 4 Revenue":9604.0,
+    "Variance":4904.0,
+    "Percentage of Variance":104.3404255319
+  },
+  {
+    "Customer Name":"Don't Tell Comedy",
+    "Quarter 3 Revenue":60.0,
+    "Quarter 4 Revenue":8982.632,
+    "Variance":8922.632,
+    "Percentage of Variance":14871.0533333333
+  },
+  {
+    "Customer Name":"Drop Thesis",
+    "Quarter 3 Revenue":1289.07,
+    "Quarter 4 Revenue":3474.2617,
+    "Variance":2185.1917,
+    "Percentage of Variance":169.5169152955
+  },
+  {
+    "Customer Name":"Algofy - Other Clients",
+    "Quarter 3 Revenue":1809.78,
+    "Quarter 4 Revenue":3370.53,
+    "Variance":1560.75,
+    "Percentage of Variance":86.2397639492
+  },
+  {
+    "Customer Name":"Fishermen's Source",
+    "Quarter 3 Revenue":750.0,
+    "Quarter 4 Revenue":225.0,
+    "Variance":-525.0,
+    "Percentage of Variance":-70.0
+  },
+  {
+    "Customer Name":"Full Bloom",
+    "Quarter 3 Revenue":2459.1,
+    "Quarter 4 Revenue":0.0,
+    "Variance":-2459.1,
+    "Percentage of Variance":-100.0
+  },
+  {
+    "Customer Name":"Giant Loop",
+    "Quarter 3 Revenue":7585.39,
+    "Quarter 4 Revenue":29944.269675,
+    "Variance":22358.879675,
+    "Percentage of Variance":294.7624271791
+  },
+  {
+    "Customer Name":"Gorge Design Group, LLC",
+    "Quarter 3 Revenue":1056.97,
+    "Quarter 4 Revenue":2525.6212,
+    "Variance":1468.6512,
+    "Percentage of Variance":138.9491849343
+  },
+  {
+    "Customer Name":"Hippo Hands",
+    "Quarter 3 Revenue":20.69,
+    "Quarter 4 Revenue":20797.06145,
+    "Variance":20776.37145,
+    "Percentage of Variance":100417.4550507492
+  },
+  {
+    "Customer Name":"Hoot and a half",
+    "Quarter 3 Revenue":1112.5,
+    "Quarter 4 Revenue":6808.3333333333,
+    "Variance":5695.8333333333,
+    "Percentage of Variance":511.9850187266
+  },
+  {
+    "Customer Name":"Innervision Eyewear, Inc.",
+    "Quarter 3 Revenue":1758.84,
+    "Quarter 4 Revenue":3286.6,
+    "Variance":1527.76,
+    "Percentage of Variance":86.8617952742
+  },
+  {
+    "Customer Name":"Jacquelyn Levin DO Inc.",
+    "Quarter 3 Revenue":1000.0,
+    "Quarter 4 Revenue":17865.0,
+    "Variance":16865.0,
+    "Percentage of Variance":1686.5
+  },
+  {
+    "Customer Name":"LISS",
+    "Quarter 3 Revenue":3445.51,
+    "Quarter 4 Revenue":11231.02835,
+    "Variance":7785.51835,
+    "Percentage of Variance":225.9612756892
+  },
+  {
+    "Customer Name":"Live A Great Story",
+    "Quarter 3 Revenue":800.0,
+    "Quarter 4 Revenue":2900.0,
+    "Variance":2100.0,
+    "Percentage of Variance":262.5
+  },
+  {
+    "Customer Name":"Marine Concepts Acquisition, LLC",
+    "Quarter 3 Revenue":1162.42,
+    "Quarter 4 Revenue":10123.5314,
+    "Variance":8961.1114,
+    "Percentage of Variance":770.9013437484
+  },
+  {
+    "Customer Name":"Molyneaux",
+    "Quarter 3 Revenue":8058.12,
+    "Quarter 4 Revenue":23578.76,
+    "Variance":15520.64,
+    "Percentage of Variance":192.6086978104
+  },
+  {
+    "Customer Name":"Moon Fabrications",
+    "Quarter 3 Revenue":4964.6,
+    "Quarter 4 Revenue":18060.2,
+    "Variance":13095.6,
+    "Percentage of Variance":263.7795592797
+  },
+  {
+    "Customer Name":"NACCAP",
+    "Quarter 3 Revenue":2800.0,
+    "Quarter 4 Revenue":5660.0,
+    "Variance":2860.0,
+    "Percentage of Variance":102.1428571429
+  },
+  {
+    "Customer Name":"No See Um",
+    "Quarter 3 Revenue":1867.22,
+    "Quarter 4 Revenue":5960.7897,
+    "Variance":4093.5697,
+    "Percentage of Variance":219.2333897452
+  },
+  {
+    "Customer Name":"NovaBay Pharmaceuticals, Inc.",
+    "Quarter 3 Revenue":2599.48,
+    "Quarter 4 Revenue":8179.792725,
+    "Variance":5580.312725,
+    "Percentage of Variance":214.6703465693
+  },
+  {
+    "Customer Name":"Nuu-Muu",
+    "Quarter 3 Revenue":2850.0,
+    "Quarter 4 Revenue":12316.03245,
+    "Variance":9466.03245,
+    "Percentage of Variance":332.1414894737
+  },
+  {
+    "Customer Name":"Optivations",
+    "Quarter 3 Revenue":60935.25,
+    "Quarter 4 Revenue":226542.8685,
+    "Variance":165607.6185,
+    "Percentage of Variance":271.776383128
+  },
+  {
+    "Customer Name":"Physical Therapy Billing Services",
+    "Quarter 3 Revenue":2450.0,
+    "Quarter 4 Revenue":6797.3938,
+    "Variance":4347.3938,
+    "Percentage of Variance":177.444644898
+  },
+  {
+    "Customer Name":"Puffin Coolers",
+    "Quarter 3 Revenue":1868.88,
+    "Quarter 4 Revenue":17925.862125,
+    "Variance":16056.982125,
+    "Percentage of Variance":859.176732856
+  },
+  {
+    "Customer Name":"Redline Digital",
+    "Quarter 3 Revenue":4786.6,
+    "Quarter 4 Revenue":14024.25,
+    "Variance":9237.65,
+    "Percentage of Variance":192.9898048719
+  },
+  {
+    "Customer Name":"RiseFuel",
+    "Quarter 3 Revenue":500.0,
+    "Quarter 4 Revenue":1500.0,
+    "Variance":1000.0,
+    "Percentage of Variance":200.0
+  },
+  {
+    "Customer Name":"Sabal Swim",
+    "Quarter 3 Revenue":2972.54,
+    "Quarter 4 Revenue":6594.34985,
+    "Variance":3621.80985,
+    "Percentage of Variance":121.8422577997
+  },
+  {
+    "Customer Name":"Silverwood Advisors, LLC",
+    "Quarter 3 Revenue":3240.49,
+    "Quarter 4 Revenue":7394.0011,
+    "Variance":4153.5111,
+    "Percentage of Variance":128.1754024854
+  },
+  {
+    "Customer Name":"Simarine",
+    "Quarter 3 Revenue":1449.26,
+    "Quarter 4 Revenue":2942.23185,
+    "Variance":1492.97185,
+    "Percentage of Variance":103.0161496212
+  },
+  {
+    "Customer Name":"Spout Water",
+    "Quarter 3 Revenue":2670.1,
+    "Quarter 4 Revenue":6775.8,
+    "Variance":4105.7,
+    "Percentage of Variance":153.7657765627
+  },
+  {
+    "Customer Name":"Thompson Creek",
+    "Quarter 3 Revenue":6307.0,
+    "Quarter 4 Revenue":2700.0,
+    "Variance":-3607.0,
+    "Percentage of Variance":-57.1904233391
+  },
+  {
+    "Customer Name":"TVRBO",
+    "Quarter 3 Revenue":1922.75,
+    "Quarter 4 Revenue":7493.625,
+    "Variance":5570.875,
+    "Percentage of Variance":289.7347549083
+  },
+  {
+    "Customer Name":"USWE",
+    "Quarter 3 Revenue":5391.23,
+    "Quarter 4 Revenue":24030.1936956856,
+    "Variance":18638.9636956856,
+    "Percentage of Variance":345.7274814038
+  },
+  {
+    "Customer Name":"USWE (VOID Cycling)",
+    "Quarter 3 Revenue":3589.86,
+    "Quarter 4 Revenue":7964.8183570332,
+    "Variance":4374.9583570332,
+    "Percentage of Variance":121.8698878796
+  },
+  {
+    "Customer Name":"VioScapes",
+    "Quarter 3 Revenue":2650.03,
+    "Quarter 4 Revenue":10248.19155,
+    "Variance":7598.16155,
+    "Percentage of Variance":286.7198314736
+  },
+  {
+    "Customer Name":"Woo More Play",
+    "Quarter 3 Revenue":13664.23,
+    "Quarter 4 Revenue":39954.7788,
+    "Variance":26290.5488,
+    "Percentage of Variance":192.4041735246
+  },
+  {
+    "Customer Name":"Wrappon USA",
+    "Quarter 3 Revenue":2254.91,
+    "Quarter 4 Revenue":7777.53095,
+    "Variance":5522.62095,
+    "Percentage of Variance":244.9153602583
+  },
+  {
+    "Customer Name":"Zipp's Liquor",
+    "Quarter 3 Revenue":1294.75,
+    "Quarter 4 Revenue":4563.2707,
+    "Variance":3268.5207,
+    "Percentage of Variance":252.4441552423
+  },
+  {
+    "Customer Name":"Curateur",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":4500.0,
+    "Variance":4500.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Iron Decoy",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":11218.2536,
+    "Variance":11218.2536,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Rain Eye Drops",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":10730.7426,
+    "Variance":10730.7426,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Ryoken Instinct",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":2657.1,
+    "Variance":2657.1,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"YZ Productions (Rebecca Zamolo)",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":13841.7296,
+    "Variance":13841.7296,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"VLS",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":7100.605,
+    "Variance":7100.605,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Andersen Manufacturing, Inc.",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":12635.4892,
+    "Variance":12635.4892,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Easy Peasie LLC",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":1561.17845,
+    "Variance":1561.17845,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Sock Tech Solutions Inc.",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":940.14285,
+    "Variance":940.14285,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Verisure",
+    "Quarter 3 Revenue":11027.95719,
+    "Quarter 4 Revenue":20981.844294,
+    "Variance":9953.887104,
+    "Percentage of Variance":90.2604800917
+  },
+  {
+    "Customer Name":"Nomad",
+    "Quarter 3 Revenue":3750.0,
+    "Quarter 4 Revenue":11250.0,
+    "Variance":7500.0,
+    "Percentage of Variance":200.0
+  },
+  {
+    "Customer Name":"Agency_True Partner",
+    "Quarter 3 Revenue":43853.519525,
+    "Quarter 4 Revenue":51381.01157388,
+    "Variance":7527.49204888,
+    "Percentage of Variance":17.1650807744
+  },
+  {
+    "Customer Name":"Brasil Paralelo",
+    "Quarter 3 Revenue":5000.0,
+    "Quarter 4 Revenue":15000.0,
+    "Variance":10000.0,
+    "Percentage of Variance":200.0
+  },
+  {
+    "Customer Name":"Ifood",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":17500.0,
+    "Variance":17500.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"CookUnity",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":50000.0,
+    "Variance":50000.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"HellyHansen",
+    "Quarter 3 Revenue":12000.0,
+    "Quarter 4 Revenue":140365.880108313,
+    "Variance":128365.880108313,
+    "Percentage of Variance":1069.7156675693
+  },
+  {
+    "Customer Name":"Kape",
+    "Quarter 3 Revenue":8000.0,
+    "Quarter 4 Revenue":48818.56,
+    "Variance":40818.56,
+    "Percentage of Variance":510.232
+  },
+  {
+    "Customer Name":"Action Medical Research",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":8076.9230769231,
+    "Variance":8076.9230769231,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Ashleigh & Burwood",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":8467.7419354839,
+    "Variance":8467.7419354839,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"BCRT",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":1693.5483870968,
+    "Variance":1693.5483870968,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Biona",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":21332.1753515302,
+    "Variance":21332.1753515302,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Bountiful Cow (Stiga & Mountfield)",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":21569.3134822167,
+    "Variance":21569.3134822167,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Cloud Gateway ",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":20589.3300248139,
+    "Variance":20589.3300248139,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Downey",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":3908.1885856079,
+    "Variance":3908.1885856079,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"EIT",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":45213.3320926385,
+    "Variance":45213.3320926385,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Enhance Medical Group",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":11985.111662531,
+    "Variance":11985.111662531,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Flexi Offices",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":24532.6716294458,
+    "Variance":24532.6716294458,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Goodman",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":7816.3771712159,
+    "Variance":7816.3771712159,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Jigsaw",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":3705.5417700579,
+    "Variance":3705.5417700579,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"John Lewis of Hungerford",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":10421.8362282878,
+    "Variance":10421.8362282878,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Junkwize",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":1954.094292804,
+    "Variance":1954.094292804,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Knight Frank",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":88980.5624483044,
+    "Variance":88980.5624483044,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mazda",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":43746.8808933002,
+    "Variance":43746.8808933002,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MKS",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":24609.7518610422,
+    "Variance":24609.7518610422,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Nutanix",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":31959.5982905983,
+    "Variance":31959.5982905983,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Octopus Investments",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":18238.2133995037,
+    "Variance":18238.2133995037,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"One Trust",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":58622.8287841191,
+    "Variance":58622.8287841191,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Quintain Living",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":7816.3771712159,
+    "Variance":7816.3771712159,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Rambert +",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":8447.8908188586,
+    "Variance":8447.8908188586,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Residential Land",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":3970.223325062,
+    "Variance":3970.223325062,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Shoosmith LLP",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":15606.699751861,
+    "Variance":15606.699751861,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"SilverDoor",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":11724.5657568238,
+    "Variance":11724.5657568238,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"SS&C Advent (OTM)",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":9422.0430107527,
+    "Variance":9422.0430107527,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Star Brands Limited ",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":11333.746898263,
+    "Variance":11333.746898263,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"The 7 stars",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":33569.2721257237,
+    "Variance":33569.2721257237,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"The Baytree Centre",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":1693.5483870968,
+    "Variance":1693.5483870968,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"The People's Pension",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":14412.7377998346,
+    "Variance":14412.7377998346,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"TPXimpact (OTM)",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":1666.6666666667,
+    "Variance":1666.6666666667,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Treble Peak (OTM)",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":1666.6666666667,
+    "Variance":1666.6666666667,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"TUTC",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":1954.094292804,
+    "Variance":1954.094292804,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Wellers Law Group",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":11910.6699751861,
+    "Variance":11910.6699751861,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Waverton Investment Management",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":2500.0,
+    "Variance":2500.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Wowcher",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":19180.49,
+    "Variance":19180.49,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Career Step, LLC.",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":11108.53,
+    "Variance":11108.53,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Active Home Health & Hospice",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":5150.426,
+    "Variance":5150.426,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Adam's Moving Service",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":4839.36,
+    "Variance":4839.36,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Advisor Labs",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":3880.2,
+    "Variance":3880.2,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Caddis Capital",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":14518.306,
+    "Variance":14518.306,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Christopherson\nBusiness Travel",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":3794.756,
+    "Variance":3794.756,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MHM Services, Inc. d\/b\/a\nCenturion Group, Inc.",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":4672.74,
+    "Variance":4672.74,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Cook Builders",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":1500.0,
+    "Variance":1500.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"DIGNITY HHH",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":5516.79,
+    "Variance":5516.79,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"DISCOVER HEALING",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":8655.84385,
+    "Variance":8655.84385,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Flex Health Solutions",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":5707.0,
+    "Variance":5707.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"flyADVANCED Aviation Group",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":5553.0,
+    "Variance":5553.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Henness & Haight",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":11250.0,
+    "Variance":11250.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Labworks",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":5427.808,
+    "Variance":5427.808,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Novva Data Centers",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":2503.27,
+    "Variance":2503.27,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Parthenon Company, Inc.",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":500.0,
+    "Variance":500.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Premier Equestrian",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":7140.878,
+    "Variance":7140.878,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Schneider Builders",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":2000.0,
+    "Variance":2000.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Shaolin Arts",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":2450.0,
+    "Variance":2450.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"SubZero",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":1091.926,
+    "Variance":1091.926,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Taffy Town",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":4303.516,
+    "Variance":4303.516,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Disaster Company",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":9276.05,
+    "Variance":9276.05,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Verlux",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":950.114,
+    "Variance":950.114,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"XR3D Studios, Inc.",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":780.802,
+    "Variance":780.802,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"San Francisco Design",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":6500.0,
+    "Variance":6500.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Scentsy",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":500.0,
+    "Variance":500.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARCO DB Companies, Inc.",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":6080.0,
+    "Variance":6080.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Renee Atelier",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":2500.0,
+    "Variance":2500.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Swanson Lathen Prestwich",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":5029.0,
+    "Variance":5029.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"TAMS",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":3825.0,
+    "Variance":3825.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"White Elegance",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":1877.966,
+    "Variance":1877.966,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"AM & Co.",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":3808.0,
+    "Variance":3808.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Expert Services Utah",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":2960.0,
+    "Variance":2960.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"The Adventure People",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":68.2382133995,
+    "Variance":68.2382133995,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Co-Rep",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":41.3564929694,
+    "Variance":41.3564929694,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"My Medical Gateway",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Ramble Worlwide",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Reef",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"University LLC",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Pacific Adventure Works",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Garretson LLC ",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Kanbrick LLC",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Reef",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"AstralTech Labs LLC",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"California Design Den, Inc.",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Cardzilla",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Chelsea Reece LLC",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Funky Bites",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"AYPA",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Stupid Smart University",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Regal Insurance",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"401 K Go",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Air 7",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Alloy Patent Law",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Andavo Meetings & Incentives",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Andavo Travel",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Arive Homes",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Aspire Construction",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Blackrock Builders",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Burton Energy Group",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Culpa Coffee House",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Dennis Miller Homes",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Excel Eye Center",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Harper Precast",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Highland Custom Homes",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Launch Leads",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Law Office of Vernon Brownlee",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Morgan Pavement",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Obermeyer Wood",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"OJB Landscape\nArchitecture",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Reed\u2019s Built In\u2019s\nWEB DESIGN & DEVELOPMENT",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Rowland Hall",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Specialty Contractor",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"The Freebie Guy",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"West Canyon Ranch",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Zermatt",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Manwill",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Kirton McConkie",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Marshall Industries",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Registered Physical Therapists",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Southport Marketing",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Think Architecture",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Pacific Arboriculture",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"NVR Inc.",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Ketto",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":5817.0,
+    "Variance":5817.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Stately",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":3000.0,
+    "Variance":3000.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Next Staffing",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Mid Market Account-344",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"PackFire",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Northbound Strategy",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Red Tree Builders",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Law Office of Hassan Ahmed",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Bajamate",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"QSGI, Inc.",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Shelton Keller Group, Inc.",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"BlueFin Vision",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Dalcour Mclaren",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Deviceful",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"DUBS",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Bridge Masters, Inc.",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Fore Company ",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"LUSOM\u00c9 Inc.",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Preston Lynn",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"HFG Trust, LLC",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Illuminate Youth Trips & ROAM",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Moab Giants",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Silver Leaf Communities, LLC",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Volo Loans",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Marissa Crookston",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Coastal Steel Structures",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Tylers Coffee",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Love Diva'",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"AEP Energy, Inc.",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"Wolfe Lighting",
+    "Quarter 3 Revenue":0.0,
+    "Quarter 4 Revenue":0.0,
+    "Variance":0.0,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":null,
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"MRR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  },
+  {
+    "Customer Name":"ARR Added",
+    "Quarter 3 Revenue":null,
+    "Quarter 4 Revenue":null,
+    "Variance":null,
+    "Percentage of Variance":null
+  }
+]
