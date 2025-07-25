@@ -26,14 +26,19 @@ def load_json_data(file_path):
         return []
 
 
-def initialize_openai():
-    """Initialize OpenAI client using environment variables or Streamlit secrets"""
-    # Try Streamlit secrets first (for cloud deployment), then fall back to .env
-    try:
-        api_key = st.secrets["OPENAI_API_KEY"]
-    except:
-        load_dotenv()
-        api_key = os.getenv("OPENAI_API_KEY")
+def initialize_openai(user_api_key=None):
+    """Initialize OpenAI client using user input, environment variables or Streamlit secrets"""
+    api_key = None
+    
+    # Priority: 1) User input, 2) Streamlit secrets, 3) .env file
+    if user_api_key and user_api_key.strip():
+        api_key = user_api_key.strip()
+    else:
+        try:
+            api_key = st.secrets["OPENAI_API_KEY"]
+        except:
+            load_dotenv()
+            api_key = os.getenv("OPENAI_API_KEY")
     
     if api_key and api_key.strip():
         try:
@@ -41,12 +46,14 @@ def initialize_openai():
             client = openai.OpenAI(api_key=api_key.strip())
             # Store the client in session state for reuse
             st.session_state.openai_client = client
+            st.session_state.api_key_valid = True
             return True
         except Exception as e:
-            st.error(f"Error initializing OpenAI client: {str(e)}")
+            st.session_state.api_key_valid = False
+            st.error(f"Invalid OpenAI API key: {str(e)}")
             return False
     else:
-        st.error("OpenAI API key not found. Please configure OPENAI_API_KEY in Streamlit secrets or .env file.")
+        st.session_state.api_key_valid = False
         return False
 
 def validate_uploaded_file(uploaded_file):
@@ -92,10 +99,6 @@ def show_loading_screen():
     st.rerun()
 
 def main():
-    # Initialize OpenAI at the start
-    if 'openai_initialized' not in st.session_state:
-        st.session_state.openai_initialized = initialize_openai()
-    
     # Add company branding
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
@@ -104,6 +107,73 @@ def main():
         st.markdown("<h3 style='text-align: center; color: #666;'>📊 Revenue Analytics Dashboard</h3>", unsafe_allow_html=True)
     
     st.markdown("---")
+    
+    # API Key Configuration Section
+    st.sidebar.markdown("---")
+    st.sidebar.subheader("🔑 AI Configuration")
+    
+    # Initialize session state for API key
+    if 'user_api_key' not in st.session_state:
+        st.session_state.user_api_key = ""
+    if 'api_key_valid' not in st.session_state:
+        st.session_state.api_key_valid = False
+    
+    # API Key input in sidebar
+    user_api_key = st.sidebar.text_input(
+        "Enter OpenAI API Key:",
+        value=st.session_state.user_api_key,
+        type="password",
+        help="Enter your OpenAI API key to enable AI features (Executive Summary & Chatbot)",
+        placeholder="sk-proj-..."
+    )
+    
+    # Clear API key button
+    col1, col2 = st.sidebar.columns(2)
+    with col1:
+        if st.button("🗑️ Clear", help="Clear the API key"):
+            st.session_state.user_api_key = ""
+            st.session_state.api_key_valid = False
+            if 'openai_client' in st.session_state:
+                del st.session_state['openai_client']
+            st.rerun()
+    
+    with col2:
+        if user_api_key.strip() and st.button("🔄 Test", help="Test the API key"):
+            with st.spinner("Testing API key..."):
+                initialize_openai(user_api_key)
+    
+    # Update session state and initialize OpenAI when key changes
+    if user_api_key != st.session_state.user_api_key:
+        st.session_state.user_api_key = user_api_key
+        if user_api_key.strip():
+            with st.sidebar:
+                with st.spinner("Validating API key..."):
+                    initialize_openai(user_api_key)
+        else:
+            # Try to initialize with environment/secrets if no user input
+            initialize_openai()
+    elif not st.session_state.get('openai_initialized', False):
+        # Initialize on first load
+        initialize_openai(user_api_key if user_api_key.strip() else None)
+        st.session_state.openai_initialized = True
+    
+    # Show API key status
+    if user_api_key.strip():
+        if st.session_state.get('api_key_valid', False):
+            st.sidebar.success("✅ API Key Valid - AI features enabled")
+        else:
+            st.sidebar.error("❌ Invalid API Key - AI features disabled")
+    else:
+        # Try to use environment/secrets
+        if not st.session_state.get('api_key_valid', False):
+            initialize_openai()
+        
+        if st.session_state.get('api_key_valid', False):
+            st.sidebar.info("🔐 Using configured API key - AI features enabled")
+        else:
+            st.sidebar.warning("⚠️ No API key provided - AI features disabled")
+    
+    st.sidebar.markdown("---")
     
     # Original JSON files mapping
     original_files = {
@@ -454,6 +524,22 @@ Keep it concise and data-driven."""
 def add_ai_sections(data, view_title):
     """Add AI executive summary and chatbot sections to any view"""
     st.markdown("---")
+    
+    # Check if API key is valid
+    if not st.session_state.get('api_key_valid', False):
+        st.subheader("🤖 AI Features")
+        st.info("💡 **Enable AI Features**: Enter your OpenAI API key in the sidebar to unlock:")
+        st.write("• **Executive Summary** - AI-powered insights for this data")
+        st.write("• **Interactive Chatbot** - Ask questions about your revenue data")
+        st.write("• **Custom Analysis** - Get specific recommendations and trends")
+        
+        with st.expander("🔗 How to get an OpenAI API Key"):
+            st.write("1. Go to [OpenAI Platform](https://platform.openai.com/api-keys)")
+            st.write("2. Sign up or log in to your account")
+            st.write("3. Create a new API key")
+            st.write("4. Copy and paste it in the sidebar")
+            st.write("5. Start asking questions about your data!")
+        return
     
     # Executive Summary Section
     st.subheader("🤖 AI Executive Summary")
