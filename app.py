@@ -27,15 +27,26 @@ def load_json_data(file_path):
 
 
 def initialize_openai():
-    """Initialize OpenAI client using .env file"""
-    load_dotenv()
-    api_key = os.getenv("OPENAI_API_KEY")
+    """Initialize OpenAI client using environment variables or Streamlit secrets"""
+    # Try Streamlit secrets first (for cloud deployment), then fall back to .env
+    try:
+        api_key = st.secrets["OPENAI_API_KEY"]
+    except:
+        load_dotenv()
+        api_key = os.getenv("OPENAI_API_KEY")
     
-    if api_key:
-        openai.api_key = api_key
-        return True
+    if api_key and api_key.strip():
+        try:
+            # Test the API key by creating a client
+            client = openai.OpenAI(api_key=api_key.strip())
+            # Store the client in session state for reuse
+            st.session_state.openai_client = client
+            return True
+        except Exception as e:
+            st.error(f"Error initializing OpenAI client: {str(e)}")
+            return False
     else:
-        st.error("OpenAI API key not found in .env file")
+        st.error("OpenAI API key not found. Please configure OPENAI_API_KEY in Streamlit secrets or .env file.")
         return False
 
 def validate_uploaded_file(uploaded_file):
@@ -81,6 +92,10 @@ def show_loading_screen():
     st.rerun()
 
 def main():
+    # Initialize OpenAI at the start
+    if 'openai_initialized' not in st.session_state:
+        st.session_state.openai_initialized = initialize_openai()
+    
     # Add company branding
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
@@ -266,8 +281,8 @@ def load_specific_data_context(data, view_title):
 
 def generate_view_summary(data, view_title):
     """Generate AI executive summary for specific view"""
-    if not initialize_openai():
-        return None
+    if not st.session_state.get('openai_initialized', False):
+        return "OpenAI API key not configured. Please check your .env file."
     
     try:
         data_context = load_specific_data_context(data, view_title)
@@ -308,7 +323,7 @@ Create a focused executive summary with:
 
 Keep the response concise but comprehensive, focusing specifically on this dataset only."""
 
-        client = openai.OpenAI()
+        client = st.session_state.openai_client
         response = client.chat.completions.create(
             model="gpt-4o",
             messages=[{"role": "user", "content": prompt}],
@@ -323,8 +338,8 @@ Keep the response concise but comprehensive, focusing specifically on this datas
 
 def display_view_chatbot(data, view_title):
     """Display chatbot for specific view"""
-    if not initialize_openai():
-        st.error("OpenAI API key not configured")
+    if not st.session_state.get('openai_initialized', False):
+        st.error("OpenAI API key not configured. Please check your .env file.")
         return
     
     st.subheader(f"💬 Ask Questions About {view_title}")
@@ -419,7 +434,7 @@ Provide a focused answer with:
 
 Keep it concise and data-driven."""
 
-                    client = openai.OpenAI()
+                    client = st.session_state.openai_client
                     response = client.chat.completions.create(
                         model="gpt-4o",
                         messages=[{"role": "user", "content": prompt}],
@@ -525,8 +540,8 @@ def display_churn_analysis(df, data, view_title):
     # Revenue bridge waterfall chart
     st.subheader("Revenue Bridge Analysis")
     
-    revenue_categories = ['Q3 Revenue', 'New Revenue', 'Expansion Revenue', 
-                         'Contraction Revenue', 'Churned Revenue', 'Q4 Revenue']
+    revenue_categories = ['Nov Revenue', 'New Revenue', 'Expansion Revenue', 
+                         'Contraction Revenue', 'Churned Revenue', 'Dec Revenue']
     
     q3_total = df['Quarter 3 Revenue'].sum()
     new_total = df['New Revenue'].sum()
@@ -547,7 +562,7 @@ def display_churn_analysis(df, data, view_title):
         connector={"line": {"color": "rgb(63, 63, 63)"}},
     ))
     
-    fig.update_layout(title="Revenue Bridge: Q3 to Q4", showlegend=False)
+    fig.update_layout(title="Revenue Bridge: November to December", showlegend=False)
     st.plotly_chart(fig, use_container_width=True)
     
     # Detailed table
