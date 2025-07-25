@@ -4,8 +4,17 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from pathlib import Path
+import openai
+import os
+from dotenv import load_dotenv
+import time
 
-st.set_page_config(page_title="Revenue Analytics Dashboard", layout="wide")
+st.set_page_config(
+    page_title="Zenalyst.ai - Revenue Analytics Dashboard",
+    #page_icon="zenalyst ai.jpg",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 
 def load_json_data(file_path):
     """Load and return JSON data from file"""
@@ -16,49 +25,445 @@ def load_json_data(file_path):
         st.error(f"Error loading {file_path}: {e}")
         return []
 
+
+def initialize_openai():
+    """Initialize OpenAI client using .env file"""
+    load_dotenv()
+    api_key = os.getenv("OPENAI_API_KEY")
+    
+    if api_key:
+        openai.api_key = api_key
+        return True
+    else:
+        st.error("OpenAI API key not found in .env file")
+        return False
+
+def validate_uploaded_file(uploaded_file):
+    """Validate uploaded Excel file"""
+    try:
+        # Read Excel file
+        df = pd.read_excel(uploaded_file)
+        
+        # Convert datetime columns to strings to avoid JSON serialization issues
+        for col in df.columns:
+            if df[col].dtype == 'datetime64[ns]' or pd.api.types.is_datetime64_any_dtype(df[col]):
+                df[col] = df[col].dt.strftime('%Y-%m-%d %H:%M:%S')
+        
+        # Fill NaN values with None for JSON compatibility
+        df = df.where(pd.notnull(df), None)
+        
+        # Convert DataFrame to list of dictionaries (JSON-like format)
+        data = df.to_dict('records')
+        return data
+    except Exception as e:
+        st.error(f"Error parsing {uploaded_file.name}: {str(e)}")
+        return None
+
+def show_loading_screen():
+    """Display 30-second loading screen"""
+    st.markdown("### 🚀 Processing Your Data...")
+    st.markdown("Please wait while we analyze your revenue files...")
+    
+    progress_bar = st.progress(0)
+    status_text = st.empty()
+    
+    for i in range(30):
+        progress = (i + 1) / 30
+        progress_bar.progress(progress)
+        status_text.text(f'⚡ Analyzing data... {30-i} seconds remaining')
+        time.sleep(1)
+    
+    status_text.text('✅ Analysis complete! Redirecting to dashboard...')
+    time.sleep(1)
+    
+    # Mark loading as complete
+    st.session_state.loading_complete = True
+    st.rerun()
+
 def main():
-    st.title("📊 Revenue Analytics Dashboard")
+    # Add company branding
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        #st.image("zenalyst ai.jpg", width=200)
+        st.markdown("<h1 style='text-align: center; color: #1f77b4;'> Zenalyst.ai</h1>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; color: #666;'>📊 Revenue Analytics Dashboard</h3>", unsafe_allow_html=True)
+    
     st.markdown("---")
     
-    # File mapping with clean titles
-    files = {
+    # Original JSON files mapping
+    original_files = {
         "Quarterly Revenue & QoQ Growth": "A._Quarterly_Revenue_and_QoQ_growth.json",
         "Revenue Bridge & Churn Analysis": "B._Revenue_Bridge_and_Churned_Analysis.json", 
         "Country-wise Revenue Analysis": "C._Country_wise_Revenue_Analysis.json",
-        "Region-wise Revenue Analysis": "D._Region_wise_Revenue_Analysis.json",
         "Customer Concentration Analysis": "E._Customer_concentration_analysis.json",
         "Month-on-Month Revenue Analysis": "F._Month_on_Month_Revenue_analysis.json"
     }
     
+    # Initialize session state
+    if "data_source" not in st.session_state:
+        st.session_state.data_source = "original"  # Default to original files
+    if "files_uploaded" not in st.session_state:
+        st.session_state.files_uploaded = False
+    if "loading_complete" not in st.session_state:
+        st.session_state.loading_complete = False
+    if "uploaded_data" not in st.session_state:
+        st.session_state.uploaded_data = {}
+    
     # Sidebar for navigation
+    st.sidebar.image("zenalyst ai.jpg", width=150)
     st.sidebar.title("📈 Analytics Views")
-    selected_view = st.sidebar.selectbox("Select Analysis Type:", list(files.keys()))
     
-    # Load selected data
-    file_path = files[selected_view]
-    data = load_json_data(file_path)
+    # Data source selector
+    data_source = st.sidebar.radio(
+        "Choose Data Source:",
+        ["📄 Original JSON Files", "📊 Upload New Files"],
+        index=0 if st.session_state.data_source == "original" else 1
+    )
     
-    if not data:
-        st.error("No data available for selected view")
+    if data_source == "📄 Original JSON Files":
+        st.session_state.data_source = "original"
+        
+        # Show original JSON file options
+        available_views = list(original_files.keys())
+        selected_view = st.sidebar.selectbox("Select Analysis Type:", available_views)
+        
+        # Load and display original data
+        file_path = original_files[selected_view]
+        data = load_json_data(file_path)
+        
+        if not data:
+            st.error(f"No data available for {selected_view}")
+            return
+        
+        df = pd.DataFrame(data)
+        
+        # Display based on selected view
+        if selected_view == "Quarterly Revenue & QoQ Growth":
+            display_quarterly_analysis(df, data, selected_view)
+        elif selected_view == "Revenue Bridge & Churn Analysis": 
+            display_churn_analysis(df, data, selected_view)
+        elif selected_view == "Country-wise Revenue Analysis":
+            display_country_analysis(df, data, selected_view)
+        elif selected_view == "Customer Concentration Analysis":
+            display_customer_concentration_analysis(df, data, selected_view)
+        elif selected_view == "Month-on-Month Revenue Analysis":
+            display_month_on_month_analysis(df, data, selected_view)
+    
+    else:  # Upload New Files
+        st.session_state.data_source = "uploaded"
+        
+        # Show upload interface if files not uploaded or loading not complete
+        if not st.session_state.files_uploaded or not st.session_state.loading_complete:
+            
+            if not st.session_state.files_uploaded:
+                # File upload interface
+                st.markdown("### 📁 Upload Your Revenue Data")
+                st.markdown("Upload your Excel files to start analyzing your revenue data with AI-powered insights.")
+                
+                uploaded_files = st.file_uploader(
+                    "Choose Excel files",
+                    type=['xlsx', 'xls'],
+                    accept_multiple_files=True,
+                    help="Upload your revenue analysis Excel files (.xlsx or .xls)"
+                )
+                
+                if uploaded_files and len(uploaded_files) > 0:
+                    st.success(f"✅ {len(uploaded_files)} file(s) uploaded successfully!")
+                    
+                    # Validate and store uploaded files
+                    valid_files = {}
+                    for uploaded_file in uploaded_files:
+                        data = validate_uploaded_file(uploaded_file)
+                        if data:
+                            # Map files based on content patterns
+                            filename = uploaded_file.name.lower()
+                            if "quarterly" in filename or "qoq" in filename:
+                                valid_files["Quarterly Revenue & QoQ Growth"] = data
+                            elif "bridge" in filename or "churn" in filename:
+                                valid_files["Revenue Bridge & Churn Analysis"] = data
+                            elif "country" in filename:
+                                valid_files["Country-wise Revenue Analysis"] = data
+                            elif "customer" in filename or "concentration" in filename:
+                                valid_files["Customer Concentration Analysis"] = data
+                            elif "month" in filename or "mom" in filename:
+                                valid_files["Month-on-Month Revenue Analysis"] = data
+                            else:
+                                # Default mapping based on file order or name
+                                view_name = f"Analysis - {uploaded_file.name}"
+                                valid_files[view_name] = data
+                    
+                    if valid_files:
+                        st.session_state.uploaded_data = valid_files
+                        
+                        if st.button("📊 Start Analysis", type="primary"):
+                            st.session_state.files_uploaded = True
+                            st.rerun()
+            
+            elif st.session_state.files_uploaded and not st.session_state.loading_complete:
+                # Show loading screen
+                show_loading_screen()
+            
+            return  # Don't show dashboard until upload and loading complete
+        
+        # Show dashboard for uploaded files
+        available_views = list(st.session_state.uploaded_data.keys())
+        if not available_views:
+            st.error("No valid data files found. Please upload valid Excel files.")
+            if st.sidebar.button("🔄 Reset Upload"):
+                st.session_state.files_uploaded = False
+                st.session_state.loading_complete = False
+                st.session_state.uploaded_data = {}
+                st.rerun()
+            return
+        
+        selected_view = st.sidebar.selectbox("Select Analysis Type:", available_views)
+        
+        # Add reset button in sidebar
+        st.sidebar.markdown("---")
+        if st.sidebar.button("🔄 Upload New Files"):
+            st.session_state.files_uploaded = False
+            st.session_state.loading_complete = False
+            st.session_state.uploaded_data = {}
+            st.rerun()
+        
+        # Load selected data from uploaded files
+        data = st.session_state.uploaded_data[selected_view]
+        df = pd.DataFrame(data)
+        
+        # Display based on selected view (now with integrated AI)
+        if "quarterly" in selected_view.lower() or "qoq" in selected_view.lower():
+            display_quarterly_analysis(df, data, selected_view)
+        elif "bridge" in selected_view.lower() or "churn" in selected_view.lower():
+            display_churn_analysis(df, data, selected_view)
+        elif "country" in selected_view.lower():
+            display_country_analysis(df, data, selected_view)
+        elif "customer" in selected_view.lower() or "concentration" in selected_view.lower():
+            display_customer_concentration_analysis(df, data, selected_view)
+        elif "month" in selected_view.lower() or "mom" in selected_view.lower():
+            display_month_on_month_analysis(df, data, selected_view)
+        else:
+            # Generic display for unknown file types
+            st.header(f"📊 {selected_view}")
+            st.subheader("Data Overview")
+            st.dataframe(df, use_container_width=True)
+            add_ai_sections(data, selected_view)
+
+def load_specific_data_context(data, view_title):
+    """Load specific JSON data as formatted context for OpenAI"""
+    context = f"Revenue Analytics Data for {view_title}:\n\n"
+    context += f"Dataset: {view_title}\n"
+    
+    try:
+        if len(str(data)) > 15000:  # Truncate very large datasets
+            context += f"{json.dumps(data[:100], indent=2, default=str)}\n... (truncated, showing first 100 records)\n\n"
+        else:
+            context += f"{json.dumps(data, indent=2, default=str)}\n\n"
+    except (TypeError, ValueError) as e:
+        # Fallback to string representation if JSON serialization fails
+        context += f"Data (as string): {str(data)[:10000]}...\n\n"
+    
+    return context
+
+def generate_view_summary(data, view_title):
+    """Generate AI executive summary for specific view"""
+    if not initialize_openai():
+        return None
+    
+    try:
+        data_context = load_specific_data_context(data, view_title)
+        
+        # Create view-specific prompt
+        view_prompts = {
+            "Quarterly Revenue & QoQ Growth": "Analyze Q3 vs Q4 customer performance, growth patterns, and variance insights. Focus on top performers and concerning trends.",
+            "Revenue Bridge & Churn Analysis": "Analyze churn patterns, expansion/contraction insights, new vs lost revenue, and customer retention metrics.",
+            "Country-wise Revenue Analysis": "Analyze geographic revenue distribution, market performance, and international growth opportunities.",
+            "Region-wise Revenue Analysis": "Analyze regional performance patterns, growth opportunities, and geographic concentration risks.",
+            "Customer Concentration Analysis": "Analyze customer concentration risks, top performer insights, revenue dependencies, and customer portfolio health.",
+            "Month-on-Month Revenue Analysis": "Analyze monthly revenue trends, seasonal patterns, growth momentum, and forecasting insights."
+        }
+        
+        specific_instruction = view_prompts.get(view_title, "Analyze the revenue data and provide key insights.")
+        
+        prompt = f"""You are a senior business intelligence analyst. {specific_instruction}
+
+{data_context}
+
+Create a focused executive summary with:
+
+## Key Insights
+- 3-4 most important findings from this data
+- Specific numbers and percentages
+
+## Performance Highlights
+- Top performers and standout metrics
+- Notable trends and patterns
+
+## Risk Factors
+- Potential concerns or red flags
+- Areas requiring attention
+
+## Strategic Recommendations
+- 2-3 actionable next steps
+- Optimization opportunities
+
+Keep the response concise but comprehensive, focusing specifically on this dataset only."""
+
+        client = openai.OpenAI()
+        response = client.chat.completions.create(
+            model="gpt-4o",
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=1500,
+            temperature=0.3
+        )
+        
+        return response.choices[0].message.content
+        
+    except Exception as e:
+        return f"Error generating summary: {str(e)}"
+
+def display_view_chatbot(data, view_title):
+    """Display chatbot for specific view"""
+    if not initialize_openai():
+        st.error("OpenAI API key not configured")
         return
     
-    df = pd.DataFrame(data)
+    st.subheader(f"💬 Ask Questions About {view_title}")
     
-    # Display based on selected view
-    if selected_view == "Quarterly Revenue & QoQ Growth":
-        display_quarterly_analysis(df)
-    elif selected_view == "Revenue Bridge & Churn Analysis": 
-        display_churn_analysis(df)
-    elif selected_view == "Country-wise Revenue Analysis":
-        display_country_analysis(df)
-    elif selected_view == "Region-wise Revenue Analysis":
-        display_region_analysis(df)
-    elif selected_view == "Customer Concentration Analysis":
-        display_customer_concentration_analysis(df)
-    elif selected_view == "Month-on-Month Revenue Analysis":
-        display_month_on_month_analysis(df)
+    # Initialize chat history for this view
+    chat_key = f"chat_history_{view_title}"
+    if chat_key not in st.session_state:
+        st.session_state[chat_key] = []
+    
+    # Quick question buttons specific to each view
+    view_questions = {
+        "Quarterly Revenue & QoQ Growth": [
+            "Which customers had the highest growth from Q3 to Q4?",
+            "What was the overall revenue variance between quarters?",
+            "Which customers are showing declining performance?"
+        ],
+        "Revenue Bridge & Churn Analysis": [
+            "What's our churn rate and which customers churned?",
+            "How much revenue came from expansion vs new customers?",
+            "Which customers show contraction risks?"
+        ],
+        "Country-wise Revenue Analysis": [
+            "Which countries generate the most revenue?",
+            "What percentage of revenue comes from the top 5 countries?",
+            "Are there emerging markets with growth potential?"
+        ],
+        "Region-wise Revenue Analysis": [
+            "How is revenue distributed across regions?",
+            "Which regions show the strongest performance?",
+            "Are there regional concentration risks?"
+        ],
+        "Customer Concentration Analysis": [
+            "Who are our top 10 customers by revenue?",
+            "What's our customer concentration risk?",
+            "How dependent are we on our largest customers?"
+        ],
+        "Month-on-Month Revenue Analysis": [
+            "What are the monthly growth trends in 2024?",
+            "Which months showed the strongest performance?",
+            "Are there seasonal patterns in our revenue?"
+        ]
+    }
+    
+    questions = view_questions.get(view_title, [])
+    
+    if questions:
+        st.write("**Quick Questions:**")
+        cols = st.columns(len(questions))
+        for i, question in enumerate(questions):
+            with cols[i]:
+                if st.button(f"❓ {question[:30]}...", key=f"q_{view_title}_{i}"):
+                    st.session_state[f"current_question_{view_title}"] = question
+    
+    # Chat input
+    question_key = f"current_question_{view_title}"
+    if question_key in st.session_state:
+        user_question = st.session_state[question_key]
+        del st.session_state[question_key]
+    else:
+        user_question = st.chat_input(f"Ask about {view_title} data...", key=f"chat_{view_title}")
+    
+    # Display chat history
+    for message in st.session_state[chat_key]:
+        with st.chat_message(message["role"]):
+            st.write(message["content"])
+    
+    # Process new question
+    if user_question:
+        # Add user message
+        st.session_state[chat_key].append({"role": "user", "content": user_question})
+        
+        with st.chat_message("user"):
+            st.write(user_question)
+        
+        # Generate response
+        with st.chat_message("assistant"):
+            with st.spinner("Analyzing..."):
+                try:
+                    data_context = load_specific_data_context(data, view_title)
+                    
+                    prompt = f"""You are a business analyst. Answer the user's question based on this specific dataset only.
 
-def display_quarterly_analysis(df):
+{data_context}
+
+User Question: {user_question}
+
+Provide a focused answer with:
+1. Direct response to the question
+2. Specific data points and numbers
+3. Brief analysis of what this means
+4. One actionable insight if applicable
+
+Keep it concise and data-driven."""
+
+                    client = openai.OpenAI()
+                    response = client.chat.completions.create(
+                        model="gpt-4o",
+                        messages=[{"role": "user", "content": prompt}],
+                        max_tokens=800,
+                        temperature=0.5
+                    )
+                    
+                    ai_response = response.choices[0].message.content
+                    st.write(ai_response)
+                    
+                    # Add to chat history
+                    st.session_state[chat_key].append({"role": "assistant", "content": ai_response})
+                    
+                except Exception as e:
+                    st.error(f"Error: {str(e)}")
+
+def add_ai_sections(data, view_title):
+    """Add AI executive summary and chatbot sections to any view"""
+    st.markdown("---")
+    
+    # Executive Summary Section
+    st.subheader("🤖 AI Executive Summary")
+    
+    summary_key = f"summary_{view_title}"
+    if summary_key not in st.session_state:
+        with st.spinner("Generating AI insights..."):
+            st.session_state[summary_key] = generate_view_summary(data, view_title)
+    
+    if st.session_state[summary_key]:
+        st.markdown(st.session_state[summary_key])
+        
+        col1, col2 = st.columns([1, 4])
+        with col1:
+            if st.button("🔄 Regenerate", key=f"regen_{view_title}"):
+                with st.spinner("Regenerating insights..."):
+                    st.session_state[summary_key] = generate_view_summary(data, view_title)
+                    st.rerun()
+    
+    st.markdown("---")
+    
+    # Chatbot Section
+    display_view_chatbot(data, view_title)
+
+def display_quarterly_analysis(df, data, view_title):
     st.header("📅 Quarterly Revenue & QoQ Growth Analysis")
     
     col1, col2 = st.columns(2)
@@ -96,8 +501,11 @@ def display_quarterly_analysis(df):
         filtered_df = filtered_df[filtered_df['Variance'] > 0]
     
     st.dataframe(filtered_df, use_container_width=True)
+    
+    # Add AI sections
+    add_ai_sections(data, view_title)
 
-def display_churn_analysis(df):
+def display_churn_analysis(df, data, view_title):
     st.header("🔄 Revenue Bridge & Churn Analysis")
     
     col1, col2, col3 = st.columns(3)
@@ -145,8 +553,11 @@ def display_churn_analysis(df):
     # Detailed table
     st.subheader("Customer-wise Revenue Bridge")
     st.dataframe(df, use_container_width=True)
+    
+    # Add AI sections
+    add_ai_sections(data, view_title)
 
-def display_country_analysis(df):
+def display_country_analysis(df, data, view_title):
     st.header("🌍 Country-wise Revenue Analysis")
     
     # Remove null values and sort by revenue
@@ -183,40 +594,11 @@ def display_country_analysis(df):
     # Full data table
     st.subheader("All Countries")
     st.dataframe(df_clean, use_container_width=True)
+    
+    # Add AI sections
+    add_ai_sections(data, view_title)
 
-def display_region_analysis(df):
-    st.header("🗺️ Region-wise Revenue Analysis")
-    
-    # Filter out null revenues
-    df_clean = df[df['Yearly Revenue'].notna()]
-    
-    if df_clean.empty:
-        st.warning("No revenue data available for regions")
-        return
-    
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        st.subheader("Regional Revenue")
-        fig = px.bar(df_clean, x='Region', y='Yearly Revenue',
-                    title="Revenue by Region")
-        st.plotly_chart(fig, use_container_width=True)
-    
-    with col2:
-        st.subheader("Regional Distribution")
-        fig = px.pie(df_clean, values='Yearly Revenue', names='Region',
-                    title="Revenue Share by Region")
-        st.plotly_chart(fig, use_container_width=True)
-    
-    # Metrics
-    total_revenue = df_clean['Yearly Revenue'].sum()
-    st.metric("Total Regional Revenue", f"${total_revenue:,.2f}")
-    
-    # Data table
-    st.subheader("Regional Breakdown")
-    st.dataframe(df_clean, use_container_width=True)
-
-def display_customer_concentration_analysis(df):
+def display_customer_concentration_analysis(df, data, view_title):
     st.header("👥 Customer Concentration Analysis")
     
     # Sort by revenue descending
@@ -352,8 +734,11 @@ def display_customer_concentration_analysis(df):
     filtered_df = filtered_df.head(show_top_n)
     
     st.dataframe(filtered_df, use_container_width=True)
+    
+    # Add AI sections
+    add_ai_sections(data, view_title)
 
-def display_month_on_month_analysis(df):
+def display_month_on_month_analysis(df, data, view_title):
     st.header("📈 Month-on-Month Revenue Analysis")
     
     # Convert Month to datetime
@@ -517,6 +902,9 @@ def display_month_on_month_analysis(df):
     display_df['Variance (%)'] = display_df['Variance (%)'].apply(lambda x: f"{x:.2f}%")
     
     st.dataframe(display_df, use_container_width=True)
+    
+    # Add AI sections
+    add_ai_sections(data, view_title)
 
 if __name__ == "__main__":
     main()
