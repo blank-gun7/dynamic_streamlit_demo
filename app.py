@@ -26,7 +26,8 @@ def main():
         "Revenue Bridge & Churn Analysis": "B._Revenue_Bridge_and_Churned_Analysis.json", 
         "Country-wise Revenue Analysis": "C._Country_wise_Revenue_Analysis.json",
         "Region-wise Revenue Analysis": "D._Region_wise_Revenue_Analysis.json",
-        "Customer Concentration Analysis": "E._Customer_concentration_analysis.json"
+        "Customer Concentration Analysis": "E._Customer_concentration_analysis.json",
+        "Month-on-Month Revenue Analysis": "F._Month_on_Month_Revenue_analysis.json"
     }
     
     # Sidebar for navigation
@@ -54,6 +55,8 @@ def main():
         display_region_analysis(df)
     elif selected_view == "Customer Concentration Analysis":
         display_customer_concentration_analysis(df)
+    elif selected_view == "Month-on-Month Revenue Analysis":
+        display_month_on_month_analysis(df)
 
 def display_quarterly_analysis(df):
     st.header("📅 Quarterly Revenue & QoQ Growth Analysis")
@@ -349,6 +352,171 @@ def display_customer_concentration_analysis(df):
     filtered_df = filtered_df.head(show_top_n)
     
     st.dataframe(filtered_df, use_container_width=True)
+
+def display_month_on_month_analysis(df):
+    st.header("📈 Month-on-Month Revenue Analysis")
+    
+    # Convert Month to datetime
+    df['Month'] = pd.to_datetime(df['Month'])
+    df['Month_Label'] = df['Month'].dt.strftime('%b %Y')
+    df = df.sort_values('Month')
+    
+    # Key metrics
+    col1, col2, col3, col4 = st.columns(4)
+    
+    with col1:
+        total_revenue = df['Revenue'].sum()
+        st.metric("Total Revenue (2024)", f"${total_revenue:,.2f}")
+    
+    with col2:
+        avg_monthly = df['Revenue'].mean()
+        st.metric("Average Monthly Revenue", f"${avg_monthly:,.2f}")
+    
+    with col3:
+        max_month = df.loc[df['Revenue'].idxmax()]
+        st.metric("Best Month", max_month['Month_Label'])
+        st.metric("Best Month Revenue", f"${max_month['Revenue']:,.2f}")
+    
+    with col4:
+        latest_variance = df.iloc[-1]['Variance in %']
+        st.metric("Latest MoM Growth", f"{latest_variance:.2f}%")
+    
+    # Revenue trend chart
+    st.subheader("Monthly Revenue Trend")
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        fig = px.line(df, x='Month_Label', y='Revenue', 
+                     title='Monthly Revenue Trend',
+                     markers=True)
+        fig.update_layout(xaxis_tickangle=-45)
+        fig.update_traces(line=dict(width=3), marker=dict(size=8))
+        st.plotly_chart(fig, use_container_width=True)
+    
+    with col2:
+        # Month-over-Month variance chart
+        df_positive = df[df['Variance in %'] >= 0]
+        df_negative = df[df['Variance in %'] < 0]
+        
+        fig = go.Figure()
+        
+        if not df_positive.empty:
+            fig.add_trace(go.Bar(
+                x=df_positive['Month_Label'],
+                y=df_positive['Variance in %'],
+                name='Positive Growth',
+                marker_color='green',
+                text=[f"{x:.1f}%" for x in df_positive['Variance in %']],
+                textposition='outside'
+            ))
+        
+        if not df_negative.empty:
+            fig.add_trace(go.Bar(
+                x=df_negative['Month_Label'],
+                y=df_negative['Variance in %'],
+                name='Negative Growth',
+                marker_color='red',
+                text=[f"{x:.1f}%" for x in df_negative['Variance in %']],
+                textposition='outside'
+            ))
+        
+        fig.update_layout(
+            title='Month-over-Month Growth %',
+            xaxis_title='Month',
+            yaxis_title='Growth %',
+            xaxis_tickangle=-45,
+            showlegend=True
+        )
+        st.plotly_chart(fig, use_container_width=True)
+    
+    # Revenue variance analysis
+    st.subheader("Revenue Variance Analysis")
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        # Variance amount chart
+        colors = ['green' if x >= 0 else 'red' for x in df['Variance in amount']]
+        fig = px.bar(df, x='Month_Label', y='Variance in amount',
+                    title='Monthly Revenue Variance (Amount)',
+                    color=df['Variance in amount'],
+                    color_continuous_scale=['red', 'green'])
+        fig.update_layout(xaxis_tickangle=-45)
+        st.plotly_chart(fig, use_container_width=True)
+    
+    with col2:
+        # Growth phases analysis
+        growth_months = len(df[df['Variance in %'] > 0])
+        decline_months = len(df[df['Variance in %'] < 0])
+        stable_months = len(df[df['Variance in %'] == 0])
+        
+        phase_data = pd.DataFrame({
+            'Phase': ['Growth', 'Decline', 'Stable'],
+            'Months': [growth_months, decline_months, stable_months]
+        })
+        
+        fig = px.pie(phase_data, values='Months', names='Phase',
+                    title='Growth vs Decline Months',
+                    color_discrete_map={'Growth': 'green', 'Decline': 'red', 'Stable': 'blue'})
+        st.plotly_chart(fig, use_container_width=True)
+    
+    # Quarterly aggregation
+    st.subheader("Quarterly Performance Summary")
+    
+    df['Quarter'] = df['Month'].dt.to_period('Q')
+    quarterly_data = df.groupby('Quarter').agg({
+        'Revenue': 'sum',
+        'Variance in amount': 'sum'
+    }).reset_index()
+    quarterly_data['Quarter'] = quarterly_data['Quarter'].astype(str)
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        fig = px.bar(quarterly_data, x='Quarter', y='Revenue',
+                    title='Quarterly Revenue Summary',
+                    text='Revenue')
+        fig.update_traces(texttemplate='$%{text:,.0f}', textposition='outside')
+        st.plotly_chart(fig, use_container_width=True)
+    
+    with col2:
+        st.subheader("Quarterly Metrics")
+        for _, row in quarterly_data.iterrows():
+            st.metric(
+                f"{row['Quarter']} Revenue", 
+                f"${row['Revenue']:,.2f}",
+                f"${row['Variance in amount']:,.2f}"
+            )
+    
+    # Growth insights
+    st.subheader("Growth Insights")
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        best_growth_month = df.loc[df['Variance in %'].idxmax()]
+        st.info(f"**Best Growth Month:** {best_growth_month['Month_Label']} with {best_growth_month['Variance in %']:.2f}% growth")
+    
+    with col2:
+        worst_decline_month = df.loc[df['Variance in %'].idxmin()]
+        st.warning(f"**Worst Decline Month:** {worst_decline_month['Month_Label']} with {worst_decline_month['Variance in %']:.2f}% decline")
+    
+    with col3:
+        avg_growth_rate = df['Variance in %'].mean()
+        st.success(f"**Average MoM Growth:** {avg_growth_rate:.2f}%")
+    
+    # Detailed monthly table
+    st.subheader("Detailed Monthly Data")
+    
+    # Format the display dataframe
+    display_df = df[['Month_Label', 'Revenue', 'Variance in amount', 'Variance in %']].copy()
+    display_df.columns = ['Month', 'Revenue ($)', 'Variance Amount ($)', 'Variance (%)']
+    display_df['Revenue ($)'] = display_df['Revenue ($)'].apply(lambda x: f"${x:,.2f}")
+    display_df['Variance Amount ($)'] = display_df['Variance Amount ($)'].apply(lambda x: f"${x:,.2f}")
+    display_df['Variance (%)'] = display_df['Variance (%)'].apply(lambda x: f"{x:.2f}%")
+    
+    st.dataframe(display_df, use_container_width=True)
 
 if __name__ == "__main__":
     main()
