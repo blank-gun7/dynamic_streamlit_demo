@@ -201,11 +201,11 @@ def main():
     # Data source selector
     data_source = st.sidebar.radio(
         "Choose Data Source:",
-        [" Upload New Files", "Detailed Analysis"],
+        ["📄 Original JSON Files", "📊 Upload New Files"],
         index=0 if st.session_state.data_source == "original" else 1
     )
     
-    if data_source == "Detailed Analysis":
+    if data_source == "📄 Original JSON Files":
         st.session_state.data_source = "original"
         
         # Show original JSON file options
@@ -234,7 +234,7 @@ def main():
         elif selected_view == "Month-on-Month Revenue Analysis":
             display_month_on_month_analysis(df, data, selected_view)
     
-    else:  # Upload New Files
+    else:  # 📊 Upload New Files
         st.session_state.data_source = "uploaded"
         
         # Show upload interface if files not uploaded or loading not complete
@@ -408,8 +408,8 @@ Keep the response concise but comprehensive, focusing specifically on this datas
 
 def display_view_chatbot(data, view_title):
     """Display chatbot for specific view"""
-    if not st.session_state.get('openai_initialized', False):
-        st.error("OpenAI API key not configured. Please check your .env file.")
+    if not st.session_state.get('api_key_valid', False):
+        st.error("OpenAI API key not configured. Please enter your API key in the sidebar.")
         return
     
     st.subheader(f"💬 Ask Questions About {view_title}")
