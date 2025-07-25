@@ -25,7 +25,8 @@ def main():
         "Quarterly Revenue & QoQ Growth": "A._Quarterly_Revenue_and_QoQ_growth.json",
         "Revenue Bridge & Churn Analysis": "B._Revenue_Bridge_and_Churned_Analysis.json", 
         "Country-wise Revenue Analysis": "C._Country_wise_Revenue_Analysis.json",
-        "Region-wise Revenue Analysis": "D._Region_wise_Revenue_Analysis.json"
+        "Region-wise Revenue Analysis": "D._Region_wise_Revenue_Analysis.json",
+        "Customer Concentration Analysis": "E._Customer_concentration_analysis.json"
     }
     
     # Sidebar for navigation
@@ -51,6 +52,8 @@ def main():
         display_country_analysis(df)
     elif selected_view == "Region-wise Revenue Analysis":
         display_region_analysis(df)
+    elif selected_view == "Customer Concentration Analysis":
+        display_customer_concentration_analysis(df)
 
 def display_quarterly_analysis(df):
     st.header("📅 Quarterly Revenue & QoQ Growth Analysis")
@@ -209,6 +212,143 @@ def display_region_analysis(df):
     # Data table
     st.subheader("Regional Breakdown")
     st.dataframe(df_clean, use_container_width=True)
+
+def display_customer_concentration_analysis(df):
+    st.header("👥 Customer Concentration Analysis")
+    
+    # Sort by revenue descending
+    df_sorted = df.sort_values('Total Revenue', ascending=False)
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.subheader("Key Metrics")
+        total_revenue = df_sorted['Total Revenue'].sum()
+        top_customer = df_sorted.iloc[0]
+        top_5_revenue = df_sorted.head(5)['Total Revenue'].sum()
+        top_10_revenue = df_sorted.head(10)['Total Revenue'].sum()
+        
+        st.metric("Total Revenue", f"${total_revenue:,.2f}")
+        st.metric("Top Customer", top_customer['Customer Name'])
+        st.metric("Top Customer Revenue", f"${top_customer['Total Revenue']:,.2f}")
+        st.metric("Top 5 Customers %", f"{(top_5_revenue/total_revenue)*100:.1f}%")
+        st.metric("Top 10 Customers %", f"{(top_10_revenue/total_revenue)*100:.1f}%")
+    
+    with col2:
+        st.subheader("Top 10 Customers by Revenue")
+        top_10 = df_sorted.head(10)
+        fig = px.bar(top_10, x='Total Revenue', y='Customer Name',
+                    title="Top 10 Customers by Total Revenue",
+                    orientation='h')
+        fig.update_layout(yaxis={'categoryorder':'total ascending'})
+        st.plotly_chart(fig, use_container_width=True)
+    
+    # Revenue concentration analysis
+    st.subheader("Revenue Concentration Analysis")
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        # Pareto chart
+        df_sorted_reset = df_sorted.reset_index(drop=True)
+        df_sorted_reset['Cumulative Revenue'] = df_sorted_reset['Total Revenue'].cumsum()
+        df_sorted_reset['Cumulative %'] = (df_sorted_reset['Cumulative Revenue'] / total_revenue) * 100
+        
+        # Show top 20 for better visualization
+        top_20 = df_sorted_reset.head(20)
+        
+        fig = go.Figure()
+        fig.add_trace(go.Bar(
+            x=top_20.index + 1,
+            y=top_20['Total Revenue'],
+            name='Revenue',
+            yaxis='y'
+        ))
+        fig.add_trace(go.Scatter(
+            x=top_20.index + 1,
+            y=top_20['Cumulative %'],
+            mode='lines+markers',
+            name='Cumulative %',
+            yaxis='y2',
+            line=dict(color='red')
+        ))
+        
+        fig.update_layout(
+            title='Customer Revenue Pareto Analysis (Top 20)',
+            xaxis_title='Customer Rank',
+            yaxis=dict(title='Revenue ($)', side='left'),
+            yaxis2=dict(title='Cumulative %', side='right', overlaying='y'),
+            showlegend=True
+        )
+        st.plotly_chart(fig, use_container_width=True)
+    
+    with col2:
+        # Revenue distribution pie chart
+        top_15 = df_sorted.head(15)
+        others_revenue = total_revenue - top_15['Total Revenue'].sum()
+        
+        # Create pie chart data
+        pie_data = top_15[['Customer Name', 'Total Revenue']].copy()
+        if others_revenue > 0:
+            pie_data = pd.concat([pie_data, pd.DataFrame({
+                'Customer Name': ['Others'],
+                'Total Revenue': [others_revenue]
+            })], ignore_index=True)
+        
+        fig = px.pie(pie_data, values='Total Revenue', names='Customer Name',
+                    title="Revenue Distribution (Top 15 + Others)")
+        st.plotly_chart(fig, use_container_width=True)
+    
+    # Revenue tiers analysis
+    st.subheader("Customer Revenue Tiers")
+    
+    # Define revenue tiers
+    tier_1M = df_sorted[df_sorted['Total Revenue'] >= 1000000]
+    tier_500K = df_sorted[(df_sorted['Total Revenue'] >= 500000) & (df_sorted['Total Revenue'] < 1000000)]
+    tier_100K = df_sorted[(df_sorted['Total Revenue'] >= 100000) & (df_sorted['Total Revenue'] < 500000)]
+    tier_below_100K = df_sorted[df_sorted['Total Revenue'] < 100000]
+    
+    col1, col2, col3, col4 = st.columns(4)
+    
+    with col1:
+        st.metric("$1M+ Customers", len(tier_1M))
+        st.metric("$1M+ Revenue", f"${tier_1M['Total Revenue'].sum():,.2f}")
+    
+    with col2:
+        st.metric("$500K-$1M Customers", len(tier_500K))
+        st.metric("$500K-$1M Revenue", f"${tier_500K['Total Revenue'].sum():,.2f}")
+    
+    with col3:
+        st.metric("$100K-$500K Customers", len(tier_100K))
+        st.metric("$100K-$500K Revenue", f"${tier_100K['Total Revenue'].sum():,.2f}")
+    
+    with col4:
+        st.metric("Below $100K Customers", len(tier_below_100K))
+        st.metric("Below $100K Revenue", f"${tier_below_100K['Total Revenue'].sum():,.2f}")
+    
+    # Search and filter functionality
+    st.subheader("Customer Search & Analysis")
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        search_term = st.text_input("Search Customer Name:", "")
+        min_revenue_filter = st.number_input("Minimum Revenue Filter:", value=0.0, step=1000.0)
+    
+    with col2:
+        show_top_n = st.slider("Show Top N Customers:", min_value=10, max_value=100, value=50)
+    
+    # Apply filters
+    filtered_df = df_sorted.copy()
+    
+    if search_term:
+        filtered_df = filtered_df[filtered_df['Customer Name'].str.contains(search_term, case=False, na=False)]
+    
+    if min_revenue_filter > 0:
+        filtered_df = filtered_df[filtered_df['Total Revenue'] >= min_revenue_filter]
+    
+    filtered_df = filtered_df.head(show_top_n)
+    
+    st.dataframe(filtered_df, use_container_width=True)
 
 if __name__ == "__main__":
     main()
