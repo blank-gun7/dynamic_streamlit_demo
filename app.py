@@ -131,11 +131,11 @@ def main():
     # Data source selector
     data_source = st.sidebar.radio(
         "Choose Data Source:",
-        ["📄 Original JSON Files", "📊 Upload New Files"],
+        [" Upload New Files", "Detailed Analysis"],
         index=0 if st.session_state.data_source == "original" else 1
     )
     
-    if data_source == "📄 Original JSON Files":
+    if data_source == "Detailed Analysis":
         st.session_state.data_source = "original"
         
         # Show original JSON file options
@@ -540,8 +540,8 @@ def display_churn_analysis(df, data, view_title):
     # Revenue bridge waterfall chart
     st.subheader("Revenue Bridge Analysis")
     
-    revenue_categories = ['Nov Revenue', 'New Revenue', 'Expansion Revenue', 
-                         'Contraction Revenue', 'Churned Revenue', 'Dec Revenue']
+    revenue_categories = ['Sep Revenue', 'New Revenue', 'Expansion Revenue', 
+                         'Contraction Revenue', 'Churned Revenue', 'Oct Revenue']
     
     q3_total = df['Quarter 3 Revenue'].sum()
     new_total = df['New Revenue'].sum()
@@ -562,7 +562,7 @@ def display_churn_analysis(df, data, view_title):
         connector={"line": {"color": "rgb(63, 63, 63)"}},
     ))
     
-    fig.update_layout(title="Revenue Bridge: November to December", showlegend=False)
+    fig.update_layout(title="Revenue Bridge: September to October", showlegend=False)
     st.plotly_chart(fig, use_container_width=True)
     
     # Detailed table
