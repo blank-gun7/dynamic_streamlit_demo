@@ -6,6 +6,8 @@ import sqlite3
 import hashlib
 import numpy as np
 from datetime import datetime
+import time
+import random
 
 def json_serializer(obj):
     """Custom JSON serializer for datetime and other problematic objects"""
@@ -416,6 +418,409 @@ class ChatBot:
         else:
             return f"I can help you analyze {self.data_type} data. Try asking about totals, top performers, averages, or customer counts."
 
+def generate_mock_llm_analysis():
+    """Generate 5 mock JSON analysis results simulating LLM output"""
+    
+    # Mock analysis results that would come from your LLM architecture
+    mock_analyses = {
+        "financial_health_score": {
+            "overall_score": 85,
+            "revenue_growth": 22.5,
+            "market_position": "Strong",
+            "risk_factors": ["Customer concentration", "Geographic dependency"],
+            "opportunities": ["International expansion", "Product diversification"],
+            "financial_metrics": {
+                "revenue_growth_rate": "22.5%",
+                "profit_margin": "18.3%",
+                "cash_flow": "Positive",
+                "debt_to_equity": "0.45"
+            },
+            "prediction": "Strong growth trajectory expected for next 2 quarters"
+        },
+        
+        "market_analysis": {
+            "market_size": "$2.4B",
+            "company_market_share": "3.2%",
+            "competitive_position": "Top 10 player",
+            "growth_potential": "High",
+            "key_competitors": ["CompetitorA", "CompetitorB", "CompetitorC"],
+            "market_trends": {
+                "trend_1": "Increasing demand for digital solutions",
+                "trend_2": "Shift towards subscription models",
+                "trend_3": "ESG compliance becoming critical"
+            },
+            "swot_analysis": {
+                "strengths": ["Strong technology", "Experienced team", "Market leadership"],
+                "weaknesses": ["Limited geographical presence", "High customer concentration"],
+                "opportunities": ["AI integration", "International markets", "New verticals"],
+                "threats": ["Economic downturn", "New regulations", "Competitive pressure"]
+            }
+        },
+        
+        "risk_assessment": {
+            "overall_risk_level": "Medium",
+            "risk_score": 65,
+            "key_risks": [
+                {
+                    "risk": "Customer Concentration",
+                    "impact": "High",
+                    "probability": "Medium",
+                    "mitigation": "Diversify customer base"
+                },
+                {
+                    "risk": "Market Competition",
+                    "impact": "Medium", 
+                    "probability": "High",
+                    "mitigation": "Strengthen competitive moat"
+                },
+                {
+                    "risk": "Economic Downturn",
+                    "impact": "High",
+                    "probability": "Low",
+                    "mitigation": "Build cash reserves"
+                }
+            ],
+            "regulatory_compliance": "Good",
+            "financial_stability": "Strong",
+            "operational_risks": "Low to Medium"
+        },
+        
+        "growth_projections": {
+            "next_quarter_revenue": "$12.5M",
+            "next_year_revenue": "$48.2M",
+            "growth_rate_projection": "28% annually",
+            "confidence_level": "High",
+            "quarterly_projections": [
+                {"quarter": "Q1 2024", "projected_revenue": 12.5, "confidence": 85},
+                {"quarter": "Q2 2024", "projected_revenue": 13.8, "confidence": 80},
+                {"quarter": "Q3 2024", "projected_revenue": 14.2, "confidence": 75},
+                {"quarter": "Q4 2024", "projected_revenue": 15.1, "confidence": 70}
+            ],
+            "key_growth_drivers": [
+                "Product innovation",
+                "Market expansion", 
+                "Strategic partnerships",
+                "Operational efficiency"
+            ],
+            "potential_challenges": [
+                "Supply chain disruption",
+                "Talent acquisition",
+                "Regulatory changes"
+            ]
+        },
+        
+        "investment_recommendation": {
+            "recommendation": "BUY",
+            "target_valuation": "$85M",
+            "confidence_score": 78,
+            "investment_horizon": "2-3 years",
+            "key_reasons": [
+                "Strong revenue growth trajectory",
+                "Experienced management team",
+                "Large addressable market",
+                "Competitive advantages"
+            ],
+            "concerns": [
+                "Customer concentration risk",
+                "Market competition intensity"
+            ],
+            "suggested_investment_amount": "$5M - $8M",
+            "expected_roi": "3.2x - 4.5x",
+            "exit_strategy": ["Strategic acquisition", "IPO in 3-4 years"],
+            "due_diligence_notes": "Recommend deeper dive into customer contracts and competitive positioning"
+        }
+    }
+    
+    return mock_analyses
+
+def show_processing_animation():
+    """Show 30-second processing animation"""
+    progress_bar = st.progress(0)
+    status_text = st.empty()
+    
+    processing_messages = [
+        "🔍 Analyzing revenue data...",
+        "📊 Processing financial metrics...", 
+        "🎯 Evaluating market position...",
+        "⚡ Running risk assessment...",
+        "🚀 Generating growth projections...",
+        "💡 Compiling investment insights...",
+        "✨ Finalizing analysis..."
+    ]
+    
+    for i in range(30):
+        progress = (i + 1) / 30
+        progress_bar.progress(progress)
+        
+        # Update status message every few seconds
+        message_index = min(i // 5, len(processing_messages) - 1)
+        status_text.text(processing_messages[message_index])
+        
+        time.sleep(1)
+    
+    status_text.text("✅ Analysis complete!")
+    time.sleep(1)
+
+def show_llm_analysis_interface(db, company_id, company_name):
+    """Show the LLM analysis interface with processing and results"""
+    
+    col1, col2 = st.columns([3, 1])
+    with col1:
+        st.title(f"🧠 LLM Analysis - {company_name}")
+    with col2:
+        if st.button("← Back to Portfolio"):
+            if hasattr(st.session_state, 'show_analysis'):
+                del st.session_state.show_analysis
+            if hasattr(st.session_state, 'analyzing_company_id'):
+                del st.session_state.analyzing_company_id
+            if hasattr(st.session_state, 'analyzing_company_name'):
+                del st.session_state.analyzing_company_name
+            st.rerun()
+    
+    # Check if analysis is already completed
+    if not hasattr(st.session_state, f'analysis_complete_{company_id}'):
+        st.info("🚀 Starting comprehensive LLM analysis of your investment data...")
+        
+        # Show processing animation
+        with st.container():
+            st.subheader("🔄 Processing Investment Analysis")
+            show_processing_animation()
+        
+        # Mark analysis as complete
+        st.session_state[f'analysis_complete_{company_id}'] = True
+        st.session_state[f'analysis_results_{company_id}'] = generate_mock_llm_analysis()
+        st.rerun()
+    
+    # Show analysis results
+    analysis_results = st.session_state[f'analysis_results_{company_id}']
+    
+    st.success("✅ Analysis Complete! Here are your detailed insights:")
+    
+    # Create tabs for the 5 analysis types
+    tabs = st.tabs([
+        "💰 Financial Health",
+        "📈 Market Analysis", 
+        "⚠️ Risk Assessment",
+        "🚀 Growth Projections",
+        "💎 Investment Recommendation"
+    ])
+    
+    # Tab 1: Financial Health Score
+    with tabs[0]:
+        st.subheader("💰 Financial Health Analysis")
+        data = analysis_results["financial_health_score"]
+        
+        # Key metrics in columns
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            st.metric("Overall Score", f"{data['overall_score']}/100", delta="↗️ Strong")
+        with col2:
+            st.metric("Revenue Growth", f"{data['revenue_growth']}%", delta="22.5%")
+        with col3:
+            st.metric("Market Position", data['market_position'])
+        with col4:
+            st.metric("Profit Margin", data['financial_metrics']['profit_margin'])
+        
+        # Financial metrics chart
+        metrics_df = pd.DataFrame([
+            {"Metric": "Revenue Growth", "Value": 22.5, "Benchmark": 15},
+            {"Metric": "Profit Margin", "Value": 18.3, "Benchmark": 12},
+            {"Metric": "Cash Flow", "Value": 85, "Benchmark": 70},
+            {"Metric": "Debt Management", "Value": 78, "Benchmark": 65}
+        ])
+        
+        fig = px.bar(metrics_df, x="Metric", y=["Value", "Benchmark"], 
+                    title="Financial Performance vs Industry Benchmark",
+                    barmode='group')
+        st.plotly_chart(fig, use_container_width=True)
+        
+        # Risk factors and opportunities
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader("⚠️ Risk Factors")
+            for risk in data['risk_factors']:
+                st.write(f"• {risk}")
+        with col2:
+            st.subheader("🎯 Opportunities") 
+            for opp in data['opportunities']:
+                st.write(f"• {opp}")
+        
+        st.info(f"📈 Prediction: {data['prediction']}")
+    
+    # Tab 2: Market Analysis
+    with tabs[1]:
+        st.subheader("📈 Market Analysis")
+        data = analysis_results["market_analysis"]
+        
+        # Market overview
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.metric("Market Size", data['market_size'])
+        with col2:
+            st.metric("Market Share", data['company_market_share'])
+        with col3:
+            st.metric("Competitive Position", data['competitive_position'])
+        
+        # SWOT Analysis
+        st.subheader("🎯 SWOT Analysis")
+        swot_col1, swot_col2 = st.columns(2)
+        
+        with swot_col1:
+            st.markdown("**💪 Strengths**")
+            for strength in data['swot_analysis']['strengths']:
+                st.write(f"✅ {strength}")
+            
+            st.markdown("**🚀 Opportunities**")
+            for opp in data['swot_analysis']['opportunities']:
+                st.write(f"💡 {opp}")
+        
+        with swot_col2:
+            st.markdown("**🔧 Weaknesses**")
+            for weakness in data['swot_analysis']['weaknesses']:
+                st.write(f"⚠️ {weakness}")
+                
+            st.markdown("**⚡ Threats**")
+            for threat in data['swot_analysis']['threats']:
+                st.write(f"🚨 {threat}")
+        
+        # Market trends
+        st.subheader("📊 Key Market Trends")
+        for trend, desc in data['market_trends'].items():
+            st.write(f"📈 {desc}")
+    
+    # Tab 3: Risk Assessment
+    with tabs[2]:
+        st.subheader("⚠️ Risk Assessment")
+        data = analysis_results["risk_assessment"]
+        
+        # Overall risk metrics
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.metric("Risk Level", data['overall_risk_level'])
+        with col2:
+            st.metric("Risk Score", f"{data['risk_score']}/100")
+        with col3:
+            st.metric("Financial Stability", data['financial_stability'])
+        
+        # Risk breakdown
+        st.subheader("🎯 Key Risk Analysis")
+        for risk in data['key_risks']:
+            with st.expander(f"🚨 {risk['risk']} - {risk['impact']} Impact"):
+                col1, col2 = st.columns(2)
+                with col1:
+                    st.write(f"**Impact:** {risk['impact']}")
+                    st.write(f"**Probability:** {risk['probability']}")
+                with col2:
+                    st.write(f"**Mitigation:** {risk['mitigation']}")
+        
+        # Risk visualization
+        risk_df = pd.DataFrame(data['key_risks'])
+        fig = px.scatter(risk_df, x="probability", y="impact", 
+                        size=[10, 8, 6], hover_name="risk",
+                        title="Risk Impact vs Probability Matrix")
+        st.plotly_chart(fig, use_container_width=True)
+    
+    # Tab 4: Growth Projections  
+    with tabs[3]:
+        st.subheader("🚀 Growth Projections")
+        data = analysis_results["growth_projections"]
+        
+        # Key projections
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.metric("Next Quarter", data['next_quarter_revenue'])
+        with col2:
+            st.metric("Next Year", data['next_year_revenue']) 
+        with col3:
+            st.metric("Growth Rate", data['growth_rate_projection'])
+        
+        # Quarterly projections chart
+        projections_df = pd.DataFrame(data['quarterly_projections'])
+        
+        fig = px.line(projections_df, x="quarter", y="projected_revenue",
+                     title="Quarterly Revenue Projections",
+                     markers=True)
+        fig.add_bar(x=projections_df["quarter"], y=projections_df["confidence"],
+                   name="Confidence %", yaxis="y2")
+        fig.update_layout(yaxis2=dict(title="Confidence %", overlaying="y", side="right"))
+        st.plotly_chart(fig, use_container_width=True)
+        
+        # Growth drivers and challenges
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader("🎯 Growth Drivers")
+            for driver in data['key_growth_drivers']:
+                st.write(f"🚀 {driver}")
+        with col2:
+            st.subheader("⚠️ Potential Challenges")
+            for challenge in data['potential_challenges']:
+                st.write(f"🔧 {challenge}")
+    
+    # Tab 5: Investment Recommendation
+    with tabs[4]:
+        st.subheader("💎 Investment Recommendation")
+        data = analysis_results["investment_recommendation"]
+        
+        # Main recommendation
+        if data['recommendation'] == 'BUY':
+            st.success(f"🎯 **Recommendation: {data['recommendation']}**")
+        elif data['recommendation'] == 'HOLD':
+            st.warning(f"⚖️ **Recommendation: {data['recommendation']}**")
+        else:
+            st.error(f"🚫 **Recommendation: {data['recommendation']}**")
+        
+        # Key metrics
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            st.metric("Target Valuation", data['target_valuation'])
+        with col2:
+            st.metric("Confidence Score", f"{data['confidence_score']}%")
+        with col3:
+            st.metric("Investment Horizon", data['investment_horizon'])
+        with col4:
+            st.metric("Expected ROI", data['expected_roi'])
+        
+        # Investment details
+        st.subheader("💰 Investment Details")
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.write(f"**Suggested Investment:** {data['suggested_investment_amount']}")
+            st.write("**Exit Strategy:**")
+            for strategy in data['exit_strategy']:
+                st.write(f"• {strategy}")
+        
+        with col2:
+            st.subheader("✅ Key Reasons")
+            for reason in data['key_reasons']:
+                st.write(f"✅ {reason}")
+        
+        # Concerns and due diligence
+        st.subheader("⚠️ Areas of Concern")
+        for concern in data['concerns']:
+            st.write(f"⚠️ {concern}")
+        
+        st.info(f"📋 Due Diligence: {data['due_diligence_notes']}")
+        
+        # Final CTA
+        st.subheader("🎯 Next Steps")
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            if st.button("📊 Request Detailed DD"):
+                st.success("Due diligence package requested!")
+        with col2:
+            if st.button("📞 Schedule Meeting"):
+                st.success("Meeting request sent!")
+        with col3:
+            if st.button("💌 Contact Company"):
+                st.success("Contact request sent!")
+    
+    # Generate PDF report button
+    st.markdown("---")
+    if st.button("📄 Generate PDF Report", type="primary"):
+        st.success("📄 PDF report generated and sent to your email!")
+        st.balloons()
+
 def main():
     db = DatabaseManager()
     auth = AuthManager(db)
@@ -601,16 +1006,29 @@ def investor_dashboard(db):
         else:
             st.info("No companies available to add")
     
-    # Current portfolio
+    # Current portfolio with analysis buttons
     if companies:
         st.write("**Current Portfolio:**")
         for comp in companies:
-            st.write(f"• {comp[1]}")
+            col1, col2 = st.columns([3, 1])
+            with col1:
+                st.write(f"• {comp[1]}")
+            with col2:
+                if st.button(f"Analyze", key=f"analyze_{comp[0]}"):
+                    st.session_state.analyzing_company_id = comp[0]
+                    st.session_state.analyzing_company_name = comp[1]
+                    st.session_state.show_analysis = True
+                    st.rerun()
     else:
         st.warning("No companies in your portfolio yet.")
         return
     
-    # Company selection for analysis
+    # Show analysis interface if a company is being analyzed
+    if hasattr(st.session_state, 'show_analysis') and st.session_state.show_analysis:
+        show_llm_analysis_interface(db, st.session_state.analyzing_company_id, st.session_state.analyzing_company_name)
+        return
+    
+    # Company selection for regular analysis
     st.subheader("📊 Company Analytics")
     company_options = {f"{comp[1]}": comp[0] for comp in companies}
     selected_company_name = st.selectbox("Select Company for Analysis", list(company_options.keys()))
