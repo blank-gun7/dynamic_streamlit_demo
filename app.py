@@ -206,6 +206,20 @@ class DatabaseManager:
         finally:
             conn.close()
     
+    def remove_investor_company_connection(self, investor_id, company_id):
+        """Remove connection between investor and company"""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        try:
+            cursor.execute(
+                "DELETE FROM investor_companies WHERE investor_id = ? AND company_id = ?",
+                (investor_id, company_id)
+            )
+            conn.commit()
+            return cursor.rowcount > 0  # Returns True if row was deleted
+        finally:
+            conn.close()
+    
     def get_company_data(self, company_id):
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
@@ -444,8 +458,170 @@ def load_real_json_analyses():
     
     return analyses
 
-def generate_executive_summary(json_data, analysis_type):
-    """Generate executive summary for each analysis type based on real data"""
+def generate_ai_executive_summary(json_data, analysis_type):
+    """Generate AI-powered executive summary using OpenAI for professional business intelligence"""
+    
+    # Initialize OpenAI client
+    api_key = os.getenv("OPENAI_API_KEY") or st.secrets.get("openai_api_key", "")
+    if not api_key:
+        return generate_fallback_summary(json_data, analysis_type)
+    
+    try:
+        client = OpenAI(api_key=api_key)
+        
+        # Prepare data context (limit size for API)
+        data_sample = json_data[:50] if isinstance(json_data, list) and len(json_data) > 50 else json_data
+        data_context = json.dumps(data_sample, indent=2, default=str)[:8000]  # Limit context size
+        
+        # Create analysis-specific prompts
+        prompts = {
+            "quarterly": f"""You are analyzing Q3 to Q4 quarterly revenue performance data. This dataset contains customer-level revenue data showing Quarter 3 Revenue, Quarter 4 Revenue, Variance (absolute change), and Percentage of Variance (growth rate).
+
+Data Context:
+{data_context}
+
+Provide a comprehensive executive summary analyzing customer growth patterns, revenue variance, and business performance:
+
+## 📈 Key Performance Insights
+- Identify top 3 critical findings from customer revenue analysis with specific metrics
+- Calculate total revenue growth between Q3 and Q4 using actual numbers
+- Analyze customer segmentation by growth performance (high performers vs. declining customers)
+
+## 🎯 Growth Analysis & Trends  
+- Highlight best performing customers with exact growth percentages and revenue figures
+- Identify customers with highest absolute revenue gains
+- Assess overall portfolio momentum and growth distribution patterns
+
+## ⚠️ Risk Assessment & Challenges
+- Flag customers with significant revenue decline or negative variance
+- Identify volatility patterns and potential retention risks
+- Assess revenue concentration and customer dependency risks
+
+## 🚀 Strategic Recommendations
+- Prioritize customer expansion opportunities based on growth trends
+- Suggest retention strategies for declining accounts
+- Recommend revenue optimization tactics based on variance analysis""",
+
+            "bridge": f"""You are a revenue operations expert. Analyze this revenue bridge data showing customer expansion, contraction, and churn patterns.
+
+Data Context:
+{data_context}
+
+Create a professional executive summary with:
+
+## Key Insights
+- Revenue retention and expansion patterns
+- Customer behavior analysis (expansion vs churn)
+- Net revenue retention indicators
+
+## Performance Highlights
+- Top expanding customers and revenue amounts
+- Healthy expansion revenue patterns
+- Customer growth momentum
+
+## Risk Factors
+- Churn patterns and at-risk customers
+- Revenue contraction concerns
+
+## Strategic Recommendations
+- Customer success and retention strategies
+- Expansion revenue optimization opportunities""",
+
+            "geographic": f"""You are a market expansion strategist. Analyze this geographic revenue distribution data across countries and regions.
+
+Data Context:
+{data_context}
+
+Create a professional executive summary with:
+
+## Key Insights
+- Revenue concentration by geography
+- Top performing markets with specific revenue amounts
+- Market penetration patterns
+
+## Performance Highlights
+- Strongest revenue markets and growth opportunities
+- Geographic diversification status
+- International market performance
+
+## Risk Factors
+- Geographic concentration risks
+- Underperforming markets
+
+## Strategic Recommendations
+- Market expansion priorities
+- Geographic diversification strategies""",
+
+            "customer": f"""You are a customer portfolio analyst. Analyze this customer concentration and portfolio data.
+
+Data Context:
+{data_context}
+
+Create a professional executive summary with:
+
+## Key Insights
+- Customer concentration risk assessment
+- Portfolio diversification analysis
+- Key customer dependencies
+
+## Performance Highlights
+- Top revenue contributors
+- Customer segment performance
+- Portfolio health indicators
+
+## Risk Factors
+- Concentration risks and dependencies
+- Customer portfolio vulnerabilities
+
+## Strategic Recommendations
+- Portfolio optimization strategies
+- Customer diversification opportunities""",
+
+            "monthly": f"""You are a business intelligence analyst. Analyze this monthly revenue trend and seasonality data.
+
+Data Context:
+{data_context}
+
+Create a professional executive summary with:
+
+## Key Insights
+- Monthly growth patterns and trends
+- Seasonal variations and consistency
+- Revenue momentum analysis
+
+## Performance Highlights
+- Best performing months and growth rates
+- Trend consistency and predictability
+- Revenue acceleration patterns
+
+## Risk Factors
+- Volatility concerns and declining trends
+- Seasonal risks
+
+## Strategic Recommendations
+- Growth forecasting and planning insights
+- Seasonal optimization strategies"""
+        }
+        
+        prompt = prompts.get(analysis_type, f"Analyze this {analysis_type} data and provide business insights.")
+        
+        response = client.chat.completions.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": "You are a world-class financial analyst and business intelligence expert with 15+ years of experience in revenue operations, customer analytics, and strategic business planning. Provide actionable insights with specific metrics and recommendations."},
+                {"role": "user", "content": prompt}
+            ],
+            max_tokens=1500,
+            temperature=0.2
+        )
+        
+        return response.choices[0].message.content
+        
+    except Exception as e:
+        return generate_fallback_summary(json_data, analysis_type)
+
+def generate_fallback_summary(json_data, analysis_type):
+    """Fallback summary generation when AI is not available"""
     
     if analysis_type == "quarterly":
         if not json_data:
@@ -457,12 +633,18 @@ def generate_executive_summary(json_data, analysis_type):
                                key=lambda x: x.get('Percentage of Variance', 0), reverse=True)[:3]
         
         summary = f"""
-        **Quarterly Revenue Analysis Summary:**
+        ## Key Insights
         - Analyzed {total_customers} customers across Q3 to Q4 performance
         - {positive_growth} customers ({positive_growth/total_customers*100:.1f}%) showed positive growth
         - Top performer: {top_performers[0]['Customer Name'] if top_performers else 'N/A'} with {top_performers[0].get('Percentage of Variance', 0):.1f}% growth
+        
+        ## Performance Highlights
         - Strong momentum in gaming and agency segments
         - Mixed performance across geographic regions
+        
+        ## Strategic Recommendations
+        - Focus on replicating success patterns of top performers
+        - Investigate factors behind customer growth variance
         """
         return summary.strip()
     
@@ -472,18 +654,21 @@ def generate_executive_summary(json_data, analysis_type):
             
         total_customers = len(json_data)
         expansion_customers = len([c for c in json_data if c.get('Expansion Revenue', 0) > 0])
-        churned_customers = len([c for c in json_data if c.get('Churned Revenue', 0) > 0])
-        
         total_expansion = sum(c.get('Expansion Revenue', 0) for c in json_data)
-        total_churn = sum(c.get('Churned Revenue', 0) for c in json_data)
         
         summary = f"""
-        **Revenue Bridge Analysis Summary:**
+        ## Key Insights
         - {total_customers} customers analyzed for retention and expansion patterns
         - {expansion_customers} customers ({expansion_customers/total_customers*100:.1f}%) generated expansion revenue
-        - {churned_customers} customers experienced churn during the period
         - Total expansion revenue: ${total_expansion:,.2f}
+        
+        ## Performance Highlights
         - Customer retention showing healthy expansion patterns
+        - Positive revenue bridge dynamics
+        
+        ## Strategic Recommendations
+        - Strengthen customer success programs
+        - Focus on expansion revenue opportunities
         """
         return summary.strip()
     
@@ -496,48 +681,31 @@ def generate_executive_summary(json_data, analysis_type):
         top_countries = sorted(json_data, key=lambda x: x.get('Yearly Revenue', 0), reverse=True)[:5]
         
         summary = f"""
-        **Geographic Analysis Summary:**
+        ## Key Insights
         - Revenue tracked across {total_countries} countries/regions
         - Total annual revenue: ${total_revenue:,.2f}
         - Top market: {top_countries[0]['Country']} (${top_countries[0].get('Yearly Revenue', 0):,.2f})
+        
+        ## Performance Highlights
         - Strong performance in India, Canada, and England markets
         - Opportunities for expansion in underserved regions
-        """
-        return summary.strip()
-    
-    elif analysis_type == "customer":
-        if not json_data:
-            return "No customer concentration data available for analysis."
-            
-        # This will be updated based on the actual structure of customer concentration JSON
-        total_customers = len(json_data)
         
-        summary = f"""
-        **Customer Concentration Analysis Summary:**
-        - {total_customers} customers analyzed for concentration risk
-        - Portfolio diversification assessment across customer segments
-        - Risk evaluation for customer dependency
-        - Strategic recommendations for portfolio optimization
+        ## Strategic Recommendations
+        - Prioritize high-performing geographic markets
+        - Develop market entry strategies for untapped regions
         """
         return summary.strip()
     
-    elif analysis_type == "monthly":
-        if not json_data:
-            return "No monthly trend data available for analysis."
-            
-        # This will be updated based on the actual structure of monthly JSON
-        total_months = len(json_data) if isinstance(json_data, list) else 12
-        
-        summary = f"""
-        **Monthly Trends Analysis Summary:**
-        - {total_months} months of revenue data analyzed
-        - Month-over-month growth patterns identified
-        - Seasonal variations and trend consistency evaluated
-        - Forecasting insights for future performance
-        """
-        return summary.strip()
+    # Default fallback for other types
+    return f"""
+    ## Key Insights
+    - {len(json_data) if isinstance(json_data, list) else 'Multiple'} data points analyzed
+    - Comprehensive analysis available for strategic decision making
     
-    return "Analysis summary not available for this data type."
+    ## Strategic Recommendations
+    - Review detailed data for specific insights
+    - Consider trends and patterns for business optimization
+    """
 
 def show_processing_animation():
     """Show 30-second processing animation"""
@@ -627,14 +795,15 @@ class OpenAIChatbot:
         
         try:
             response = self.client.chat.completions.create(
-                model="gpt-3.5-turbo",
+                model="gpt-4",
                 messages=[
+                    {"role": "system", "content": "You are a senior investment analyst and revenue operations expert with deep expertise in financial metrics, customer segmentation, and business intelligence. Provide precise, actionable insights based on the data provided."},
                     {"role": "system", "content": system_prompt},
                     {"role": "system", "content": data_context},
                     {"role": "user", "content": user_question}
                 ],
-                max_tokens=500,
-                temperature=0.7
+                max_tokens=800,
+                temperature=0.3
             )
             return response.choices[0].message.content.strip()
         except Exception as e:
@@ -671,14 +840,13 @@ def create_beautiful_tab_layout(tab_name, json_data, tab_type):
     </style>
     """, unsafe_allow_html=True)
     
-    # Generate executive summary
-    executive_summary = generate_executive_summary(json_data, tab_type)
+    # Generate AI-powered executive summary
+    executive_summary = generate_ai_executive_summary(json_data, tab_type)
     
-    # Header with executive summary
-    st.subheader(f"📊 {tab_name}")
-    st.info(f"💡 {executive_summary}")
+    # Header
+    st.header(f"📊 {tab_name}")
     
-    # Data-specific visualizations based on real JSON structure
+    # Data-specific visualizations based on real JSON structure (MOVED UP)
     if tab_type == "quarterly" and json_data:
         st.markdown("### 🎯 Key Metrics")
         
@@ -708,45 +876,57 @@ def create_beautiful_tab_layout(tab_name, json_data, tab_type):
             st.plotly_chart(fig, use_container_width=True)
     
     elif tab_type == "bridge" and json_data:
-        st.markdown("### 🎯 Key Metrics")
+        st.header("🔄 Revenue Bridge & Churn Analysis")
         
-        # Calculate metrics from bridge data
-        total_expansion = sum(c.get('Expansion Revenue', 0) for c in json_data)
-        total_contraction = sum(c.get('Contraction Revenue', 0) for c in json_data)
-        total_churned = sum(c.get('Churned Revenue', 0) for c in json_data)
-        expansion_customers = len([c for c in json_data if c.get('Expansion Revenue', 0) > 0])
+        # Convert to DataFrame for easier manipulation
+        df = pd.DataFrame(json_data)
         
-        col1, col2, col3, col4 = st.columns(4)
+        col1, col2, col3 = st.columns(3)
+        
         with col1:
-            st.metric("Expansion Revenue", f"${total_expansion:,.0f}", delta="↗️")
+            total_churned = df['Churned Revenue'].sum() if 'Churned Revenue' in df.columns else 0
+            st.metric("Total Churned Revenue", f"${total_churned:,.2f}")
+            
         with col2:
-            st.metric("Contraction Revenue", f"${total_contraction:,.0f}", delta="↘️")
+            total_new = df['New Revenue'].sum() if 'New Revenue' in df.columns else 0
+            st.metric("Total New Revenue", f"${total_new:,.2f}")
+            
         with col3:
-            st.metric("Churned Revenue", f"${total_churned:,.0f}")
-        with col4:
-            st.metric("Expanding Customers", expansion_customers)
+            total_expansion = df['Expansion Revenue'].sum() if 'Expansion Revenue' in df.columns else 0
+            st.metric("Total Expansion Revenue", f"${total_expansion:,.2f}")
         
-        # Revenue bridge waterfall
-        waterfall_data = [
-            {"component": "Expansion", "value": total_expansion, "type": "positive"},
-            {"component": "Contraction", "value": -total_contraction, "type": "negative"},
-            {"component": "Churn", "value": -total_churned, "type": "negative"}
-        ]
+        # Revenue bridge waterfall chart
+        st.subheader("Revenue Bridge Analysis")
         
-        if waterfall_data:
-            df_waterfall = pd.DataFrame(waterfall_data)
-            fig = go.Figure(go.Waterfall(
-                name="Revenue Bridge",
-                orientation="v",
-                measure=["relative", "relative", "relative"],
-                x=df_waterfall['component'],
-                textposition="outside",
-                text=[f"${val:,.0f}" for val in df_waterfall['value']],
-                y=df_waterfall['value'],
-                connector={"line":{"color":"rgb(63, 63, 63)"}},
-            ))
-            fig.update_layout(title="🌉 Revenue Bridge Analysis", height=400)
-            st.plotly_chart(fig, use_container_width=True)
+        # Handle different possible column names and calculate totals
+        q3_total = df['Quarter 3 Revenue'].sum() if 'Quarter 3 Revenue' in df.columns else (df['Q3 Revenue'].sum() if 'Q3 Revenue' in df.columns else 0)
+        q4_total = df['Quarter 4 Revenue'].sum() if 'Quarter 4 Revenue' in df.columns else (df['Q4 Revenue'].sum() if 'Q4 Revenue' in df.columns else 0)
+        new_total = df['New Revenue'].sum() if 'New Revenue' in df.columns else 0
+        expansion_total = df['Expansion Revenue'].sum() if 'Expansion Revenue' in df.columns else 0
+        contraction_total = df['Contraction Revenue'].sum() if 'Contraction Revenue' in df.columns else 0
+        churned_total = df['Churned Revenue'].sum() if 'Churned Revenue' in df.columns else 0
+        
+        revenue_categories = ['Starting Revenue', 'New Revenue', 'Expansion Revenue', 
+                             'Contraction Revenue', 'Churned Revenue', 'Ending Revenue']
+        
+        values = [q3_total, new_total, expansion_total, -contraction_total, -churned_total, q4_total]
+        
+        fig = go.Figure(go.Waterfall(
+            name="Revenue Bridge",
+            orientation="v",
+            measure=["absolute", "relative", "relative", "relative", "relative", "total"],
+            x=revenue_categories,
+            text=[f"${v:,.0f}" for v in values],
+            y=values,
+            connector={"line": {"color": "rgb(63, 63, 63)"}},
+        ))
+        
+        fig.update_layout(title="Revenue Bridge: Quarter 3 to Quarter 4", showlegend=False, height=400)
+        st.plotly_chart(fig, use_container_width=True)
+        
+        # Detailed table
+        st.subheader("Customer-wise Revenue Bridge")
+        st.dataframe(df, use_container_width=True)
     
     elif tab_type == "geographic" and json_data:
         st.markdown("### 🎯 Key Metrics")
@@ -815,76 +995,94 @@ def create_beautiful_tab_layout(tab_name, json_data, tab_type):
         with col4:
             st.metric("Seasonality", "Detected")
     
-    # Two-column layout for JSON data and chatbot
-    col1, col2 = st.columns([1, 1])
+    # Executive Summary Section (MOVED DOWN after charts)
+    st.markdown("---")
+    with st.expander("📋 Executive Summary", expanded=True):
+        st.markdown(executive_summary)
     
+    # Enhanced chatbot interface with suggestion buttons
+    st.markdown("---")
+    st.markdown("### 💬 AI Data Analyst")
+    st.markdown("Ask questions about the data, trends, insights, or get analysis recommendations.")
+    
+    # Initialize chatbot
+    if f"chatbot_{tab_type}" not in st.session_state:
+        st.session_state[f"chatbot_{tab_type}"] = OpenAIChatbot()
+    
+    # Initialize chat history for this specific tab
+    chat_key = f"chat_history_{tab_type}"
+    if chat_key not in st.session_state:
+        st.session_state[chat_key] = []
+    
+    # Quick suggestion buttons
+    col1, col2, col3 = st.columns(3)
     with col1:
-        st.markdown("### 📄 Raw Analysis Data")
-        with st.expander("View JSON Data", expanded=False):
-            # Show first 10 records for large datasets
-            display_data = json_data[:10] if isinstance(json_data, list) and len(json_data) > 10 else json_data
-            st.json(display_data)
-            if isinstance(json_data, list) and len(json_data) > 10:
-                st.info(f"Showing first 10 of {len(json_data)} records")
-    
+        if st.button("📊 Key Insights", key=f"insights_{tab_type}"):
+            st.session_state[f"pending_question_{chat_key}"] = "What are the key insights from this data?"
     with col2:
-        st.markdown("### 💬 AI Assistant")
-        st.markdown("""
-        <div class="chat-container">
-            <p><strong>Ask questions about this analysis:</strong></p>
-        </div>
-        """, unsafe_allow_html=True)
+        if st.button("📈 Trends", key=f"trends_{tab_type}"):
+            st.session_state[f"pending_question_{chat_key}"] = "What trends can you identify in this data?"
+    with col3:
+        if st.button("💡 Recommendations", key=f"recommendations_{tab_type}"):
+            st.session_state[f"pending_question_{chat_key}"] = "What recommendations do you have based on this analysis?"
+    
+    # Chat input
+    user_question = st.chat_input(f"Ask about your {tab_name} data...", key=f"chat_input_{tab_type}")
+    
+    # Check for pending question from buttons
+    pending_key = f"pending_question_{chat_key}"
+    if pending_key in st.session_state:
+        user_question = st.session_state[pending_key]
+        del st.session_state[pending_key]
+    
+    # Process user question
+    if user_question:
+        # Add user message to chat history
+        st.session_state[chat_key].append({"role": "user", "content": user_question})
         
-        # Initialize chatbot
-        if f"chatbot_{tab_type}" not in st.session_state:
-            st.session_state[f"chatbot_{tab_type}"] = OpenAIChatbot()
-        
-        # Chat interface
-        question = st.text_input(f"Ask about {tab_name}:", key=f"chat_input_{tab_type}")
-        
-        if question:
-            with st.spinner("🤖 Analyzing..."):
+        # Generate AI response
+        try:
+            with st.spinner("🤖 Analyzing your data..."):
                 response = st.session_state[f"chatbot_{tab_type}"].get_response(
-                    question, tab_type, json_data, executive_summary
+                    user_question, tab_type, json_data, executive_summary
                 )
-            st.markdown(f"**🤖 AI Response:**")
-            st.write(response)
-        
-        # Suggested questions based on actual data
-        st.markdown("**💡 Suggested questions:**")
-        if tab_type == "quarterly":
-            suggestions = ["Which customer had the highest growth?", "How many customers declined?", "What's the average growth rate?"]
-        elif tab_type == "bridge":
-            suggestions = ["Which customers expanded the most?", "What's our churn vs expansion ratio?", "Who's at risk of churn?"]
-        elif tab_type == "geographic":
-            suggestions = ["Which country generates most revenue?", "What are our top 5 markets?", "Where should we expand?"]
-        elif tab_type == "customer":
-            suggestions = ["What's our customer concentration risk?", "Who are our key customers?", "How diversified is our portfolio?"]
-        else:  # monthly
-            suggestions = ["What are the monthly trends?", "Is there seasonality?", "What's the growth pattern?"]
-        
-        for suggestion in suggestions:
-            if st.button(suggestion, key=f"suggest_{tab_type}_{suggestion}"):
-                with st.spinner("🤖 Analyzing..."):
-                    response = st.session_state[f"chatbot_{tab_type}"].get_response(
-                        suggestion, tab_type, json_data, executive_summary
-                    )
-                st.markdown(f"**🤖 AI Response:**")
-                st.write(response)
+                
+                # Add AI response to chat history
+                st.session_state[chat_key].append({"role": "assistant", "content": response})
+                
+        except Exception as e:
+            error_msg = f"❌ Error: {str(e)}"
+            st.session_state[chat_key].append({"role": "assistant", "content": error_msg})
+    
+    # Display chat history
+    if st.session_state[chat_key]:
+        st.markdown("### 💬 Chat History")
+        for message in st.session_state[chat_key]:
+            with st.chat_message(message["role"]):
+                st.write(message["content"])
+    else:
+        st.info("👋 Start a conversation by asking a question or clicking one of the suggestion buttons above!")
 
 def show_beautiful_analysis_interface(db, company_id, company_name):
     """Show the beautiful analysis interface with 5 tabs and OpenAI chatbots"""
     
-    col1, col2 = st.columns([3, 1])
-    with col1:
-        st.title(f"🧠 AI-Powered Analysis - {company_name}")
+    # Add company branding
+    col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
+        st.markdown("<h1 style='text-align: center; color: #1f77b4;'> Zenalyst.ai</h1>", unsafe_allow_html=True)
+        st.markdown(f"<h3 style='text-align: center; color: #666;'>📊 {company_name} - Investment Analysis</h3>", unsafe_allow_html=True)
+    
+    # Back button
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col3:
         if st.button("← Back to Portfolio"):
             # Clean up session state
             for key in list(st.session_state.keys()):
                 if key.startswith(('show_analysis', 'analyzing_company', 'analysis_complete', 'analysis_results')):
                     del st.session_state[key]
             st.rerun()
+    
+    st.markdown("---")
     
     # Check if analysis is already completed
     if not hasattr(st.session_state, f'analysis_complete_{company_id}'):
@@ -954,19 +1152,160 @@ def show_beautiful_analysis_interface(db, company_id, company_name):
             "monthly"
         )
     
-    # Footer actions
+    # Footer actions with working downloads
     st.markdown("---")
-    col1, col2, col3 = st.columns(3)
+    col1, col2 = st.columns(2)
+    
     with col1:
         if st.button("📄 Generate Full Report", type="primary"):
-            st.success("📄 Comprehensive analysis report generated!")
-            st.balloons()
+            # Generate comprehensive PDF report
+            pdf_data = generate_pdf_report(analysis_results, company_name)
+            if pdf_data:
+                st.download_button(
+                    label="📥 Download PDF Report",
+                    data=pdf_data,
+                    file_name=f"{company_name}_Investment_Analysis_{datetime.now().strftime('%Y%m%d')}.pdf",
+                    mime="application/pdf"
+                )
+            else:
+                st.error("❌ Error generating PDF report")
+    
     with col2:
-        if st.button("📧 Email Summary"):
-            st.success("📧 Analysis summary sent to your email!")
-    with col3:
         if st.button("💾 Save Analysis"):
-            st.success("💾 Analysis saved to your dashboard!")
+            # Generate analysis JSON export
+            json_data = save_analysis_as_json(analysis_results, company_name)
+            if json_data:
+                st.download_button(
+                    label="📥 Download Analysis Data",
+                    data=json_data,
+                    file_name=f"{company_name}_Analysis_{datetime.now().strftime('%Y%m%d')}.json",
+                    mime="application/json"
+                )
+            else:
+                st.error("❌ Error generating analysis file")
+
+def generate_pdf_report(analysis_results, company_name):
+    """Generate downloadable PDF report with all analysis"""
+    try:
+        from reportlab.lib.pagesizes import letter, A4
+        from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
+        from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+        from reportlab.lib.units import inch
+        from reportlab.lib import colors
+        from io import BytesIO
+        
+        buffer = BytesIO()
+        doc = SimpleDocTemplate(buffer, pagesize=A4)
+        styles = getSampleStyleSheet()
+        story = []
+        
+        # Title
+        title_style = ParagraphStyle(
+            'CustomTitle',
+            parent=styles['Heading1'],
+            fontSize=24,
+            spaceAfter=30,
+            alignment=1  # Center alignment
+        )
+        
+        story.append(Paragraph("Zenalyst.ai", title_style))
+        story.append(Paragraph(f"{company_name} - Investment Analysis Report", styles['Heading2']))
+        story.append(Paragraph(f"Generated on {datetime.now().strftime('%B %d, %Y')}", styles['Normal']))
+        story.append(Spacer(1, 20))
+        
+        # Executive Summary Section
+        story.append(Paragraph("Executive Summary", styles['Heading2']))
+        
+        for tab_name, data in [
+            ("Quarterly Revenue Analysis", analysis_results.get("quarterly", [])),
+            ("Revenue Bridge Analysis", analysis_results.get("bridge", [])),
+            ("Geographic Analysis", analysis_results.get("geographic", [])),
+            ("Customer Analysis", analysis_results.get("customer", [])),
+            ("Monthly Trends Analysis", analysis_results.get("monthly", []))
+        ]:
+            if data:
+                story.append(Paragraph(tab_name, styles['Heading3']))
+                
+                # Generate summary for this section
+                if tab_name == "Quarterly Revenue Analysis":
+                    total_customers = len(data)
+                    positive_growth = len([c for c in data if c.get('Percentage of Variance', 0) and c['Percentage of Variance'] > 0])
+                    summary_text = f"Analyzed {total_customers} customers with {positive_growth} showing positive growth ({positive_growth/total_customers*100:.1f}%)"
+                elif tab_name == "Geographic Analysis":
+                    total_countries = len(data)
+                    total_revenue = sum(c.get('Yearly Revenue', 0) for c in data)
+                    summary_text = f"Revenue tracked across {total_countries} countries with total revenue of ${total_revenue:,.2f}"
+                else:
+                    summary_text = f"Comprehensive analysis of {len(data)} data points providing strategic insights"
+                
+                story.append(Paragraph(summary_text, styles['Normal']))
+                story.append(Spacer(1, 12))
+        
+        # Build PDF
+        doc.build(story)
+        buffer.seek(0)
+        return buffer.getvalue()
+        
+    except ImportError:
+        # Fallback: Create simple text report if reportlab not available
+        report_content = f"""
+ZENALYST.AI - INVESTMENT ANALYSIS REPORT
+{company_name}
+Generated on {datetime.now().strftime('%B %d, %Y')}
+
+=== EXECUTIVE SUMMARY ===
+
+Quarterly Revenue Analysis:
+- {len(analysis_results.get('quarterly', []))} customers analyzed
+- Comprehensive growth and variance analysis
+
+Revenue Bridge Analysis:
+- {len(analysis_results.get('bridge', []))} customer retention patterns
+- Expansion and churn analysis
+
+Geographic Analysis:
+- {len(analysis_results.get('geographic', []))} countries/regions
+- Market performance and opportunities
+
+Customer Analysis:
+- {len(analysis_results.get('customer', []))} customer concentration data
+- Portfolio diversification assessment
+
+Monthly Trends Analysis:
+- {len(analysis_results.get('monthly', []))} months of data
+- Seasonal patterns and forecasting
+
+=== DETAILED ANALYSIS ===
+Full analysis data and insights available in the interactive dashboard.
+
+Report generated by Zenalyst.ai Investment Analytics Platform
+"""
+        return report_content.encode('utf-8')
+    except Exception as e:
+        st.error(f"Error generating report: {str(e)}")
+        return None
+
+def save_analysis_as_json(analysis_results, company_name):
+    """Save analysis as downloadable JSON with metadata"""
+    try:
+        analysis_export = {
+            "company_name": company_name,
+            "generated_timestamp": datetime.now().isoformat(),
+            "generated_by": "Zenalyst.ai Investment Analytics",
+            "analysis_data": analysis_results,
+            "summary_statistics": {
+                "quarterly_customers": len(analysis_results.get("quarterly", [])),
+                "bridge_customers": len(analysis_results.get("bridge", [])),
+                "geographic_markets": len(analysis_results.get("geographic", [])),
+                "customer_records": len(analysis_results.get("customer", [])),
+                "monthly_periods": len(analysis_results.get("monthly", []))
+            }
+        }
+        
+        return json.dumps(analysis_export, indent=2, default=str)
+    except Exception as e:
+        st.error(f"Error saving analysis: {str(e)}")
+        return None
 
 def main():
     db = DatabaseManager()
@@ -1013,7 +1352,16 @@ def investee_dashboard(db):
     if current_investors:
         st.write("Connected Investors:")
         for investor in current_investors:
-            st.write(f"• {investor[1]}")
+            col1, col2 = st.columns([4, 1])
+            with col1:
+                st.write(f"• {investor[1]}")
+            with col2:
+                if st.button("❌", key=f"remove_investor_{investor[0]}_{company_id}", help="Remove this connection"):
+                    if db.remove_investor_company_connection(investor[0], company_id):
+                        st.success(f"Removed connection with {investor[1]}")
+                        st.rerun()
+                    else:
+                        st.error("Failed to remove connection")
     
     # Browse and add investors
     with st.expander("Browse and Connect with Investors"):
@@ -1098,7 +1446,16 @@ def investee_dashboard(db):
                 st.success(f"✅ {file_name} uploaded successfully!")
                 
             except Exception as e:
-                st.error(f"❌ Error uploading {uploaded_file.name}")
+                st.error(f"❌ Error uploading {uploaded_file.name}: {str(e)}")
+                st.write(f"Error details: {type(e).__name__}: {str(e)}")
+                
+                # Additional debugging
+                try:
+                    # Test if file can be read
+                    test_df = pd.read_excel(uploaded_file, nrows=5)
+                    st.write(f"File can be read. Sample columns: {list(test_df.columns)}")
+                except Exception as read_error:
+                    st.error(f"Cannot read Excel file: {str(read_error)}")
     
     # Display current data
     st.subheader("📈 Current Data Overview")
@@ -1151,7 +1508,7 @@ def investor_dashboard(db):
     if companies:
         st.write("**Current Portfolio:**")
         for comp in companies:
-            col1, col2 = st.columns([3, 1])
+            col1, col2, col3 = st.columns([3, 1, 1])
             with col1:
                 st.write(f"• {comp[1]}")
             with col2:
@@ -1160,6 +1517,13 @@ def investor_dashboard(db):
                     st.session_state.analyzing_company_name = comp[1]
                     st.session_state.show_analysis = True
                     st.rerun()
+            with col3:
+                if st.button("❌", key=f"remove_company_{comp[0]}_{st.session_state.user_id}", help="Remove from portfolio"):
+                    if db.remove_investor_company_connection(st.session_state.user_id, comp[0]):
+                        st.success(f"Removed {comp[1]} from portfolio")
+                        st.rerun()
+                    else:
+                        st.error("Failed to remove company")
     else:
         st.warning("No companies in your portfolio yet.")
         return
