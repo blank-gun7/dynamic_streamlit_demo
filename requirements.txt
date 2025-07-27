@@ -2,5 +2,6 @@ streamlit
 pandas
 plotly
 openpyxl
-openai
+openai==1.12.0
+python-dotenv
 reportlab
