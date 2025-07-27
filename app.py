@@ -52,7 +52,8 @@ class DatabaseManager:
                 company_id INTEGER,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 FOREIGN KEY (investor_id) REFERENCES users (id),
-                FOREIGN KEY (company_id) REFERENCES companies (id)
+                FOREIGN KEY (company_id) REFERENCES companies (id),
+                UNIQUE(investor_id, company_id)
             )
         ''')
         
@@ -124,6 +125,54 @@ class DatabaseManager:
         conn.close()
         return companies
     
+    def get_investors_for_company(self, company_id):
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute('''
+            SELECT u.id, u.username, u.company_name
+            FROM users u
+            JOIN investor_companies ic ON u.id = ic.investor_id
+            WHERE ic.company_id = ? AND u.user_type = 'investor'
+        ''', (company_id,))
+        investors = cursor.fetchall()
+        conn.close()
+        return investors
+    
+    def get_all_investors(self):
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute(
+            "SELECT id, username, company_name FROM users WHERE user_type = 'investor'"
+        )
+        investors = cursor.fetchall()
+        conn.close()
+        return investors
+    
+    def get_all_companies(self):
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute(
+            "SELECT id, company_name FROM companies"
+        )
+        companies = cursor.fetchall()
+        conn.close()
+        return companies
+    
+    def add_investor_company_connection(self, investor_id, company_id):
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        try:
+            cursor.execute(
+                "INSERT INTO investor_companies (investor_id, company_id) VALUES (?, ?)",
+                (investor_id, company_id)
+            )
+            conn.commit()
+            return True
+        except sqlite3.IntegrityError:
+            return False
+        finally:
+            conn.close()
+    
     def get_company_data(self, company_id):
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
@@ -167,7 +216,7 @@ class AuthManager:
         self.db = db_manager
     
     def login_page(self):
-        st.title("= Revenue Analytics Platform")
+        st.title("🔐 Revenue Analytics Platform")
         
         tab1, tab2 = st.tabs(["Login", "Register"])
         
@@ -215,58 +264,89 @@ class DashboardVisualizer:
         col1, col2 = st.columns(2)
         
         with col1:
-            fig1 = px.bar(df, x='Customer Name', y=['Quarter 3 Revenue', 'Quarter 4 Revenue'],
-                         title="Quarterly Revenue Comparison", barmode='group')
-            fig1.update_layout(xaxis_tickangle=-45)
-            st.plotly_chart(fig1, use_container_width=True)
+            # Try different column name variations
+            q3_col = None
+            q4_col = None
+            for col in df.columns:
+                if 'quarter 3' in col.lower() or 'q3' in col.lower():
+                    q3_col = col
+                elif 'quarter 4' in col.lower() or 'q4' in col.lower():
+                    q4_col = col
+            
+            if q3_col and q4_col:
+                fig1 = px.bar(df, x=df.columns[0], y=[q3_col, q4_col],
+                             title="Quarterly Revenue Comparison", barmode='group')
+                fig1.update_layout(xaxis_tickangle=-45)
+                st.plotly_chart(fig1, use_container_width=True)
+            else:
+                st.warning("Could not find quarterly revenue columns")
         
         with col2:
-            fig2 = px.scatter(df, x='Quarter 3 Revenue', y='Quarter 4 Revenue',
-                            size='Percentage of Variance', hover_name='Customer Name',
-                            title="Revenue Growth Analysis")
-            st.plotly_chart(fig2, use_container_width=True)
-        
-        # Top performers
-        top_growth = df.nlargest(5, 'Percentage of Variance')
-        st.subheader("Top 5 Growth Performers")
-        st.dataframe(top_growth[['Customer Name', 'Percentage of Variance']])
+            if q3_col and q4_col:
+                fig2 = px.scatter(df, x=q3_col, y=q4_col,
+                                hover_name=df.columns[0],
+                                title="Revenue Growth Analysis")
+                st.plotly_chart(fig2, use_container_width=True)
     
     def create_country_wise_charts(self, data):
         df = pd.DataFrame(data)
         
         col1, col2 = st.columns(2)
         
-        with col1:
-            fig1 = px.pie(df, values='Revenue', names='Country',
-                         title="Revenue Distribution by Country")
-            st.plotly_chart(fig1, use_container_width=True)
+        # Find country and revenue columns
+        country_col = None
+        revenue_col = None
+        for col in df.columns:
+            if 'country' in col.lower():
+                country_col = col
+            elif 'revenue' in col.lower():
+                revenue_col = col
         
-        with col2:
-            fig2 = px.bar(df, x='Country', y='Revenue',
-                         title="Country-wise Revenue")
-            st.plotly_chart(fig2, use_container_width=True)
+        if country_col and revenue_col:
+            with col1:
+                fig1 = px.pie(df, values=revenue_col, names=country_col,
+                             title="Revenue Distribution by Country")
+                st.plotly_chart(fig1, use_container_width=True)
+            
+            with col2:
+                fig2 = px.bar(df, x=country_col, y=revenue_col,
+                             title="Country-wise Revenue")
+                st.plotly_chart(fig2, use_container_width=True)
+        else:
+            st.warning("Could not find country and revenue columns")
     
     def create_customer_concentration_charts(self, data):
         df = pd.DataFrame(data)
         
-        fig = px.treemap(df, path=['Customer Name'], values='Revenue Share',
-                        title="Customer Revenue Concentration")
-        st.plotly_chart(fig, use_container_width=True)
+        customer_col = None
+        revenue_col = None
+        for col in df.columns:
+            if 'customer' in col.lower() or 'client' in col.lower():
+                customer_col = col
+            elif 'revenue' in col.lower() or 'share' in col.lower():
+                revenue_col = col
         
-        # Concentration analysis
-        st.subheader("Concentration Analysis")
-        total_customers = len(df)
-        top_10_pct = df.nlargest(max(1, int(total_customers * 0.1)), 'Revenue Share')
-        concentration = top_10_pct['Revenue Share'].sum()
-        
-        col1, col2, col3 = st.columns(3)
-        with col1:
-            st.metric("Total Customers", total_customers)
-        with col2:
-            st.metric("Top 10% Revenue Share", f"{concentration:.1f}%")
-        with col3:
-            risk_level = "High" if concentration > 80 else "Medium" if concentration > 60 else "Low"
-            st.metric("Concentration Risk", risk_level)
+        if customer_col and revenue_col:
+            fig = px.treemap(df, path=[customer_col], values=revenue_col,
+                            title="Customer Revenue Concentration")
+            st.plotly_chart(fig, use_container_width=True)
+            
+            # Concentration analysis
+            st.subheader("Concentration Analysis")
+            total_customers = len(df)
+            top_10_pct = df.nlargest(max(1, int(total_customers * 0.1)), revenue_col)
+            concentration = top_10_pct[revenue_col].sum() / df[revenue_col].sum() * 100
+            
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                st.metric("Total Customers", total_customers)
+            with col2:
+                st.metric("Top 10% Revenue Share", f"{concentration:.1f}%")
+            with col3:
+                risk_level = "High" if concentration > 80 else "Medium" if concentration > 60 else "Low"
+                st.metric("Concentration Risk", risk_level)
+        else:
+            st.warning("Could not find customer and revenue columns")
 
 class ChatBot:
     def __init__(self, data, data_type):
@@ -274,34 +354,29 @@ class ChatBot:
         self.data_type = data_type
         
     def process_query(self, query):
-        # Simple rule-based chatbot for demo purposes
-        # In production, you'd integrate with OpenAI or similar
-        
         query_lower = query.lower()
         df = pd.DataFrame(self.data)
         
         if "total" in query_lower or "sum" in query_lower:
             if "revenue" in query_lower:
-                if 'Revenue' in df.columns:
-                    total = df['Revenue'].sum()
+                revenue_cols = [col for col in df.columns if 'revenue' in col.lower()]
+                if revenue_cols:
+                    total = df[revenue_cols[0]].sum()
                     return f"Total revenue is ${total:,.2f}"
-                elif 'Quarter 4 Revenue' in df.columns:
-                    total = df['Quarter 4 Revenue'].sum()
-                    return f"Total Q4 revenue is ${total:,.2f}"
         
         elif "top" in query_lower or "best" in query_lower:
             if "customer" in query_lower or "client" in query_lower:
-                if 'Customer Name' in df.columns and 'Revenue' in df.columns:
-                    top_customer = df.loc[df['Revenue'].idxmax()]
-                    return f"Top customer is {top_customer['Customer Name']} with ${top_customer['Revenue']:,.2f}"
-                elif 'Customer Name' in df.columns and 'Quarter 4 Revenue' in df.columns:
-                    top_customer = df.loc[df['Quarter 4 Revenue'].idxmax()]
-                    return f"Top customer is {top_customer['Customer Name']} with Q4 revenue of ${top_customer['Quarter 4 Revenue']:,.2f}"
+                customer_cols = [col for col in df.columns if 'customer' in col.lower() or 'client' in col.lower()]
+                revenue_cols = [col for col in df.columns if 'revenue' in col.lower()]
+                if customer_cols and revenue_cols:
+                    top_customer = df.loc[df[revenue_cols[0]].idxmax()]
+                    return f"Top customer is {top_customer[customer_cols[0]]} with ${top_customer[revenue_cols[0]]:,.2f}"
         
         elif "average" in query_lower or "mean" in query_lower:
             if "revenue" in query_lower:
-                if 'Revenue' in df.columns:
-                    avg = df['Revenue'].mean()
+                revenue_cols = [col for col in df.columns if 'revenue' in col.lower()]
+                if revenue_cols:
+                    avg = df[revenue_cols[0]].mean()
                     return f"Average revenue is ${avg:,.2f}"
         
         elif "count" in query_lower or "number" in query_lower:
@@ -340,7 +415,7 @@ def main():
         investor_dashboard(db)
 
 def investee_dashboard(db):
-    st.title(f"=� {st.session_state.company_name} - Data Management")
+    st.title(f"📈 {st.session_state.company_name} - Data Management")
     
     company = db.get_company_by_investee(st.session_state.user_id)
     if not company:
@@ -349,71 +424,147 @@ def investee_dashboard(db):
     
     company_id = company[0]
     
-    st.subheader("Upload Revenue Data Files")
+    # Investor Connection Management
+    st.subheader("🤝 Investor Connections")
+    
+    # Get current investors
+    current_investors = db.get_investors_for_company(company_id)
+    if current_investors:
+        st.write("Connected Investors:")
+        for investor in current_investors:
+            st.write(f"• {investor[1]}")
+    
+    # Browse and add investors
+    with st.expander("Browse and Connect with Investors"):
+        all_investors = db.get_all_investors()
+        if all_investors:
+            investor_options = {f"{inv[1]} ({inv[2] or 'No company'})": inv[0] for inv in all_investors}
+            selected_investor = st.selectbox("Select Investor to Connect", [""] + list(investor_options.keys()))
+            
+            if selected_investor and st.button("Send Connection Request"):
+                investor_id = investor_options[selected_investor]
+                if db.add_investor_company_connection(investor_id, company_id):
+                    st.success(f"Connection request sent to {selected_investor}")
+                    st.rerun()
+                else:
+                    st.warning("Connection already exists or failed to create")
+        else:
+            st.info("No investors available to connect with")
+    
+    st.subheader("📊 Upload Revenue Data Files")
     
     # File upload section
     uploaded_files = st.file_uploader(
-        "Upload JSON files", 
-        type=['json'], 
+        "Upload Excel files", 
+        type=['xlsx', 'xls'], 
         accept_multiple_files=True,
-        help="Upload your 5 revenue analysis JSON files"
+        help="Upload your revenue analysis Excel files (each file can contain multiple sheets)"
     )
     
     if uploaded_files:
         for uploaded_file in uploaded_files:
             try:
-                data = json.load(uploaded_file)
                 file_name = uploaded_file.name
+                st.info(f"Processing {file_name}...")
                 
-                # Determine data type based on filename
-                if "Quarterly_Revenue" in file_name:
-                    data_type = "quarterly_revenue"
-                elif "Revenue_Bridge" in file_name:
-                    data_type = "revenue_bridge"
-                elif "Country_wise" in file_name:
-                    data_type = "country_wise"
-                elif "Customer_concentration" in file_name:
-                    data_type = "customer_concentration"
-                elif "Month_on_Month" in file_name:
-                    data_type = "monthly_revenue"
-                else:
-                    data_type = file_name.replace('.json', '')
+                # Read Excel file
+                excel_file = pd.ExcelFile(uploaded_file)
+                sheet_names = excel_file.sheet_names
                 
-                db.save_company_data(company_id, data_type, data)
-                st.success(f" {file_name} uploaded successfully!")
+                st.write(f"Found {len(sheet_names)} sheets: {', '.join(sheet_names)}")
                 
-            except json.JSONDecodeError:
-                st.error(f"L Error reading {uploaded_file.name}: Invalid JSON format")
+                # Process each sheet
+                for sheet_name in sheet_names:
+                    df = pd.read_excel(uploaded_file, sheet_name=sheet_name)
+                    
+                    # Convert DataFrame to JSON-like format
+                    data = df.to_dict('records')
+                    
+                    # Determine data type based on sheet name or filename
+                    if "quarterly" in sheet_name.lower() or "qoq" in sheet_name.lower():
+                        data_type = "quarterly_revenue"
+                    elif "bridge" in sheet_name.lower() or "churn" in sheet_name.lower():
+                        data_type = "revenue_bridge"
+                    elif "country" in sheet_name.lower() or "region" in sheet_name.lower():
+                        data_type = "country_wise"
+                    elif "customer" in sheet_name.lower() or "concentration" in sheet_name.lower():
+                        data_type = "customer_concentration"
+                    elif "month" in sheet_name.lower() or "monthly" in sheet_name.lower():
+                        data_type = "monthly_revenue"
+                    else:
+                        data_type = sheet_name.lower().replace(' ', '_')
+                    
+                    db.save_company_data(company_id, data_type, data)
+                    st.success(f"✅ Sheet '{sheet_name}' from {file_name} uploaded successfully!")
+                
+            except Exception as e:
+                st.error(f"❌ Error reading {uploaded_file.name}: {str(e)}")
     
     # Display current data
-    st.subheader("Current Data Overview")
+    st.subheader("📈 Current Data Overview")
     company_data = db.get_company_data(company_id)
     
     if company_data:
         for data_type, data in company_data.items():
             with st.expander(f"{data_type.replace('_', ' ').title()} Data"):
-                st.json(data[:3] if isinstance(data, list) else data)  # Show first 3 records
+                if isinstance(data, list) and len(data) > 0:
+                    st.write(f"Records: {len(data)}")
+                    st.dataframe(pd.DataFrame(data).head())
+                else:
+                    st.json(data)
     else:
-        st.info("No data uploaded yet. Please upload your JSON files above.")
+        st.info("No data uploaded yet. Please upload your Excel files above.")
 
 def investor_dashboard(db):
-    st.title("=� Investor Portfolio Dashboard")
+    st.title("💼 Investor Portfolio Dashboard")
     
-    # Get companies for this investor
+    # Portfolio Management
+    st.subheader("🤝 Portfolio Management")
+    
+    # Get current portfolio companies
     companies = db.get_companies_for_investor(st.session_state.user_id)
     
-    if not companies:
+    # Browse and add companies
+    with st.expander("Browse and Add Companies to Portfolio"):
+        all_companies = db.get_all_companies()
+        if all_companies:
+            current_company_ids = [comp[0] for comp in companies]
+            available_companies = [comp for comp in all_companies if comp[0] not in current_company_ids]
+            
+            if available_companies:
+                company_options = {f"{comp[1]}": comp[0] for comp in available_companies}
+                selected_company = st.selectbox("Select Company to Add", [""] + list(company_options.keys()))
+                
+                if selected_company and st.button("Add to Portfolio"):
+                    company_id = company_options[selected_company]
+                    if db.add_investor_company_connection(st.session_state.user_id, company_id):
+                        st.success(f"Added {selected_company} to your portfolio")
+                        st.rerun()
+                    else:
+                        st.warning("Failed to add company or already exists")
+            else:
+                st.info("All available companies are already in your portfolio")
+        else:
+            st.info("No companies available to add")
+    
+    # Current portfolio
+    if companies:
+        st.write("**Current Portfolio:**")
+        for comp in companies:
+            st.write(f"• {comp[1]}")
+    else:
         st.warning("No companies in your portfolio yet.")
         return
     
-    # Company selection
+    # Company selection for analysis
+    st.subheader("📊 Company Analytics")
     company_options = {f"{comp[1]}": comp[0] for comp in companies}
-    selected_company_name = st.selectbox("Select Company", list(company_options.keys()))
+    selected_company_name = st.selectbox("Select Company for Analysis", list(company_options.keys()))
     
     if selected_company_name:
         selected_company_id = company_options[selected_company_name]
         
-        st.subheader(f"=� {selected_company_name} Analytics Dashboard")
+        st.subheader(f"📊 {selected_company_name} Analytics Dashboard")
         
         # Get company data
         company_data = db.get_company_data(selected_company_id)
@@ -440,13 +591,13 @@ def investor_dashboard(db):
                 visualizer.create_quarterly_revenue_charts(data)
                 
                 # Chatbot
-                st.subheader("=� Ask about Quarterly Revenue")
+                st.subheader("💬 Ask about Quarterly Revenue")
                 chatbot = ChatBot(data, "Quarterly Revenue")
                 query = st.text_input("Ask a question about the quarterly revenue data:", 
                                     key="q1_chat")
                 if query:
                     response = chatbot.process_query(query)
-                    st.write("> " + response)
+                    st.write("🤖 " + response)
             else:
                 st.warning("Quarterly revenue data not available")
         
@@ -459,13 +610,13 @@ def investor_dashboard(db):
                 st.dataframe(df)
                 
                 # Chatbot
-                st.subheader("=� Ask about Revenue Bridge")
+                st.subheader("💬 Ask about Revenue Bridge")
                 chatbot = ChatBot(data, "Revenue Bridge")
                 query = st.text_input("Ask a question about the revenue bridge data:", 
                                     key="rb_chat")
                 if query:
                     response = chatbot.process_query(query)
-                    st.write("> " + response)
+                    st.write("🤖 " + response)
             else:
                 st.warning("Revenue bridge data not available")
         
@@ -476,13 +627,13 @@ def investor_dashboard(db):
                 visualizer.create_country_wise_charts(data)
                 
                 # Chatbot
-                st.subheader("=� Ask about Country Analysis")
+                st.subheader("💬 Ask about Country Analysis")
                 chatbot = ChatBot(data, "Country Analysis")
                 query = st.text_input("Ask a question about the country analysis data:", 
                                     key="country_chat")
                 if query:
                     response = chatbot.process_query(query)
-                    st.write("> " + response)
+                    st.write("🤖 " + response)
             else:
                 st.warning("Country analysis data not available")
         
@@ -493,13 +644,13 @@ def investor_dashboard(db):
                 visualizer.create_customer_concentration_charts(data)
                 
                 # Chatbot
-                st.subheader("=� Ask about Customer Concentration")
+                st.subheader("💬 Ask about Customer Concentration")
                 chatbot = ChatBot(data, "Customer Concentration")
                 query = st.text_input("Ask a question about customer concentration:", 
                                     key="cc_chat")
                 if query:
                     response = chatbot.process_query(query)
-                    st.write("> " + response)
+                    st.write("🤖 " + response)
             else:
                 st.warning("Customer concentration data not available")
         
@@ -510,21 +661,30 @@ def investor_dashboard(db):
                 st.subheader("Monthly Revenue Trends")
                 df = pd.DataFrame(data)
                 
-                if 'Month' in df.columns and 'Revenue' in df.columns:
-                    fig = px.line(df, x='Month', y='Revenue', 
+                # Find month and revenue columns
+                month_col = None
+                revenue_col = None
+                for col in df.columns:
+                    if 'month' in col.lower():
+                        month_col = col
+                    elif 'revenue' in col.lower():
+                        revenue_col = col
+                
+                if month_col and revenue_col:
+                    fig = px.line(df, x=month_col, y=revenue_col, 
                                 title="Month-on-Month Revenue Trend")
                     st.plotly_chart(fig, use_container_width=True)
                 else:
                     st.dataframe(df)
                 
                 # Chatbot
-                st.subheader("=� Ask about Monthly Trends")
+                st.subheader("💬 Ask about Monthly Trends")
                 chatbot = ChatBot(data, "Monthly Revenue")
                 query = st.text_input("Ask a question about monthly trends:", 
                                     key="monthly_chat")
                 if query:
                     response = chatbot.process_query(query)
-                    st.write("> " + response)
+                    st.write("🤖 " + response)
             else:
                 st.warning("Monthly revenue data not available")
 
