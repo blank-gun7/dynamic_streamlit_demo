@@ -4,6 +4,35 @@ import plotly.express as px
 import json
 import sqlite3
 import hashlib
+import numpy as np
+from datetime import datetime
+
+def json_serializer(obj):
+    """Custom JSON serializer for datetime and other problematic objects"""
+    if isinstance(obj, (datetime, pd.Timestamp)):
+        return obj.isoformat()
+    elif isinstance(obj, np.datetime64):
+        return pd.Timestamp(obj).isoformat()
+    elif isinstance(obj, (np.integer, np.floating)):
+        return obj.item()
+    elif isinstance(obj, np.ndarray):
+        return obj.tolist()
+    elif pd.isna(obj):
+        return None
+    else:
+        return str(obj)
+
+def safe_json_dumps(data):
+    """Safely convert data to JSON string with custom serializer"""
+    try:
+        return json.dumps(data, default=json_serializer)
+    except Exception as e:
+        # If all else fails, convert everything to string
+        def fallback_serializer(obj):
+            if pd.isna(obj):
+                return None
+            return str(obj)
+        return json.dumps(data, default=fallback_serializer)
 
 st.set_page_config(
     page_title="Revenue Analytics Dashboard",
@@ -192,10 +221,10 @@ class DatabaseManager:
             "DELETE FROM company_data WHERE company_id = ? AND data_type = ?",
             (company_id, data_type)
         )
-        # Insert new data
+        # Insert new data using safe JSON serializer
         cursor.execute(
             "INSERT INTO company_data (company_id, data_type, data_content) VALUES (?, ?, ?)",
-            (company_id, data_type, json.dumps(data_content))
+            (company_id, data_type, safe_json_dumps(data_content))
         )
         conn.commit()
         conn.close()
@@ -477,25 +506,9 @@ def investee_dashboard(db):
                 for sheet_name in sheet_names:
                     df = pd.read_excel(uploaded_file, sheet_name=sheet_name)
                     
-                    # Convert datetime columns to strings to avoid JSON serialization issues
-                    for col in df.columns:
-                        if df[col].dtype == 'datetime64[ns]':
-                            df[col] = df[col].dt.strftime('%Y-%m-%d')
-                        elif pd.api.types.is_datetime64_any_dtype(df[col]):
-                            df[col] = df[col].astype(str)
-                    
-                    # Convert DataFrame to JSON-like format and handle any remaining serialization issues
+                    # Convert DataFrame to JSON-like format
+                    # The custom JSON serializer will handle datetime and other problematic types
                     data = df.to_dict('records')
-                    
-                    # Clean data for JSON serialization
-                    for record in data:
-                        for key, value in record.items():
-                            if pd.isna(value):
-                                record[key] = None
-                            elif hasattr(value, 'isoformat'):  # datetime objects
-                                record[key] = value.isoformat()
-                            elif not isinstance(value, (str, int, float, bool, type(None))):
-                                record[key] = str(value)
                     
                     # Determine data type based on sheet name or filename
                     if "quarterly" in sheet_name.lower() or "qoq" in sheet_name.lower():
