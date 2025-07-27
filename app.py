@@ -477,8 +477,25 @@ def investee_dashboard(db):
                 for sheet_name in sheet_names:
                     df = pd.read_excel(uploaded_file, sheet_name=sheet_name)
                     
-                    # Convert DataFrame to JSON-like format
+                    # Convert datetime columns to strings to avoid JSON serialization issues
+                    for col in df.columns:
+                        if df[col].dtype == 'datetime64[ns]':
+                            df[col] = df[col].dt.strftime('%Y-%m-%d')
+                        elif pd.api.types.is_datetime64_any_dtype(df[col]):
+                            df[col] = df[col].astype(str)
+                    
+                    # Convert DataFrame to JSON-like format and handle any remaining serialization issues
                     data = df.to_dict('records')
+                    
+                    # Clean data for JSON serialization
+                    for record in data:
+                        for key, value in record.items():
+                            if pd.isna(value):
+                                record[key] = None
+                            elif hasattr(value, 'isoformat'):  # datetime objects
+                                record[key] = value.isoformat()
+                            elif not isinstance(value, (str, int, float, bool, type(None))):
+                                record[key] = str(value)
                     
                     # Determine data type based on sheet name or filename
                     if "quarterly" in sheet_name.lower() or "qoq" in sheet_name.lower():
