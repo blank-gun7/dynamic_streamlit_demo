@@ -1,0 +1,164 @@
+2025-07-25 14:57:10,286 - WARNING - API connection test returned status: 404
+2025-07-25 14:59:48,177 - INFO - Endpoint /docs accessible via GET
+2025-07-25 14:59:48,226 - INFO - Endpoint /openapi.json accessible via GET
+2025-07-25 14:59:48,702 - INFO - API endpoint discovery completed. Found 3 working endpoints.
+2025-07-25 15:11:54,496 - INFO - Endpoint /docs accessible via GET
+2025-07-25 15:11:54,544 - INFO - Endpoint /openapi.json accessible via GET
+2025-07-25 15:11:54,640 - INFO - Upload endpoint /upload ready but needs proper file format
+2025-07-25 15:11:55,034 - INFO - API endpoint discovery completed. Found 3 working endpoints.
+2025-07-25 15:17:48,204 - INFO - User initiated file processing for: Revenue_test2.xlsx
+2025-07-25 15:18:48,703 - INFO - Starting API call to http://52.66.205.91:8000/upload
+2025-07-25 15:18:48,708 - INFO - File details - Name: Revenue_test2.xlsx, Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, Size: 841164 bytes
+2025-07-25 15:18:48,709 - INFO - File content sample (first 100 bytes): b'PK\x03\x04\x14\x00\x06\x00\x08\x00\x00\x00!\x00e1q\xc8\xaf\x01\x00\x00\xcb\x06\x00\x00\x13\x00\x08\x02[Content_Types].xml \xa2\x04\x02(\xa0\x00\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+2025-07-25 15:18:48,710 - INFO - Attempt 1: Trying parameter name 'file'
+2025-07-25 15:18:48,710 - INFO - Request details:
+2025-07-25 15:18:48,710 - INFO -   - URL: http://52.66.205.91:8000/upload
+2025-07-25 15:18:48,710 - INFO -   - Method: POST
+2025-07-25 15:18:48,710 - INFO -   - Headers: {'Accept': 'application/json'}
+2025-07-25 15:18:48,710 - INFO -   - Files parameter: file=('Revenue_test2.xlsx', <file_content>, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+2025-07-25 15:18:48,711 - INFO -   - Timeout: 60 seconds
+2025-07-25 15:18:48,711 - INFO - Sending POST request to API with parameter 'file'...
+2025-07-25 15:18:49,027 - INFO - API Response Status Code: 422
+2025-07-25 15:18:49,027 - INFO - API Response Headers: {'date': 'Fri, 25 Jul 2025 09:48:48 GMT', 'server': 'uvicorn', 'content-length': '90', 'content-type': 'application/json'}
+2025-07-25 15:18:49,027 - INFO - Response Content-Type: application/json
+2025-07-25 15:18:49,027 - INFO - Response Size: 90 bytes
+2025-07-25 15:18:49,027 - INFO - Response content preview: {"detail":[{"type":"missing","loc":["body","files"],"msg":"Field required","input":null}]}
+2025-07-25 15:18:49,027 - WARNING - Parameter 'file' caused validation error (422): {"detail":[{"type":"missing","loc":["body","files"],"msg":"Field required","input":null}]}
+2025-07-25 15:18:49,027 - INFO - Attempt 2: Trying parameter name 'upload_file'
+2025-07-25 15:18:49,027 - INFO - Request details:
+2025-07-25 15:18:49,027 - INFO -   - URL: http://52.66.205.91:8000/upload
+2025-07-25 15:18:49,028 - INFO -   - Method: POST
+2025-07-25 15:18:49,028 - INFO -   - Headers: {'Accept': 'application/json'}
+2025-07-25 15:18:49,028 - INFO -   - Files parameter: upload_file=('Revenue_test2.xlsx', <file_content>, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+2025-07-25 15:18:49,028 - INFO -   - Timeout: 60 seconds
+2025-07-25 15:18:49,028 - INFO - Sending POST request to API with parameter 'upload_file'...
+2025-07-25 15:18:49,215 - INFO - API Response Status Code: 422
+2025-07-25 15:18:49,215 - INFO - API Response Headers: {'date': 'Fri, 25 Jul 2025 09:48:48 GMT', 'server': 'uvicorn', 'content-length': '90', 'content-type': 'application/json'}
+2025-07-25 15:18:49,215 - INFO - Response Content-Type: application/json
+2025-07-25 15:18:49,215 - INFO - Response Size: 90 bytes
+2025-07-25 15:18:49,216 - INFO - Response content preview: {"detail":[{"type":"missing","loc":["body","files"],"msg":"Field required","input":null}]}
+2025-07-25 15:18:49,216 - WARNING - Parameter 'upload_file' caused validation error (422): {"detail":[{"type":"missing","loc":["body","files"],"msg":"Field required","input":null}]}
+2025-07-25 15:18:49,216 - INFO - Attempt 3: Trying parameter name 'uploadFile'
+2025-07-25 15:18:49,216 - INFO - Request details:
+2025-07-25 15:18:49,216 - INFO -   - URL: http://52.66.205.91:8000/upload
+2025-07-25 15:18:49,216 - INFO -   - Method: POST
+2025-07-25 15:18:49,216 - INFO -   - Headers: {'Accept': 'application/json'}
+2025-07-25 15:18:49,216 - INFO -   - Files parameter: uploadFile=('Revenue_test2.xlsx', <file_content>, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+2025-07-25 15:18:49,216 - INFO -   - Timeout: 60 seconds
+2025-07-25 15:18:49,216 - INFO - Sending POST request to API with parameter 'uploadFile'...
+2025-07-25 15:18:49,384 - INFO - API Response Status Code: 422
+2025-07-25 15:18:49,384 - INFO - API Response Headers: {'date': 'Fri, 25 Jul 2025 09:48:48 GMT', 'server': 'uvicorn', 'content-length': '90', 'content-type': 'application/json'}
+2025-07-25 15:18:49,384 - INFO - Response Content-Type: application/json
+2025-07-25 15:18:49,384 - INFO - Response Size: 90 bytes
+2025-07-25 15:18:49,384 - INFO - Response content preview: {"detail":[{"type":"missing","loc":["body","files"],"msg":"Field required","input":null}]}
+2025-07-25 15:18:49,384 - WARNING - Parameter 'uploadFile' caused validation error (422): {"detail":[{"type":"missing","loc":["body","files"],"msg":"Field required","input":null}]}
+2025-07-25 15:18:49,384 - INFO - Attempt 4: Trying parameter name 'document'
+2025-07-25 15:18:49,384 - INFO - Request details:
+2025-07-25 15:18:49,384 - INFO -   - URL: http://52.66.205.91:8000/upload
+2025-07-25 15:18:49,384 - INFO -   - Method: POST
+2025-07-25 15:18:49,384 - INFO -   - Headers: {'Accept': 'application/json'}
+2025-07-25 15:18:49,384 - INFO -   - Files parameter: document=('Revenue_test2.xlsx', <file_content>, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+2025-07-25 15:18:49,384 - INFO -   - Timeout: 60 seconds
+2025-07-25 15:18:49,384 - INFO - Sending POST request to API with parameter 'document'...
+2025-07-25 15:18:49,556 - INFO - API Response Status Code: 422
+2025-07-25 15:18:49,556 - INFO - API Response Headers: {'date': 'Fri, 25 Jul 2025 09:48:48 GMT', 'server': 'uvicorn', 'content-length': '90', 'content-type': 'application/json'}
+2025-07-25 15:18:49,556 - INFO - Response Content-Type: application/json
+2025-07-25 15:18:49,556 - INFO - Response Size: 90 bytes
+2025-07-25 15:18:49,557 - INFO - Response content preview: {"detail":[{"type":"missing","loc":["body","files"],"msg":"Field required","input":null}]}
+2025-07-25 15:18:49,557 - WARNING - Parameter 'document' caused validation error (422): {"detail":[{"type":"missing","loc":["body","files"],"msg":"Field required","input":null}]}
+2025-07-25 15:18:49,557 - INFO - Attempt 5: Trying parameter name 'attachment'
+2025-07-25 15:18:49,557 - INFO - Request details:
+2025-07-25 15:18:49,557 - INFO -   - URL: http://52.66.205.91:8000/upload
+2025-07-25 15:18:49,557 - INFO -   - Method: POST
+2025-07-25 15:18:49,557 - INFO -   - Headers: {'Accept': 'application/json'}
+2025-07-25 15:18:49,557 - INFO -   - Files parameter: attachment=('Revenue_test2.xlsx', <file_content>, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+2025-07-25 15:18:49,557 - INFO -   - Timeout: 60 seconds
+2025-07-25 15:18:49,557 - INFO - Sending POST request to API with parameter 'attachment'...
+2025-07-25 15:18:49,727 - INFO - API Response Status Code: 422
+2025-07-25 15:18:49,727 - INFO - API Response Headers: {'date': 'Fri, 25 Jul 2025 09:48:49 GMT', 'server': 'uvicorn', 'content-length': '90', 'content-type': 'application/json'}
+2025-07-25 15:18:49,727 - INFO - Response Content-Type: application/json
+2025-07-25 15:18:49,727 - INFO - Response Size: 90 bytes
+2025-07-25 15:18:49,727 - INFO - Response content preview: {"detail":[{"type":"missing","loc":["body","files"],"msg":"Field required","input":null}]}
+2025-07-25 15:18:49,727 - WARNING - Parameter 'attachment' caused validation error (422): {"detail":[{"type":"missing","loc":["body","files"],"msg":"Field required","input":null}]}
+2025-07-25 15:18:49,727 - ERROR - All parameter attempts failed
+2025-07-25 15:18:49,729 - ERROR - All parameter attempts failed with connection issues: None
+2025-07-25 15:18:49,729 - WARNING - File processing failed, falling back to existing data
+2025-07-25 15:22:11,556 - INFO - User initiated file processing for: Revenue_test2.xlsx
+2025-07-25 15:23:12,099 - INFO - Starting API call to http://52.66.205.91:8000/upload
+2025-07-25 15:23:12,103 - INFO - File details - Name: Revenue_test2.xlsx, Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, Size: 841164 bytes
+2025-07-25 15:23:12,104 - INFO - File content sample (first 100 bytes): b'PK\x03\x04\x14\x00\x06\x00\x08\x00\x00\x00!\x00e1q\xc8\xaf\x01\x00\x00\xcb\x06\x00\x00\x13\x00\x08\x02[Content_Types].xml \xa2\x04\x02(\xa0\x00\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+2025-07-25 15:23:12,104 - INFO - Attempt 1: Trying parameter name 'files'
+2025-07-25 15:23:12,104 - INFO - Request details:
+2025-07-25 15:23:12,104 - INFO -   - URL: http://52.66.205.91:8000/upload
+2025-07-25 15:23:12,104 - INFO -   - Method: POST
+2025-07-25 15:23:12,104 - INFO -   - Headers: {'Accept': 'application/json'}
+2025-07-25 15:23:12,104 - INFO -   - Files parameter: files=('Revenue_test2.xlsx', <file_content>, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+2025-07-25 15:23:12,105 - INFO -   - Timeout: 60 seconds
+2025-07-25 15:23:12,105 - INFO - Sending POST request to API with parameter 'files'...
+2025-07-25 15:23:17,858 - INFO - API Response Status Code: 200
+2025-07-25 15:23:17,862 - INFO - API Response Headers: {'date': 'Fri, 25 Jul 2025 09:53:11 GMT', 'server': 'uvicorn', 'content-length': '129', 'content-type': 'application/json'}
+2025-07-25 15:23:17,867 - INFO - Response Content-Type: application/json
+2025-07-25 15:23:17,868 - INFO - Response Size: 129 bytes
+2025-07-25 15:23:17,868 - INFO - Response content preview: {"results":[{"filename":"Revenue_test2.xlsx","collection_name":"data_Revenue_test2","records_inserted":3074,"status":"success"}]}
+2025-07-25 15:23:17,868 - INFO - SUCCESS: API call successful with parameter 'files' - Status 200
+2025-07-25 15:23:17,869 - INFO - Response JSON keys: ['results']
+2025-07-25 15:23:17,869 - INFO - Response JSON content: {'results': [{'filename': 'Revenue_test2.xlsx', 'collection_name': 'data_Revenue_test2', 'records_inserted': 3074, 'status': 'success'}]}
+2025-07-25 15:23:17,884 - INFO - File processing completed successfully
+2025-07-25 15:24:20,702 - INFO - User initiated file processing for: revenue.xlsx
+2025-07-25 15:25:21,303 - INFO - Starting API call to http://52.66.205.91:8000/upload
+2025-07-25 15:25:21,305 - INFO - File details - Name: revenue.xlsx, Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, Size: 129881 bytes
+2025-07-25 15:25:21,305 - INFO - File content sample (first 100 bytes): b'PK\x03\x04\x14\x00\x06\x00\x08\x00\x00\x00!\x00b\xee\x9dh^\x01\x00\x00\x90\x04\x00\x00\x13\x00\x08\x02[Content_Types].xml \xa2\x04\x02(\xa0\x00\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+2025-07-25 15:25:21,305 - INFO - Attempt 1: Trying parameter name 'files'
+2025-07-25 15:25:21,305 - INFO - Request details:
+2025-07-25 15:25:21,305 - INFO -   - URL: http://52.66.205.91:8000/upload
+2025-07-25 15:25:21,305 - INFO -   - Method: POST
+2025-07-25 15:25:21,305 - INFO -   - Headers: {'Accept': 'application/json'}
+2025-07-25 15:25:21,305 - INFO -   - Files parameter: files=('revenue.xlsx', <file_content>, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+2025-07-25 15:25:21,306 - INFO -   - Timeout: 60 seconds
+2025-07-25 15:25:21,306 - INFO - Sending POST request to API with parameter 'files'...
+2025-07-25 15:25:24,593 - INFO - API Response Status Code: 200
+2025-07-25 15:25:24,594 - INFO - API Response Headers: {'date': 'Fri, 25 Jul 2025 09:55:21 GMT', 'server': 'uvicorn', 'content-length': '116', 'content-type': 'application/json'}
+2025-07-25 15:25:24,594 - INFO - Response Content-Type: application/json
+2025-07-25 15:25:24,594 - INFO - Response Size: 116 bytes
+2025-07-25 15:25:24,594 - INFO - Response content preview: {"results":[{"filename":"revenue.xlsx","collection_name":"data_revenue","records_inserted":743,"status":"success"}]}
+2025-07-25 15:25:24,594 - INFO - SUCCESS: API call successful with parameter 'files' - Status 200
+2025-07-25 15:25:24,595 - INFO - Response JSON keys: ['results']
+2025-07-25 15:25:24,595 - INFO - Response JSON content: {'results': [{'filename': 'revenue.xlsx', 'collection_name': 'data_revenue', 'records_inserted': 743, 'status': 'success'}]}
+2025-07-25 15:25:24,598 - INFO - File processing completed successfully
+2025-07-25 15:27:13,693 - INFO - Endpoint /docs accessible via GET
+2025-07-25 15:27:13,745 - INFO - Endpoint /openapi.json accessible via GET
+2025-07-25 15:27:13,839 - INFO - Upload endpoint /upload ready but needs proper file format
+2025-07-25 15:27:14,209 - INFO - API endpoint discovery completed. Found 3 working endpoints.
+2025-07-25 15:27:20,935 - INFO - Endpoint /docs accessible via GET
+2025-07-25 15:27:20,984 - INFO - Endpoint /openapi.json accessible via GET
+2025-07-25 15:27:21,078 - INFO - Upload endpoint /upload ready but needs proper file format
+2025-07-25 15:27:21,460 - INFO - API endpoint discovery completed. Found 3 working endpoints.
+2025-07-25 15:27:28,132 - INFO - Endpoint /docs accessible via GET
+2025-07-25 15:27:28,181 - INFO - Endpoint /openapi.json accessible via GET
+2025-07-25 15:27:28,277 - INFO - Upload endpoint /upload ready but needs proper file format
+2025-07-25 15:27:28,658 - INFO - API endpoint discovery completed. Found 3 working endpoints.
+2025-07-25 15:27:42,944 - INFO - Endpoint /docs accessible via GET
+2025-07-25 15:27:42,992 - INFO - Endpoint /openapi.json accessible via GET
+2025-07-25 15:27:43,083 - INFO - Upload endpoint /upload ready but needs proper file format
+2025-07-25 15:27:43,451 - INFO - API endpoint discovery completed. Found 3 working endpoints.
+2025-07-27 11:59:29,473 - INFO - User initiated file processing for: revenue.xlsx
+2025-07-27 12:00:30,003 - INFO - Starting API call to http://52.66.205.91:8000/upload
+2025-07-27 12:00:30,005 - INFO - File details - Name: revenue.xlsx, Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, Size: 129881 bytes
+2025-07-27 12:00:30,005 - INFO - File content sample (first 100 bytes): b'PK\x03\x04\x14\x00\x06\x00\x08\x00\x00\x00!\x00b\xee\x9dh^\x01\x00\x00\x90\x04\x00\x00\x13\x00\x08\x02[Content_Types].xml \xa2\x04\x02(\xa0\x00\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+2025-07-27 12:00:30,005 - INFO - Attempt 1: Trying parameter name 'files'
+2025-07-27 12:00:30,006 - INFO - Request details:
+2025-07-27 12:00:30,006 - INFO -   - URL: http://52.66.205.91:8000/upload
+2025-07-27 12:00:30,006 - INFO -   - Method: POST
+2025-07-27 12:00:30,006 - INFO -   - Headers: {'Accept': 'application/json'}
+2025-07-27 12:00:30,006 - INFO -   - Files parameter: files=('revenue.xlsx', <file_content>, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+2025-07-27 12:00:30,006 - INFO -   - Timeout: 60 seconds
+2025-07-27 12:00:30,006 - INFO - Sending POST request to API with parameter 'files'...
+2025-07-27 12:00:32,554 - INFO - API Response Status Code: 200
+2025-07-27 12:00:32,554 - INFO - API Response Headers: {'date': 'Sun, 27 Jul 2025 06:30:29 GMT', 'server': 'uvicorn', 'content-length': '116', 'content-type': 'application/json'}
+2025-07-27 12:00:32,554 - INFO - Response Content-Type: application/json
+2025-07-27 12:00:32,554 - INFO - Response Size: 116 bytes
+2025-07-27 12:00:32,554 - INFO - Response content preview: {"results":[{"filename":"revenue.xlsx","collection_name":"data_revenue","records_inserted":743,"status":"success"}]}
+2025-07-27 12:00:32,554 - INFO - SUCCESS: API call successful with parameter 'files' - Status 200
+2025-07-27 12:00:32,556 - INFO - Response JSON keys: ['results']
+2025-07-27 12:00:32,556 - INFO - Response JSON content: {'results': [{'filename': 'revenue.xlsx', 'collection_name': 'data_revenue', 'records_inserted': 743, 'status': 'success'}]}
+2025-07-27 12:00:32,558 - INFO - File processing completed successfully

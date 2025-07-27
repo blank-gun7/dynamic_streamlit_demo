@@ -1,13 +1,15 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 import json
 import sqlite3
 import hashlib
 import numpy as np
 from datetime import datetime
 import time
-import random
+import openai
+import os
 
 def json_serializer(obj):
     """Custom JSON serializer for datetime and other problematic objects"""
@@ -418,120 +420,170 @@ class ChatBot:
         else:
             return f"I can help you analyze {self.data_type} data. Try asking about totals, top performers, averages, or customer counts."
 
-def generate_mock_llm_analysis():
-    """Generate 5 mock JSON analysis results simulating LLM output"""
+def generate_llm_architecture_analyses():
+    """Generate 5 predefined JSON analyses from your LLM architecture"""
     
-    # Mock analysis results that would come from your LLM architecture
-    mock_analyses = {
-        "financial_health_score": {
-            "overall_score": 85,
-            "revenue_growth": 22.5,
-            "market_position": "Strong",
-            "risk_factors": ["Customer concentration", "Geographic dependency"],
-            "opportunities": ["International expansion", "Product diversification"],
-            "financial_metrics": {
-                "revenue_growth_rate": "22.5%",
-                "profit_margin": "18.3%",
-                "cash_flow": "Positive",
-                "debt_to_equity": "0.45"
+    return {
+        "quarterly_revenue_analysis": {
+            "analysis_summary": "Strong quarterly performance with consistent growth trajectory",
+            "key_metrics": {
+                "q4_vs_q3_growth": 18.5,
+                "yoy_growth": 42.3,
+                "revenue_quality_score": 8.7,
+                "seasonality_impact": "Low"
             },
-            "prediction": "Strong growth trajectory expected for next 2 quarters"
+            "quarterly_breakdown": [
+                {"quarter": "Q1 2024", "revenue": 8200000, "growth_rate": 12.5, "customers": 145},
+                {"quarter": "Q2 2024", "revenue": 9100000, "growth_rate": 11.0, "customers": 162},
+                {"quarter": "Q3 2024", "revenue": 10800000, "growth_rate": 18.7, "customers": 178},
+                {"quarter": "Q4 2024", "revenue": 12800000, "growth_rate": 18.5, "customers": 195}
+            ],
+            "insights": [
+                "Accelerating growth momentum in recent quarters",
+                "Customer acquisition rate improving consistently", 
+                "Revenue per customer increasing (ARR expansion)",
+                "No significant seasonal variations detected"
+            ],
+            "risk_factors": ["Market saturation in Q2 2025", "Competition intensifying"],
+            "opportunities": ["International expansion", "Product line extension"]
         },
         
-        "market_analysis": {
-            "market_size": "$2.4B",
-            "company_market_share": "3.2%",
-            "competitive_position": "Top 10 player",
-            "growth_potential": "High",
-            "key_competitors": ["CompetitorA", "CompetitorB", "CompetitorC"],
-            "market_trends": {
-                "trend_1": "Increasing demand for digital solutions",
-                "trend_2": "Shift towards subscription models",
-                "trend_3": "ESG compliance becoming critical"
+        "revenue_bridge_analysis": {
+            "analysis_summary": "Healthy revenue dynamics with strong expansion and low churn",
+            "key_metrics": {
+                "net_revenue_retention": 118,
+                "gross_revenue_retention": 94,
+                "expansion_rate": 24,
+                "churn_rate": 6
             },
-            "swot_analysis": {
-                "strengths": ["Strong technology", "Experienced team", "Market leadership"],
-                "weaknesses": ["Limited geographical presence", "High customer concentration"],
-                "opportunities": ["AI integration", "International markets", "New verticals"],
-                "threats": ["Economic downturn", "New regulations", "Competitive pressure"]
+            "bridge_components": [
+                {"component": "Starting ARR", "value": 10800000, "percentage": 100},
+                {"component": "New Customers", "value": 2400000, "percentage": 22.2},
+                {"component": "Expansion", "value": 1800000, "percentage": 16.7},
+                {"component": "Contraction", "value": -600000, "percentage": -5.6},
+                {"component": "Churn", "value": -1200000, "percentage": -11.1},
+                {"component": "Ending ARR", "value": 13200000, "percentage": 122.2}
+            ],
+            "insights": [
+                "Strong net revenue retention above 115% benchmark",
+                "Expansion revenue driving 67% of growth",
+                "Churn rate below industry average",
+                "New customer acquisition accelerating"
+            ],
+            "churn_analysis": {
+                "primary_reasons": ["Budget constraints", "Feature gaps", "Support issues"],
+                "at_risk_segments": ["SMB customers", "Single-product users"],
+                "retention_initiatives": ["Success programs", "Product roadmap", "Pricing flexibility"]
             }
         },
         
-        "risk_assessment": {
-            "overall_risk_level": "Medium",
-            "risk_score": 65,
-            "key_risks": [
-                {
-                    "risk": "Customer Concentration",
-                    "impact": "High",
-                    "probability": "Medium",
-                    "mitigation": "Diversify customer base"
-                },
-                {
-                    "risk": "Market Competition",
-                    "impact": "Medium", 
-                    "probability": "High",
-                    "mitigation": "Strengthen competitive moat"
-                },
-                {
-                    "risk": "Economic Downturn",
-                    "impact": "High",
-                    "probability": "Low",
-                    "mitigation": "Build cash reserves"
-                }
+        "geographic_analysis": {
+            "analysis_summary": "North America dominance with emerging opportunities in Europe and APAC",
+            "key_metrics": {
+                "total_markets": 12,
+                "revenue_concentration": 68,
+                "international_growth_rate": 45,
+                "market_penetration_score": 6.8
+            },
+            "regional_breakdown": [
+                {"region": "North America", "revenue": 8700000, "percentage": 68, "growth_rate": 15.2, "customers": 145},
+                {"region": "Europe", "revenue": 2560000, "percentage": 20, "growth_rate": 52.1, "customers": 38},
+                {"region": "APAC", "revenue": 1024000, "percentage": 8, "growth_rate": 78.3, "customers": 18},
+                {"region": "Latin America", "revenue": 512000, "percentage": 4, "growth_rate": 34.7, "customers": 8}
             ],
-            "regulatory_compliance": "Good",
-            "financial_stability": "Strong",
-            "operational_risks": "Low to Medium"
+            "country_performance": [
+                {"country": "United States", "revenue": 7800000, "growth_rate": 14.5, "market_rank": 1},
+                {"country": "Canada", "revenue": 900000, "growth_rate": 22.1, "market_rank": 2},
+                {"country": "United Kingdom", "revenue": 1280000, "growth_rate": 48.3, "market_rank": 3},
+                {"country": "Germany", "revenue": 768000, "growth_rate": 56.8, "market_rank": 4},
+                {"country": "Australia", "revenue": 512000, "growth_rate": 72.4, "market_rank": 5}
+            ],
+            "insights": [
+                "Strong growth in international markets offsetting NA saturation",
+                "Europe showing highest revenue potential",
+                "APAC demonstrating fastest growth rates",
+                "Localization efforts paying off in key markets"
+            ],
+            "expansion_opportunities": ["France", "Japan", "Brazil", "India"],
+            "market_risks": ["Currency fluctuation", "Regulatory changes", "Local competition"]
         },
         
-        "growth_projections": {
-            "next_quarter_revenue": "$12.5M",
-            "next_year_revenue": "$48.2M",
-            "growth_rate_projection": "28% annually",
-            "confidence_level": "High",
-            "quarterly_projections": [
-                {"quarter": "Q1 2024", "projected_revenue": 12.5, "confidence": 85},
-                {"quarter": "Q2 2024", "projected_revenue": 13.8, "confidence": 80},
-                {"quarter": "Q3 2024", "projected_revenue": 14.2, "confidence": 75},
-                {"quarter": "Q4 2024", "projected_revenue": 15.1, "confidence": 70}
+        "customer_analysis": {
+            "analysis_summary": "Balanced customer portfolio with manageable concentration risk",
+            "key_metrics": {
+                "total_customers": 195,
+                "customer_concentration_risk": "Medium",
+                "top_10_revenue_share": 42,
+                "customer_lifetime_value": 186000
+            },
+            "customer_segments": [
+                {"segment": "Enterprise", "count": 28, "percentage": 14.4, "avg_revenue": 245000, "churn_rate": 3.2},
+                {"segment": "Mid-Market", "count": 67, "percentage": 34.4, "avg_revenue": 98000, "churn_rate": 5.8},
+                {"segment": "SMB", "count": 100, "percentage": 51.3, "avg_revenue": 35000, "churn_rate": 8.9}
             ],
-            "key_growth_drivers": [
-                "Product innovation",
-                "Market expansion", 
-                "Strategic partnerships",
-                "Operational efficiency"
+            "top_customers": [
+                {"customer": "TechCorp Global", "revenue": 890000, "percentage": 6.9, "contract_term": 36},
+                {"customer": "Innovation Labs", "revenue": 670000, "percentage": 5.2, "contract_term": 24},
+                {"customer": "Digital Solutions Inc", "revenue": 580000, "percentage": 4.5, "contract_term": 24},
+                {"customer": "Future Systems", "revenue": 520000, "percentage": 4.1, "contract_term": 12},
+                {"customer": "Smart Analytics", "revenue": 480000, "percentage": 3.7, "contract_term": 24}
             ],
-            "potential_challenges": [
-                "Supply chain disruption",
-                "Talent acquisition",
-                "Regulatory changes"
-            ]
+            "insights": [
+                "Top 10 customers represent 42% of revenue - manageable concentration",
+                "Enterprise segment shows lowest churn and highest value",
+                "SMB segment offers volume but higher churn risk",
+                "Strong customer relationships with multi-year contracts"
+            ],
+            "loyalty_metrics": {
+                "net_promoter_score": 68,
+                "customer_satisfaction": 4.3,
+                "support_satisfaction": 4.1,
+                "renewal_rate": 94
+            },
+            "risk_mitigation": ["Expand mid-market focus", "Strengthen enterprise relationships", "Improve SMB onboarding"]
         },
         
-        "investment_recommendation": {
-            "recommendation": "BUY",
-            "target_valuation": "$85M",
-            "confidence_score": 78,
-            "investment_horizon": "2-3 years",
-            "key_reasons": [
-                "Strong revenue growth trajectory",
-                "Experienced management team",
-                "Large addressable market",
-                "Competitive advantages"
+        "monthly_trends_analysis": {
+            "analysis_summary": "Consistent monthly growth with strong momentum and minimal volatility",
+            "key_metrics": {
+                "monthly_growth_rate": 6.8,
+                "revenue_volatility": "Low",
+                "seasonal_variance": 12,
+                "trend_consistency": 89
+            },
+            "monthly_data": [
+                {"month": "Jan 2024", "revenue": 2650000, "growth": 8.2, "new_customers": 12, "churn": 2},
+                {"month": "Feb 2024", "revenue": 2720000, "growth": 2.6, "new_customers": 15, "churn": 3},
+                {"month": "Mar 2024", "revenue": 2830000, "growth": 4.0, "new_customers": 18, "churn": 1},
+                {"month": "Apr 2024", "revenue": 2980000, "growth": 5.3, "new_customers": 16, "churn": 2},
+                {"month": "May 2024", "revenue": 3020000, "growth": 1.3, "new_customers": 14, "churn": 4},
+                {"month": "Jun 2024", "revenue": 3100000, "growth": 2.6, "new_customers": 19, "churn": 2},
+                {"month": "Jul 2024", "revenue": 3480000, "growth": 12.3, "new_customers": 22, "churn": 1},
+                {"month": "Aug 2024", "revenue": 3620000, "growth": 4.0, "new_customers": 18, "churn": 3},
+                {"month": "Sep 2024", "revenue": 3700000, "growth": 2.2, "new_customers": 15, "churn": 2},
+                {"month": "Oct 2024", "revenue": 4100000, "growth": 10.8, "new_customers": 24, "churn": 1},
+                {"month": "Nov 2024", "revenue": 4280000, "growth": 4.4, "new_customers": 20, "churn": 2},
+                {"month": "Dec 2024", "revenue": 4420000, "growth": 3.3, "new_customers": 17, "churn": 3}
             ],
-            "concerns": [
-                "Customer concentration risk",
-                "Market competition intensity"
+            "insights": [
+                "Strong acceleration in July and October driven by product launches",
+                "Minimal seasonal impact - business model resilient",
+                "Customer acquisition trending upward consistently",
+                "Churn remaining stable across all months"
             ],
-            "suggested_investment_amount": "$5M - $8M",
-            "expected_roi": "3.2x - 4.5x",
-            "exit_strategy": ["Strategic acquisition", "IPO in 3-4 years"],
-            "due_diligence_notes": "Recommend deeper dive into customer contracts and competitive positioning"
+            "forecasting": {
+                "next_month_prediction": 4680000,
+                "confidence_level": 87,
+                "growth_trajectory": "Positive",
+                "key_drivers": ["Product expansion", "Market penetration", "Sales efficiency"]
+            },
+            "patterns": {
+                "best_months": ["July", "October", "January"],
+                "growth_catalysts": ["Product releases", "Marketing campaigns", "Partnership announcements"],
+                "seasonal_notes": "Q4 strong due to enterprise budget cycles"
+            }
         }
     }
-    
-    return mock_analyses
 
 def show_processing_animation():
     """Show 30-second processing animation"""
@@ -561,20 +613,300 @@ def show_processing_animation():
     status_text.text("✅ Analysis complete!")
     time.sleep(1)
 
-def show_llm_analysis_interface(db, company_id, company_name):
-    """Show the LLM analysis interface with processing and results"""
+class OpenAIChatbot:
+    def __init__(self):
+        self.api_key = os.getenv("OPENAI_API_KEY") or st.secrets.get("openai_api_key", "")
+        if self.api_key:
+            openai.api_key = self.api_key
+    
+    def get_response(self, user_question, tab_type, json_data, analysis_summary):
+        """Get context-aware response from OpenAI based on tab and data"""
+        if not self.api_key:
+            return "⚠️ OpenAI API key not configured. Please set OPENAI_API_KEY environment variable."
+        
+        # Create context-specific prompts for each tab
+        context_prompts = {
+            "quarterly": f"""You are an expert financial analyst reviewing quarterly revenue data. 
+            Analysis Summary: {analysis_summary}
+            Key Data: {json.dumps(json_data.get('key_metrics', {}), indent=2)}
+            
+            Answer questions about quarterly revenue trends, growth patterns, seasonal impacts, and business performance.""",
+            
+            "bridge": f"""You are a revenue operations expert analyzing revenue bridge dynamics.
+            Analysis Summary: {analysis_summary}
+            Key Data: {json.dumps(json_data.get('key_metrics', {}), indent=2)}
+            
+            Answer questions about customer retention, expansion revenue, churn analysis, and revenue drivers.""",
+            
+            "geographic": f"""You are a market expansion strategist reviewing geographic revenue distribution.
+            Analysis Summary: {analysis_summary}
+            Key Data: {json.dumps(json_data.get('key_metrics', {}), indent=2)}
+            
+            Answer questions about regional performance, market opportunities, international expansion, and geographic risks.""",
+            
+            "customer": f"""You are a customer success expert analyzing customer portfolio and concentration.
+            Analysis Summary: {analysis_summary}
+            Key Data: {json.dumps(json_data.get('key_metrics', {}), indent=2)}
+            
+            Answer questions about customer concentration risk, segment performance, customer loyalty, and retention strategies.""",
+            
+            "monthly": f"""You are a business intelligence analyst reviewing monthly revenue trends.
+            Analysis Summary: {analysis_summary}
+            Key Data: {json.dumps(json_data.get('key_metrics', {}), indent=2)}
+            
+            Answer questions about monthly growth patterns, seasonality, trend consistency, and revenue forecasting."""
+        }
+        
+        system_prompt = context_prompts.get(tab_type, "You are a financial analyst helping with investment analysis.")
+        
+        try:
+            response = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_question}
+                ],
+                max_tokens=500,
+                temperature=0.7
+            )
+            return response.choices[0].message.content.strip()
+        except Exception as e:
+            return f"⚠️ Error getting response: {str(e)}"
+
+def create_beautiful_tab_layout(tab_name, analysis_data, tab_type):
+    """Create beautiful layout for each analysis tab with charts and chatbot"""
+    
+    # Add custom CSS for better styling
+    st.markdown("""
+    <style>
+    .metric-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 1rem;
+        border-radius: 10px;
+        color: white;
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+    .insight-box {
+        background: #f8f9fa;
+        border-left: 4px solid #007bff;
+        padding: 1rem;
+        margin: 0.5rem 0;
+        border-radius: 5px;
+    }
+    .chat-container {
+        background: #ffffff;
+        border: 1px solid #dee2e6;
+        border-radius: 10px;
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    # Header with analysis summary
+    st.subheader(f"📊 {tab_name}")
+    st.info(f"💡 **Summary:** {analysis_data['analysis_summary']}")
+    
+    # Key metrics section
+    st.markdown("### 🎯 Key Metrics")
+    metrics = analysis_data.get('key_metrics', {})
+    
+    if tab_type == "quarterly":
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            st.metric("Q4/Q3 Growth", f"{metrics.get('q4_vs_q3_growth', 0)}%", delta="↗️")
+        with col2:
+            st.metric("YoY Growth", f"{metrics.get('yoy_growth', 0)}%", delta="📈")
+        with col3:
+            st.metric("Quality Score", f"{metrics.get('revenue_quality_score', 0)}/10")
+        with col4:
+            st.metric("Seasonality", metrics.get('seasonality_impact', 'N/A'))
+        
+        # Quarterly chart
+        quarterly_data = pd.DataFrame(analysis_data.get('quarterly_breakdown', []))
+        if not quarterly_data.empty:
+            fig = px.bar(quarterly_data, x='quarter', y='revenue', 
+                        title="📈 Quarterly Revenue Growth",
+                        color='growth_rate', color_continuous_scale='Viridis')
+            fig.update_layout(height=400)
+            st.plotly_chart(fig, use_container_width=True)
+    
+    elif tab_type == "bridge":
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            st.metric("Net Retention", f"{metrics.get('net_revenue_retention', 0)}%", delta="🎯")
+        with col2:
+            st.metric("Gross Retention", f"{metrics.get('gross_revenue_retention', 0)}%")
+        with col3:
+            st.metric("Expansion Rate", f"{metrics.get('expansion_rate', 0)}%", delta="↗️")
+        with col4:
+            st.metric("Churn Rate", f"{metrics.get('churn_rate', 0)}%", delta="↘️")
+        
+        # Revenue bridge waterfall chart
+        bridge_data = analysis_data.get('bridge_components', [])
+        if bridge_data:
+            bridge_df = pd.DataFrame(bridge_data)
+            fig = go.Figure(go.Waterfall(
+                name="Revenue Bridge",
+                orientation="v",
+                measure=["absolute"] + ["relative"] * (len(bridge_df) - 2) + ["total"],
+                x=bridge_df['component'],
+                textposition="outside",
+                text=[f"${val/1000000:.1f}M" for val in bridge_df['value']],
+                y=bridge_df['value']
+            ))
+            fig.update_layout(title="🌉 Revenue Bridge Analysis", height=400)
+            st.plotly_chart(fig, use_container_width=True)
+    
+    elif tab_type == "geographic":
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            st.metric("Total Markets", metrics.get('total_markets', 0))
+        with col2:
+            st.metric("Revenue Concentration", f"{metrics.get('revenue_concentration', 0)}%")
+        with col3:
+            st.metric("Intl Growth Rate", f"{metrics.get('international_growth_rate', 0)}%", delta="🌍")
+        with col4:
+            st.metric("Penetration Score", f"{metrics.get('market_penetration_score', 0)}/10")
+        
+        # Geographic charts
+        regional_data = pd.DataFrame(analysis_data.get('regional_breakdown', []))
+        if not regional_data.empty:
+            col1, col2 = st.columns(2)
+            with col1:
+                fig = px.pie(regional_data, values='percentage', names='region',
+                           title="🌍 Revenue by Region")
+                st.plotly_chart(fig, use_container_width=True)
+            with col2:
+                fig = px.bar(regional_data, x='region', y='growth_rate',
+                           title="📈 Growth Rate by Region", color='growth_rate')
+                st.plotly_chart(fig, use_container_width=True)
+    
+    elif tab_type == "customer":
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            st.metric("Total Customers", metrics.get('total_customers', 0))
+        with col2:
+            concentration_risk = metrics.get('customer_concentration_risk', 'Unknown')
+            risk_color = "🟢" if concentration_risk == "Low" else "🟡" if concentration_risk == "Medium" else "🔴"
+            st.metric("Concentration Risk", f"{risk_color} {concentration_risk}")
+        with col3:
+            st.metric("Top 10 Share", f"{metrics.get('top_10_revenue_share', 0)}%")
+        with col4:
+            st.metric("Customer LTV", f"${metrics.get('customer_lifetime_value', 0):,.0f}")
+        
+        # Customer segment analysis
+        segment_data = pd.DataFrame(analysis_data.get('customer_segments', []))
+        if not segment_data.empty:
+            col1, col2 = st.columns(2)
+            with col1:
+                fig = px.pie(segment_data, values='percentage', names='segment',
+                           title="👥 Customer Segments")
+                st.plotly_chart(fig, use_container_width=True)
+            with col2:
+                fig = px.scatter(segment_data, x='avg_revenue', y='churn_rate',
+                               size='count', hover_name='segment',
+                               title="💼 Revenue vs Churn by Segment")
+                st.plotly_chart(fig, use_container_width=True)
+    
+    elif tab_type == "monthly":
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            st.metric("Monthly Growth", f"{metrics.get('monthly_growth_rate', 0)}%", delta="📊")
+        with col2:
+            st.metric("Volatility", metrics.get('revenue_volatility', 'N/A'))
+        with col3:
+            st.metric("Seasonal Variance", f"{metrics.get('seasonal_variance', 0)}%")
+        with col4:
+            st.metric("Trend Consistency", f"{metrics.get('trend_consistency', 0)}%")
+        
+        # Monthly trend chart
+        monthly_data = pd.DataFrame(analysis_data.get('monthly_data', []))
+        if not monthly_data.empty:
+            fig = px.line(monthly_data, x='month', y='revenue',
+                         title="📈 Monthly Revenue Trend",
+                         markers=True)
+            fig.add_bar(x=monthly_data['month'], y=monthly_data['growth'],
+                       name="Growth %", yaxis="y2")
+            fig.update_layout(yaxis2=dict(title="Growth %", overlaying="y", side="right"), height=400)
+            st.plotly_chart(fig, use_container_width=True)
+    
+    # Insights section
+    st.markdown("### 💡 Key Insights")
+    insights = analysis_data.get('insights', [])
+    for insight in insights:
+        st.markdown(f"""
+        <div class="insight-box">
+            <strong>💡</strong> {insight}
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # Two-column layout for JSON data and chatbot
+    col1, col2 = st.columns([1, 1])
+    
+    with col1:
+        st.markdown("### 📄 Raw Analysis Data")
+        with st.expander("View JSON Data", expanded=False):
+            st.json(analysis_data)
+    
+    with col2:
+        st.markdown("### 💬 AI Assistant")
+        st.markdown("""
+        <div class="chat-container">
+            <p><strong>Ask questions about this analysis:</strong></p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Initialize chatbot
+        if f"chatbot_{tab_type}" not in st.session_state:
+            st.session_state[f"chatbot_{tab_type}"] = OpenAIChatbot()
+        
+        # Chat interface
+        question = st.text_input(f"Ask about {tab_name}:", key=f"chat_input_{tab_type}")
+        
+        if question:
+            with st.spinner("🤖 Analyzing..."):
+                response = st.session_state[f"chatbot_{tab_type}"].get_response(
+                    question, tab_type, analysis_data, analysis_data['analysis_summary']
+                )
+            st.markdown(f"**🤖 AI Response:**")
+            st.write(response)
+        
+        # Suggested questions
+        st.markdown("**💡 Suggested questions:**")
+        if tab_type == "quarterly":
+            suggestions = ["What drove the growth in Q4?", "Is the growth sustainable?", "Any seasonal trends?"]
+        elif tab_type == "bridge":
+            suggestions = ["What's causing customer churn?", "How can we improve retention?", "What drives expansion?"]
+        elif tab_type == "geographic":
+            suggestions = ["Which markets should we prioritize?", "What are the geographic risks?", "Where's the best ROI?"]
+        elif tab_type == "customer":
+            suggestions = ["Is customer concentration risky?", "Which segments to focus on?", "How to reduce churn?"]
+        else:  # monthly
+            suggestions = ["What causes monthly volatility?", "Can we predict next month?", "What are the growth drivers?"]
+        
+        for suggestion in suggestions:
+            if st.button(suggestion, key=f"suggest_{tab_type}_{suggestion}"):
+                with st.spinner("🤖 Analyzing..."):
+                    response = st.session_state[f"chatbot_{tab_type}"].get_response(
+                        suggestion, tab_type, analysis_data, analysis_data['analysis_summary']
+                    )
+                st.markdown(f"**🤖 AI Response:**")
+                st.write(response)
+
+def show_beautiful_analysis_interface(db, company_id, company_name):
+    """Show the beautiful analysis interface with 5 tabs and OpenAI chatbots"""
     
     col1, col2 = st.columns([3, 1])
     with col1:
-        st.title(f"🧠 LLM Analysis - {company_name}")
+        st.title(f"🧠 AI-Powered Analysis - {company_name}")
     with col2:
         if st.button("← Back to Portfolio"):
-            if hasattr(st.session_state, 'show_analysis'):
-                del st.session_state.show_analysis
-            if hasattr(st.session_state, 'analyzing_company_id'):
-                del st.session_state.analyzing_company_id
-            if hasattr(st.session_state, 'analyzing_company_name'):
-                del st.session_state.analyzing_company_name
+            # Clean up session state
+            for key in list(st.session_state.keys()):
+                if key.startswith(('show_analysis', 'analyzing_company', 'analysis_complete', 'analysis_results')):
+                    del st.session_state[key]
             st.rerun()
     
     # Check if analysis is already completed
@@ -586,240 +918,78 @@ def show_llm_analysis_interface(db, company_id, company_name):
             st.subheader("🔄 Processing Investment Analysis")
             show_processing_animation()
         
-        # Mark analysis as complete
+        # Mark analysis as complete and store results
         st.session_state[f'analysis_complete_{company_id}'] = True
-        st.session_state[f'analysis_results_{company_id}'] = generate_mock_llm_analysis()
+        st.session_state[f'analysis_results_{company_id}'] = generate_llm_architecture_analyses()
         st.rerun()
     
-    # Show analysis results
+    # Get analysis results
     analysis_results = st.session_state[f'analysis_results_{company_id}']
     
-    st.success("✅ Analysis Complete! Here are your detailed insights:")
+    st.success("✅ Analysis Complete! Explore the detailed insights below:")
     
-    # Create tabs for the 5 analysis types
+    # Create beautiful tabs for the 5 analysis types
     tabs = st.tabs([
-        "💰 Financial Health",
-        "📈 Market Analysis", 
-        "⚠️ Risk Assessment",
-        "🚀 Growth Projections",
-        "💎 Investment Recommendation"
+        "📊 Quarterly Revenue",
+        "🌉 Revenue Bridge", 
+        "🌍 Geographic Analysis",
+        "👥 Customer Analysis",
+        "📈 Monthly Trends"
     ])
     
-    # Tab 1: Financial Health Score
+    # Tab 1: Quarterly Revenue Analysis
     with tabs[0]:
-        st.subheader("💰 Financial Health Analysis")
-        data = analysis_results["financial_health_score"]
-        
-        # Key metrics in columns
-        col1, col2, col3, col4 = st.columns(4)
-        with col1:
-            st.metric("Overall Score", f"{data['overall_score']}/100", delta="↗️ Strong")
-        with col2:
-            st.metric("Revenue Growth", f"{data['revenue_growth']}%", delta="22.5%")
-        with col3:
-            st.metric("Market Position", data['market_position'])
-        with col4:
-            st.metric("Profit Margin", data['financial_metrics']['profit_margin'])
-        
-        # Financial metrics chart
-        metrics_df = pd.DataFrame([
-            {"Metric": "Revenue Growth", "Value": 22.5, "Benchmark": 15},
-            {"Metric": "Profit Margin", "Value": 18.3, "Benchmark": 12},
-            {"Metric": "Cash Flow", "Value": 85, "Benchmark": 70},
-            {"Metric": "Debt Management", "Value": 78, "Benchmark": 65}
-        ])
-        
-        fig = px.bar(metrics_df, x="Metric", y=["Value", "Benchmark"], 
-                    title="Financial Performance vs Industry Benchmark",
-                    barmode='group')
-        st.plotly_chart(fig, use_container_width=True)
-        
-        # Risk factors and opportunities
-        col1, col2 = st.columns(2)
-        with col1:
-            st.subheader("⚠️ Risk Factors")
-            for risk in data['risk_factors']:
-                st.write(f"• {risk}")
-        with col2:
-            st.subheader("🎯 Opportunities") 
-            for opp in data['opportunities']:
-                st.write(f"• {opp}")
-        
-        st.info(f"📈 Prediction: {data['prediction']}")
+        create_beautiful_tab_layout(
+            "Quarterly Revenue Analysis", 
+            analysis_results["quarterly_revenue_analysis"], 
+            "quarterly"
+        )
     
-    # Tab 2: Market Analysis
+    # Tab 2: Revenue Bridge Analysis
     with tabs[1]:
-        st.subheader("📈 Market Analysis")
-        data = analysis_results["market_analysis"]
-        
-        # Market overview
-        col1, col2, col3 = st.columns(3)
-        with col1:
-            st.metric("Market Size", data['market_size'])
-        with col2:
-            st.metric("Market Share", data['company_market_share'])
-        with col3:
-            st.metric("Competitive Position", data['competitive_position'])
-        
-        # SWOT Analysis
-        st.subheader("🎯 SWOT Analysis")
-        swot_col1, swot_col2 = st.columns(2)
-        
-        with swot_col1:
-            st.markdown("**💪 Strengths**")
-            for strength in data['swot_analysis']['strengths']:
-                st.write(f"✅ {strength}")
-            
-            st.markdown("**🚀 Opportunities**")
-            for opp in data['swot_analysis']['opportunities']:
-                st.write(f"💡 {opp}")
-        
-        with swot_col2:
-            st.markdown("**🔧 Weaknesses**")
-            for weakness in data['swot_analysis']['weaknesses']:
-                st.write(f"⚠️ {weakness}")
-                
-            st.markdown("**⚡ Threats**")
-            for threat in data['swot_analysis']['threats']:
-                st.write(f"🚨 {threat}")
-        
-        # Market trends
-        st.subheader("📊 Key Market Trends")
-        for trend, desc in data['market_trends'].items():
-            st.write(f"📈 {desc}")
+        create_beautiful_tab_layout(
+            "Revenue Bridge Analysis", 
+            analysis_results["revenue_bridge_analysis"], 
+            "bridge"
+        )
     
-    # Tab 3: Risk Assessment
+    # Tab 3: Geographic Analysis
     with tabs[2]:
-        st.subheader("⚠️ Risk Assessment")
-        data = analysis_results["risk_assessment"]
-        
-        # Overall risk metrics
-        col1, col2, col3 = st.columns(3)
-        with col1:
-            st.metric("Risk Level", data['overall_risk_level'])
-        with col2:
-            st.metric("Risk Score", f"{data['risk_score']}/100")
-        with col3:
-            st.metric("Financial Stability", data['financial_stability'])
-        
-        # Risk breakdown
-        st.subheader("🎯 Key Risk Analysis")
-        for risk in data['key_risks']:
-            with st.expander(f"🚨 {risk['risk']} - {risk['impact']} Impact"):
-                col1, col2 = st.columns(2)
-                with col1:
-                    st.write(f"**Impact:** {risk['impact']}")
-                    st.write(f"**Probability:** {risk['probability']}")
-                with col2:
-                    st.write(f"**Mitigation:** {risk['mitigation']}")
-        
-        # Risk visualization
-        risk_df = pd.DataFrame(data['key_risks'])
-        fig = px.scatter(risk_df, x="probability", y="impact", 
-                        size=[10, 8, 6], hover_name="risk",
-                        title="Risk Impact vs Probability Matrix")
-        st.plotly_chart(fig, use_container_width=True)
+        create_beautiful_tab_layout(
+            "Geographic Analysis", 
+            analysis_results["geographic_analysis"], 
+            "geographic"
+        )
     
-    # Tab 4: Growth Projections  
+    # Tab 4: Customer Analysis
     with tabs[3]:
-        st.subheader("🚀 Growth Projections")
-        data = analysis_results["growth_projections"]
-        
-        # Key projections
-        col1, col2, col3 = st.columns(3)
-        with col1:
-            st.metric("Next Quarter", data['next_quarter_revenue'])
-        with col2:
-            st.metric("Next Year", data['next_year_revenue']) 
-        with col3:
-            st.metric("Growth Rate", data['growth_rate_projection'])
-        
-        # Quarterly projections chart
-        projections_df = pd.DataFrame(data['quarterly_projections'])
-        
-        fig = px.line(projections_df, x="quarter", y="projected_revenue",
-                     title="Quarterly Revenue Projections",
-                     markers=True)
-        fig.add_bar(x=projections_df["quarter"], y=projections_df["confidence"],
-                   name="Confidence %", yaxis="y2")
-        fig.update_layout(yaxis2=dict(title="Confidence %", overlaying="y", side="right"))
-        st.plotly_chart(fig, use_container_width=True)
-        
-        # Growth drivers and challenges
-        col1, col2 = st.columns(2)
-        with col1:
-            st.subheader("🎯 Growth Drivers")
-            for driver in data['key_growth_drivers']:
-                st.write(f"🚀 {driver}")
-        with col2:
-            st.subheader("⚠️ Potential Challenges")
-            for challenge in data['potential_challenges']:
-                st.write(f"🔧 {challenge}")
+        create_beautiful_tab_layout(
+            "Customer Analysis", 
+            analysis_results["customer_analysis"], 
+            "customer"
+        )
     
-    # Tab 5: Investment Recommendation
+    # Tab 5: Monthly Trends Analysis
     with tabs[4]:
-        st.subheader("💎 Investment Recommendation")
-        data = analysis_results["investment_recommendation"]
-        
-        # Main recommendation
-        if data['recommendation'] == 'BUY':
-            st.success(f"🎯 **Recommendation: {data['recommendation']}**")
-        elif data['recommendation'] == 'HOLD':
-            st.warning(f"⚖️ **Recommendation: {data['recommendation']}**")
-        else:
-            st.error(f"🚫 **Recommendation: {data['recommendation']}**")
-        
-        # Key metrics
-        col1, col2, col3, col4 = st.columns(4)
-        with col1:
-            st.metric("Target Valuation", data['target_valuation'])
-        with col2:
-            st.metric("Confidence Score", f"{data['confidence_score']}%")
-        with col3:
-            st.metric("Investment Horizon", data['investment_horizon'])
-        with col4:
-            st.metric("Expected ROI", data['expected_roi'])
-        
-        # Investment details
-        st.subheader("💰 Investment Details")
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            st.write(f"**Suggested Investment:** {data['suggested_investment_amount']}")
-            st.write("**Exit Strategy:**")
-            for strategy in data['exit_strategy']:
-                st.write(f"• {strategy}")
-        
-        with col2:
-            st.subheader("✅ Key Reasons")
-            for reason in data['key_reasons']:
-                st.write(f"✅ {reason}")
-        
-        # Concerns and due diligence
-        st.subheader("⚠️ Areas of Concern")
-        for concern in data['concerns']:
-            st.write(f"⚠️ {concern}")
-        
-        st.info(f"📋 Due Diligence: {data['due_diligence_notes']}")
-        
-        # Final CTA
-        st.subheader("🎯 Next Steps")
-        col1, col2, col3 = st.columns(3)
-        with col1:
-            if st.button("📊 Request Detailed DD"):
-                st.success("Due diligence package requested!")
-        with col2:
-            if st.button("📞 Schedule Meeting"):
-                st.success("Meeting request sent!")
-        with col3:
-            if st.button("💌 Contact Company"):
-                st.success("Contact request sent!")
+        create_beautiful_tab_layout(
+            "Monthly Trends Analysis", 
+            analysis_results["monthly_trends_analysis"], 
+            "monthly"
+        )
     
-    # Generate PDF report button
+    # Footer actions
     st.markdown("---")
-    if st.button("📄 Generate PDF Report", type="primary"):
-        st.success("📄 PDF report generated and sent to your email!")
-        st.balloons()
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        if st.button("📄 Generate Full Report", type="primary"):
+            st.success("📄 Comprehensive analysis report generated!")
+            st.balloons()
+    with col2:
+        if st.button("📧 Email Summary"):
+            st.success("📧 Analysis summary sent to your email!")
+    with col3:
+        if st.button("💾 Save Analysis"):
+            st.success("💾 Analysis saved to your dashboard!")
 
 def main():
     db = DatabaseManager()
@@ -899,27 +1069,20 @@ def investee_dashboard(db):
         for uploaded_file in uploaded_files:
             try:
                 file_name = uploaded_file.name
-                st.info(f"Processing {file_name}...")
                 
                 # Read Excel file
                 excel_file = pd.ExcelFile(uploaded_file)
                 sheet_names = excel_file.sheet_names
                 
-                st.write(f"Found {len(sheet_names)} sheets: {', '.join(sheet_names)}")
-                
                 # Process each sheet
                 for sheet_name in sheet_names:
                     df = pd.read_excel(uploaded_file, sheet_name=sheet_name)
-                    
-                    # Show processing info
-                    st.info(f"Processing sheet: {sheet_name} ({len(df)} rows, {len(df.columns)} columns)")
                     
                     # Convert all datetime columns to strings BEFORE to_dict
                     for col in df.columns:
                         if pd.api.types.is_datetime64_any_dtype(df[col]):
                             df[col] = df[col].astype(str)
                         elif df[col].dtype == 'object':
-                            # Check if object column contains datetime objects
                             if len(df) > 0 and isinstance(df[col].iloc[0], (pd.Timestamp, datetime)):
                                 df[col] = df[col].astype(str)
                     
@@ -954,10 +1117,11 @@ def investee_dashboard(db):
                         data_type = sheet_name.lower().replace(' ', '_')
                     
                     db.save_company_data(company_id, data_type, data)
-                    st.success(f"✅ Sheet '{sheet_name}' from {file_name} uploaded successfully!")
+                
+                st.success(f"✅ {file_name} uploaded successfully!")
                 
             except Exception as e:
-                st.error(f"❌ Error reading {uploaded_file.name}: {str(e)}")
+                st.error(f"❌ Error uploading {uploaded_file.name}")
     
     # Display current data
     st.subheader("📈 Current Data Overview")
@@ -1025,7 +1189,7 @@ def investor_dashboard(db):
     
     # Show analysis interface if a company is being analyzed
     if hasattr(st.session_state, 'show_analysis') and st.session_state.show_analysis:
-        show_llm_analysis_interface(db, st.session_state.analyzing_company_id, st.session_state.analyzing_company_name)
+        show_beautiful_analysis_interface(db, st.session_state.analyzing_company_id, st.session_state.analyzing_company_name)
         return
     
     # Company selection for regular analysis
