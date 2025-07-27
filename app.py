@@ -506,9 +506,33 @@ def investee_dashboard(db):
                 for sheet_name in sheet_names:
                     df = pd.read_excel(uploaded_file, sheet_name=sheet_name)
                     
+                    # Show processing info
+                    st.info(f"Processing sheet: {sheet_name} ({len(df)} rows, {len(df.columns)} columns)")
+                    
+                    # Convert all datetime columns to strings BEFORE to_dict
+                    for col in df.columns:
+                        if pd.api.types.is_datetime64_any_dtype(df[col]):
+                            df[col] = df[col].astype(str)
+                        elif df[col].dtype == 'object':
+                            # Check if object column contains datetime objects
+                            if len(df) > 0 and isinstance(df[col].iloc[0], (pd.Timestamp, datetime)):
+                                df[col] = df[col].astype(str)
+                    
+                    # Replace NaN and NaT with None
+                    df = df.replace({pd.NaT: None, np.nan: None})
+                    
                     # Convert DataFrame to JSON-like format
-                    # The custom JSON serializer will handle datetime and other problematic types
                     data = df.to_dict('records')
+                    
+                    # Additional safety check - convert any remaining problematic types
+                    for record in data:
+                        for key, value in record.items():
+                            if hasattr(value, 'isoformat'):  # Any datetime-like object
+                                record[key] = value.isoformat()
+                            elif isinstance(value, (np.integer, np.floating)):
+                                record[key] = value.item()
+                            elif pd.isna(value):
+                                record[key] = None
                     
                     # Determine data type based on sheet name or filename
                     if "quarterly" in sheet_name.lower() or "qoq" in sheet_name.lower():
@@ -693,6 +717,7 @@ def investor_dashboard(db):
                 
                 # Find month and revenue columns
                 month_col = None
+          
                 revenue_col = None
                 for col in df.columns:
                     if 'month' in col.lower():
