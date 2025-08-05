@@ -2826,21 +2826,29 @@ class ChatBot:
         else:
             return f"I can help you analyze {self.data_type} data. Try asking about totals, top performers, averages, or customer counts."
 
-def load_dynamic_json_analyses(s3_config=None, use_s3=False):
+def load_dynamic_json_analyses(s3_config=None, use_s3=False, force_refresh=False):
     """Load JSON analyses from S3 bucket or local files with dynamic detection"""
     
     if use_s3 and s3_config and s3_config.is_configured():
-        return load_analyses_from_s3(s3_config)
+        return load_analyses_from_s3(s3_config, force_refresh=force_refresh)
     else:
         return load_analyses_from_local()
 
-def load_analyses_from_s3(s3_config):
+def load_analyses_from_s3(s3_config, force_refresh=False):
     """Load and categorize JSON files from S3 bucket"""
     try:
         s3_discovery = S3DataDiscovery(s3_config)
         schema_analyzer = JSONSchemaAnalyzer()
         
-        discovered_files = s3_discovery.discover_json_files()
+        # Force refresh if requested
+        discovered_files = s3_discovery.discover_json_files(force_refresh=force_refresh)
+        
+        # Debug information
+        if force_refresh:
+            st.info(f"🔍 S3 Discovery: Found {len(discovered_files)} files (forced refresh)")
+        else:
+            st.info(f"🔍 S3 Discovery: Found {len(discovered_files)} files (cached)")
+            
         if not discovered_files:
             st.warning("No JSON files found in S3 bucket")
             return {}
@@ -2895,6 +2903,9 @@ def load_analyses_from_s3(s3_config):
             else:
                 # Multiple files - keep structure or merge if appropriate
                 simplified_analyses[category] = [item['data'] for item in file_list]
+        
+        # Debug information for tab creation
+        st.info(f"📊 Tab creation: Will create {len(simplified_analyses)} tabs: {list(simplified_analyses.keys())}")
         
         return simplified_analyses
         
@@ -4202,7 +4213,11 @@ def show_beautiful_analysis_interface(db, company_id, company_name):
         
         # Load data dynamically from S3 or local files
         use_s3 = s3_config.is_configured()
-        analysis_results = load_dynamic_json_analyses(s3_config, use_s3)
+        # Check if we should force refresh (after refresh button click)
+        force_refresh = st.session_state.get('force_s3_refresh', False)
+        if force_refresh:
+            st.session_state['force_s3_refresh'] = False  # Reset flag
+        analysis_results = load_dynamic_json_analyses(s3_config, use_s3, force_refresh=force_refresh)
         
         # Mark analysis as complete and store results
         st.session_state[f'analysis_complete_{company_id}'] = True
@@ -4228,11 +4243,32 @@ def show_beautiful_analysis_interface(db, company_id, company_name):
     with col2:
         if use_s3:
             if st.button("🔄 Refresh Data"):
-                # Clear cache and reload
+                # Force refresh S3 discovery cache
+                st.info("🔄 Forcing S3 re-scan for new files...")
+                
+                # Set flag to force refresh on next data load
+                st.session_state['force_s3_refresh'] = True
+                
+                # Clear all cache layers
                 cache_manager.clear_cache()
-                for key in list(st.session_state.keys()):
-                    if key.startswith(f'analysis_complete_{company_id}') or key.startswith(f'analysis_results_{company_id}'):
-                        del st.session_state[key]
+                
+                # Clear more comprehensive session state keys for this company
+                keys_to_remove = []
+                for key in st.session_state.keys():
+                    if any(key.startswith(prefix) for prefix in [
+                        f'analysis_complete_{company_id}',
+                        f'analysis_results_{company_id}',
+                        f'use_s3_{company_id}',
+                        f'chat_history_{company_id}',
+                        'discovered_files',
+                        'file_cache'
+                    ]):
+                        keys_to_remove.append(key)
+                
+                for key in keys_to_remove:
+                    del st.session_state[key]
+                    
+                st.success("✅ Cache cleared! Re-scanning S3 for new files...")
                 st.rerun()
         else:
             if st.button("🗑️ Clear Cache"):
