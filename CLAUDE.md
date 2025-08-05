@@ -40,6 +40,14 @@ streamlit run app.py
 pip install -r requirements.txt
 ```
 
+**Note**: The requirements.txt contains a full conda environment export. For a clean install, focus on these core dependencies:
+- `streamlit` - Web application framework
+- `pandas` - Data processing and Excel reading  
+- `plotly` - Interactive visualizations
+- `openai` - GPT-4 API integration
+- `boto3` - AWS S3 integration
+- `numpy` - Numerical computations
+
 **Environment setup:**
 The application supports multiple configuration options via environment variables or Streamlit secrets (`.streamlit/secrets.toml`):
 
@@ -203,11 +211,18 @@ Complex session state handling for:
 
 No formal test framework is configured. Test the application by:
 1. Running the Streamlit app locally with `streamlit run app.py`
-2. Testing both investor and investee user flows
-3. Uploading sample Excel files with various formats
+2. Testing both investor and investee user flows:
+   - Register as investee, create company, upload Excel files
+   - Register as investor, connect to companies, view analytics
+3. Uploading sample Excel files with various formats (test schema detection)
 4. Verifying AI responses with valid OpenAI API key
 5. Testing data isolation between different companies/users
-6. Testing S3 integration if configured
+6. Testing S3 integration if configured (both analytics and file storage buckets)
+
+**Debugging:**
+- Check `app_logs.log` for application logs
+- Use browser developer tools for frontend errors
+- Verify database state with SQLite browser tools
 
 ## Dependencies
 
@@ -227,3 +242,17 @@ Key dependencies include:
 - Data isolation enforced at database level with foreign keys
 - No sensitive data should be committed to version control
 - OpenAI API key should be set via environment variables or Streamlit secrets
+- S3 credentials should never be committed to version control
+
+## Common Development Patterns
+
+**Single-File Architecture**: The entire application is contained in `app.py`. When making changes:
+- Locate the relevant class (e.g., `DatabaseManager`, `DynamicDashboardGenerator`)
+- Maintain existing patterns for error handling and logging
+- Use the existing `CacheManager` for performance-sensitive operations
+- Follow the established session state patterns for user data
+
+**Adding New Analytics Types:**
+- Schema detection happens automatically in `JSONSchemaAnalyzer`
+- Dynamic dashboard generation adapts to any JSON structure
+- Legacy support maintained through specialized display functions
