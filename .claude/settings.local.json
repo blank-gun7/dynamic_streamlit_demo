@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m streamlit run:*)",
+      "Bash(python:*)"
+    ],
+    "deny": []
+  }
+}
